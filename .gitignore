@@ -52,6 +52,9 @@ docs/_build/
 # PyBuilder
 target/
 
+# Sublime Text
+*.sublime-*
+
 # =========================
 # Operating System Files
 # =========================
@@ -64,7 +67,8 @@ target/
 .LSOverride
 
 # Icon must end with two \r
-Icon
+Icon
+
 
 # Thumbnails
 ._*

@@ -8,9 +8,9 @@ class Test_Setup(unittest.TestCase):
         '''Test we should *always* pass'''
         pass
 
-    @unittest.skip("showing class skipping")
     def test_version(self):
-        unittest.assertTure(colourettu.__version__)
+        '''Version is available'''
+        self.assertIsNotNone(colourettu.__version__)
 
 
 def main():
