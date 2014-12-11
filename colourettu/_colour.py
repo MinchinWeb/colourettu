@@ -1,5 +1,26 @@
 '''Base class for dealing with colours'''
 
+from math import sqrt, pow
+
+
+def _luminance(mycolour):
+    '''Determine relative luminance of colours'''
+
+    '''Determine relative luminance of colours.
+    Uses the formula:  sqrt( .299 R^2 + .587 G^2 + .114 B^2 )'''
+
+    if type(mycolour) is colour:
+        mycolour2 = mycolour
+    else:
+        try:
+            mycolour2 = colour(mycolour)
+        except:
+            raise TypeError("Must supply a colourettu.colour")
+
+    return sqrt(0.299*pow(mycolour2._r, 2) +
+                0.587*pow(mycolour2._g, 2) +
+                0.114*pow(mycolour2._b, 2))
+
 
 class colour:
 
@@ -39,3 +60,6 @@ class colour:
 
     def rgb(self):
         return(self._r, self._g, self._b)
+
+    def luminance(self):
+        return _luminance(self)

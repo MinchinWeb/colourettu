@@ -68,3 +68,8 @@ class Test_Colour(unittest.TestCase):
     def test_colour_vs_color(self):
         '''test alternate spelling'''
         self.assertEqual(colourettu.color, colourettu.colour)
+
+    def test_bad_colour(self):
+        '''Invalid colour should raise error'''
+        with self.assertRaises(ValueError):
+            colour1 = colourettu.colour("#dddd")
