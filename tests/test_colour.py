@@ -54,3 +54,17 @@ class Test_Colour(unittest.TestCase):
         '''Get hex value of colour with leading zeros'''
         colour1 = colourettu.colour("#0102DD")
         self.assertEqual(colour1.hex(), "#0102DD")
+
+    def test_colour_list(self):
+        '''Get value of colour given as a list'''
+        colour1 = colourettu.colour([5, 10, 25])
+        self.assertEqual(colour1.hex(), "#050A19")
+
+    def test_colour_tuple(self):
+        '''Get value of colour given as a tuple'''
+        colour1 = colourettu.colour((35, 60, 128))
+        self.assertEqual(colour1.hex(), "#233C80")
+
+    def test_colour_vs_color(self):
+        '''test alternate spelling'''
+        self.assertEqual(colourettu.color, colourettu.colour)

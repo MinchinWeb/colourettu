@@ -6,7 +6,7 @@ class colour:
     _r = _g = _b = None
 
     def __init__(self, mycolour="#FFF"):
-        if mycolour.startswith("#"):
+        if type(mycolour) is str and mycolour.startswith("#"):
             myhex = mycolour[1:]
             if len(myhex) % 3 != 0:
                 raise ValueError("Invalid Hex Colour")
@@ -22,7 +22,7 @@ class colour:
             self._r = int(r, 16)
             self._g = int(g, 16)
             self._b = int(b, 16)
-        elif type(mycolour) in(list, tuple, dict) and len(mycolour) == 3:
+        elif type(mycolour) in(list, tuple) and len(mycolour) == 3:
             self._r, self._g, self._b = mycolour
 
     def hex(self):
