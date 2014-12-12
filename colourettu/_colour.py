@@ -121,3 +121,7 @@ def _contrast(colour1, colour2):
     maxlum = max(lum1, lum2)
 
     return (maxlum + 0.05) / (minlum + 0.05)
+
+_A_contrast = 3.0
+_AA_contrast = 4.5
+_AAA_contrast = 7.0

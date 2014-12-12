@@ -1,5 +1,15 @@
 # Colourettu
 
+This is a small collection of colour functions in Python, that can be used
+to determine the (relative) lumansity of a colour and the contrast
+between two colours.
+
+## Installation
+
+~~~
+pip install colourettu
+~~~
+
 ## Note on Spelling
 
 I have used the Canadian/British spelling of *colour* through this
@@ -106,6 +116,17 @@ contrast. This would be equivalent to 20/80 vision. Generally, it is assumed
 that those with vision beyond this would access the web with the use of
 assistive technologies.
 
+If needed, these constants are stored in the library.
+
+~~~python
+>>> colourettu.A_contrast
+3.0
+>>> colourettu.AA_contrast
+4.5
+>>> colourettu.AAA_contrast
+7.0
+~~~
+
 Also mentioned (and confirmed by personal experience), if the contrast is *too*
 great, this can also cause readability problems when reading longer passages,
-but I have been unable to find any quantitative research to this effect.
+but I have been (yet) unable to find any quantitative research to this effect.

@@ -20,7 +20,7 @@ def find_version(*file_paths):
     raise RuntimeError("Unable to find version string.")
 
 
-long_description = read('README.md', 'CHANGES.md')
+long_description = read('README.md') + '\n' + read('Changes.md')
 
 
 setup(
@@ -29,7 +29,6 @@ setup(
     url='http://github.com/minchinweb/colourettu',
     license='MIT License',
     author='William Minchin',
-    tests_require=['green'],
     install_requires=['',
                       ],
     author_email='w_minchin@hotmail.com',
@@ -38,7 +37,6 @@ setup(
     packages=['colourettu'],
     include_package_data=True,
     platforms='any',
-    # test_suite='sandman.test.test_sandman',
     classifiers=[
         'Programming Language :: Python',
         'Development Status :: 2 - Pre-Alpha',
@@ -50,7 +48,4 @@ setup(
         'Topic :: Software Development :: Libraries :: Python Modules',
         'Topic :: Multimedia :: Graphics',
         ],
-    # extras_require={
-    #     'testing': ['pytest'],
-    # }
 )
