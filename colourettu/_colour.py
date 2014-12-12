@@ -70,6 +70,9 @@ class colour:
     def luminance(self):
         return _luminance(self)
 
+    def contrast(self, myothercolour):
+        return _contrast(self, myothercolour)
+
 
 def _luminance(mycolour):
     '''Determine relative luminance of colours'''
@@ -88,3 +91,33 @@ def _luminance(mycolour):
     (r1, g1, b1) = mycolour2.normalized_rgb()
 
     return sqrt(0.299*pow(r1, 2) + 0.587*pow(g1, 2) + 0.114*pow(b1, 2))
+
+
+def _contrast(colour1, colour2):
+    '''Determines the contrast between two colours'''
+
+    '''Used the formula (L1 + 0.05) : (L2 + 0.05)'''
+
+    if type(colour1) is colour:
+        mycolour1 = colour1
+    else:
+        try:
+            mycolour1 = colour(colour1)
+        except:
+            raise TypeError("colour1 must be a colourettu.colour")
+
+    if type(colour2) is colour:
+        mycolour2 = colour2
+    else:
+        try:
+            mycolour2 = colour(colour2)
+        except:
+            raise TypeError("colour2 must be a colourettu.colour")
+
+    lum1 = mycolour1.luminance()
+    lum2 = mycolour2.luminance()
+
+    minlum = min(lum1, lum2)
+    maxlum = max(lum1, lum2)
+
+    return (maxlum + 0.05) / (minlum + 0.05)

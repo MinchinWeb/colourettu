@@ -67,4 +67,45 @@ to say:
 ~~~python
 >>> c3.luminance()
 0.2641668488934239
+>>> colourettu.luminance(c4)
 ~~~
+
+## Contrast
+
+Contrast the difference in (precieved) brightness between colours.
+Values vary between 1:1 (a given colour on itself) and 21:1 (white on black).
+
+To compute contrast, two colours are required.
+
+~~~python
+>>> colourettu.contrast("#FFF", "#FFF")	# white on white
+1.0
+>>> colourettu.contrast(c1, "#000")	# black on white
+20.999999999999996
+>>> colourettu.contrast(c4, c5)
+4.363552233203198
+~~~
+
+`contrast` can also be called on an already existing colour, but a second
+colour needs to be provided:
+
+~~~python
+>>> c4.contrast(c5)
+4.363552233203198
+~~~
+
+### Use of Contrast
+
+For Basic readability, the ANSI standard is a contrast of 3:1 between the text
+and it's background. The W3C proposes this as a minimum acceissibilty standard
+for regular text under 18pt and bold text under 14pt. This is referred to as the
+*A* standard. The W3C defines a higher *AA* standard with a mimimum contrast of
+4.5:1. This is approximately equivalent to 20/40 vision, and is common for
+those over 80. The W3C define an even higher *AAA* standard with a 7:1 minimum
+contrast. This would be equivalent to 20/80 vision. Generally, it is assumed
+that those with vision beyond this would access the web with the use of
+assistive technologies.
+
+Also mentioned (and confirmed by personal experience), if the contrast is *too*
+great, this can also cause readability problems when reading longer passages,
+but I have been unable to find any quantitative research to this effect.
