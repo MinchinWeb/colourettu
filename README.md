@@ -48,3 +48,23 @@ You can also get the colour back as either a hex value, or a rgb tuple:
 >>> c2.rgb()
 (238, 238, 238)
 ~~~
+
+## (Relative) Luminance
+
+Luminance is a meansure of how 'bright' a colour is. Values are normalized
+so that the Luminance of White is 1 and the Luminance of Black is 0. That is
+to say:
+
+~~~python
+>>> colourettu.luminance("#FFF")	# white
+0.9999999999999999
+>>> colourettu.luminance("#000")	# black
+0.0
+~~~
+
+`luminance` can also be called on an already existing colour:
+
+~~~python
+>>> c3.luminance()
+0.2641668488934239
+~~~

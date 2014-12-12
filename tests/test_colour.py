@@ -73,3 +73,13 @@ class Test_Colour(unittest.TestCase):
         '''Invalid colour should raise error'''
         with self.assertRaises(ValueError):
             colour1 = colourettu.colour("#dddd")
+
+    def test_colour_rgb_normalized_white(self):
+        '''Get normalized rgb tuple of white'''
+        colour1 = colourettu.colour('#FFF')
+        self.assertEqual(colour1.normalized_rgb(), (1, 1, 1))
+
+    def test_colour_rgb_nomralized_black(self):
+        '''Get normalize rgb tuple of black'''
+        colour1 = colourettu.colour('#000')
+        self.assertEqual(colour1.normalized_rgb(), (0, 0, 0))
