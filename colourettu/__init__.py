@@ -12,4 +12,4 @@ from ._colour import _AAA_contrast as AAA_contrast
 color = colour
 
 
-__version__ = '0.1.0'
+__version__ = '0.1.1'

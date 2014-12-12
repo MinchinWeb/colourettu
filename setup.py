@@ -35,6 +35,7 @@ setup(
     description='Colour related functions',
     long_description=long_description,
     packages=['colourettu'],
+    package_data={'': ['README.md', 'Changes.md', 'LICENSE']},
     include_package_data=True,
     platforms='any',
     classifiers=[

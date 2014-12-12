@@ -27,7 +27,7 @@ True
 
 Colours are created by calling the `colour` class. Colour values
 can be provided via 3 or 6 digit hex notation, or providing a
-list or a tuple or the Red, Green, and Blue values (as intergers).
+list or a tuple of the Red, Green, and Blue values (as intergers).
 
 ~~~python
 import colourettu
@@ -127,6 +127,7 @@ If needed, these constants are stored in the library.
 7.0
 ~~~
 
-Also mentioned (and confirmed by personal experience), if the contrast is *too*
-great, this can also cause readability problems when reading longer passages,
+I've also found mention that if the contrast is *too*
+great, this can also cause readability problems when reading longer passages.
+This is confirmed by personal experience,
 but I have been (yet) unable to find any quantitative research to this effect.
