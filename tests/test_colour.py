@@ -5,7 +5,7 @@ import colourettu
 class Test_Colour(unittest.TestCase):
 
     def test_default_colour(self):
-        '''Defaulf colour is white'''
+        '''Default colour is white'''
         colour1 = colourettu.colour()
         self.assertEqual(colour1._r, 255)
         self.assertEqual(colour1._g, 255)

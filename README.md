@@ -1,7 +1,7 @@
 # Colourettu
 
 This is a small collection of colour functions in Python, that can be used
-to determine the (relative) lumansity of a colour and the contrast
+to determine the (relative) luminosity of a colour and the contrast
 between two colours.
 
 ## Installation
@@ -27,13 +27,13 @@ True
 
 Colours are created by calling the `colour` class. Colour values
 can be provided via 3 or 6 digit hex notation, or providing a
-list or a tuple of the Red, Green, and Blue values (as intergers).
+list or a tuple of the Red, Green, and Blue values (as integers).
 
 ~~~python
 import colourettu
 
 c1 = colourettu.colour()	# defaults to #FFF
-c2 = colourettu.colour("#eee")	# equivlant to #EEEEEE
+c2 = colourettu.colour("#eee")	# equivalent to #EEEEEE
 c3 = colourettu.colour("#456bda")
 c4 = colourettu.colour([3, 56, 129])
 c5 = colourettu.colour((63, 199, 233))
@@ -61,7 +61,7 @@ You can also get the colour back as either a hex value, or a rgb tuple:
 
 ## (Relative) Luminance
 
-Luminance is a meansure of how 'bright' a colour is. Values are normalized
+Luminance is a measure of how 'bright' a colour is. Values are normalized
 so that the Luminance of White is 1 and the Luminance of Black is 0. That is
 to say:
 
@@ -82,7 +82,7 @@ to say:
 
 ## Contrast
 
-Contrast the difference in (precieved) brightness between colours.
+Contrast the difference in (perceived) brightness between colours.
 Values vary between 1:1 (a given colour on itself) and 21:1 (white on black).
 
 To compute contrast, two colours are required.
@@ -107,9 +107,9 @@ colour needs to be provided:
 ### Use of Contrast
 
 For Basic readability, the ANSI standard is a contrast of 3:1 between the text
-and it's background. The W3C proposes this as a minimum acceissibilty standard
+and it's background. The W3C proposes this as a minimum accessibility standard
 for regular text under 18pt and bold text under 14pt. This is referred to as the
-*A* standard. The W3C defines a higher *AA* standard with a mimimum contrast of
+*A* standard. The W3C defines a higher *AA* standard with a minimum contrast of
 4.5:1. This is approximately equivalent to 20/40 vision, and is common for
 those over 80. The W3C define an even higher *AAA* standard with a 7:1 minimum
 contrast. This would be equivalent to 20/80 vision. Generally, it is assumed
