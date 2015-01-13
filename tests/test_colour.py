@@ -1,4 +1,5 @@
 import unittest
+from unittest import expectedFailure
 import colourettu
 
 
@@ -65,8 +66,10 @@ class Test_Colour(unittest.TestCase):
         colour1 = colourettu.colour((35, 60, 128))
         self.assertEqual(colour1.hex(), "#233C80")
 
+    @expectedFailure
     def test_colour_vs_color(self):
-        '''test alternate spelling'''
+        '''test alternate spelling
+        Removed in v1.0.0'''
         self.assertEqual(colourettu.color, colourettu.colour)
 
     def test_bad_colour(self):
