@@ -20,7 +20,7 @@ def find_version(*file_paths):
     raise RuntimeError("Unable to find version string.")
 
 
-long_description = read('README.md') + '\n' + read('Changes.md')
+long_description = read('README.rst') + '\n' + read('Changes.md')
 
 
 setup(
