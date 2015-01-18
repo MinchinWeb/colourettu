@@ -41,7 +41,7 @@ License
 *Colourettu* is licensed under the MIT license. :doc:`Read full license </license>`.
 
 Indices and tables
-==================
+------------------
 
 * :ref:`genindex`
 * :ref:`modindex`
