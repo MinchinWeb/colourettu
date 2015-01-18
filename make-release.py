@@ -32,3 +32,5 @@ print('    everything working??')
 print('Tag release')
 print('   tag v(version number)')
 print('   push tag')
+
+# swtich to twine  https://pypi.python.org/pypi/twine/
