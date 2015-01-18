@@ -1,7 +1,7 @@
 Upgrading
 =========
 
-This page is to give hints on upgrade between version of colourettu.
+This page is to give hints on upgrading between version of colourettu.
 
 0.1.1 -> 1.0
 --------------

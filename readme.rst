@@ -13,21 +13,20 @@ Note on Spelling
 ----------------
 
 I have used the Canadian/British spelling of *colour* through this and
-the code, however, if you use the American spelling (i.e. without the
-*u*), the code should still work. That said, this only applies to the
-internals of the library, ``Colourettu`` will always have the *u* in it.
-
-.. code:: python
-
-    >>> colouretta.colour == colouretta.color
-    True
+the code.
 
 Links
 -----
 
  - Code, on GitHub: http://www.github.com/minchinweb/colourettu/
+ - Report a Bug! https://github.com/minchinweb/colourettu/issues
  - Documentation: http://minchin.ca/colourettu/
  - Listing on PyPI: https://pypi.python.org/pypi/colourettu
+
+License
+-------
+
+*Colourettu* is licensed under the MIT license.
 
 Colour Class
 ------------

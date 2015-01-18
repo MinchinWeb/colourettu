@@ -1,10 +1,3 @@
-.. Colourettu documentation master file, created by
-   sphinx-quickstart on Sun Jan 11 16:01:17 2015.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
-   
-.. consider https://pypi.python.org/pypi/sphinxcontrib-napoleon/0.2.9
-
 Colourettu version |version| documentation
 ==========================================
 
@@ -22,24 +15,30 @@ Note on Spelling
 I have used the Canadian/British spelling of *colour* through this and
 the code.
 
-Links
------
-
- - Code, on GitHub: http://www.github.com/minchinweb/colourettu/
- - Documentation: http://minchin.ca/colourettu/
- - Listing on PyPI: https://pypi.python.org/pypi/colourettu
-
 Contents
 --------
 
 .. toctree::
    :maxdepth: 2
 
-   requirements
    module-colourettu
+   requirements
    upgrades
    changelog
    license
+
+Links
+-----
+
+ - Code, on GitHub: http://www.github.com/minchinweb/colourettu/
+ - Report a Bug! https://github.com/minchinweb/colourettu/issues
+ - Documentation: http://minchin.ca/colourettu/
+ - Listing on PyPI: https://pypi.python.org/pypi/colourettu
+
+License
+-------
+
+*Colourettu* is licensed under the MIT license. :doc:`Read full license </license>`.
 
 Indices and tables
 ==================
