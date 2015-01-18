@@ -9,7 +9,8 @@ Testing
 
 Testing *colourettu* requires:
 
- - green
+.. include:: ../tests/requirements.txt
+   :literal:
 
 Then run (from the base directory)::
 
@@ -23,8 +24,8 @@ To geneation the documentation (this) for *colourettu*,
 the process of building the docuemtation).
 The following depencies are also required:
 
- - sphinx 1.2
- - sphinxcontrib-napoleon
+.. include:: requirements.txt
+   :literal:
 
 Then run (on Windows) (from the ``docs`` directory)::
 
