@@ -6,7 +6,7 @@ between two colours.
     :target: https://pypi.python.org/pypi/colourettu/
 
 .. image:: https://pypip.in/download/colourettu/badge.svg?style=flat
-    :target: https://crate.io/packages/PROJECT/
+    :target: https://pypi.python.org/pypi/colourettu/
 
 .. image:: https://api.travis-ci.org/MinchinWeb/colourettu.svg
     :target: http://travis-ci.org/MinchinWeb/colourettu
