@@ -1,0 +1,77 @@
+Auto deploy from Travis to PyPI?
+
+Version Bumper - https://pypi.python.org/pypi/bumpversion/
+
+Add images to PyPI -- <http://thomas-cokelaer.info/blog/2014/08/1013/>
+
+See how many downloads -- <https://pypi.python.org/pypi/pypiview>
+
+
+Quick-link to issues -<http://pythonhosted.org/cloud_sptheme/lib/cloud_sptheme.ext.issue_tracker.html#module-cloud_sptheme.ext.issue_tracker>
+
+===============
+Model
+===============
+
+$project
+========
+
+$project will solve your problem of where to start with documentation,
+by providing a basic explanation of how to do it easily.
+
+Look how easy it is to use:
+
+    import project
+    # Get your stuff done
+    project.do_stuff()
+
+Features
+--------
+
+- Be awesome
+- Make things faster
+
+Installation
+------------
+
+Install $project by running:
+
+    install project
+
+Contribute
+----------
+
+- Issue Tracker: github.com/$project/$project/issues
+- Source Code: github.com/$project/$project
+
+Support
+-------
+
+If you are having issues, please let us know.
+We have a mailing list located at: project@google-groups.com
+
+License
+-------
+
+The project is licensed under the BSD license.
+
+======================
+
+
+Read the Docs theme - -- <https://github.com/snide/sphinx_rtd_theme>
+
+alabaster - example <http://docs.writethedocs.org/tools/sphinx-themes/> -- <https://github.com/bitprophet/alabaster>
+
+Better theme - <https://sphinx-better-theme.readthedocs.org/en/latest/index.html> (docs and example)
+
+Cloud - <http://pythonhosted.org/cloud_sptheme/cloud_theme_test.html> (docs and example)
+
+Energy - <http://pythonhosted.org/energy/> - <http://pythonhosted.org/ranking/> - <http://trueskill.org/>
+
+Hangulize - <https://github.com/sublee/sublee-sphinx-themes> -- <http://pythonhosted.org/hangulize/> - <https://lunant.github.io/jdoctest/>
+
+Basic Bootstrap theme - <https://ryan-roemer.github.io/sphinx-bootstrap-theme/README.html> -- <https://github.com/ryan-roemer/sphinx-bootstrap-theme>
+
+pymmails - <http://www.xavierdupre.fr/app/pymmails/helpsphinx/generatedoc.html>
+
+Built in themes (x6) - <http://sphinx-doc.org/theming.html>
