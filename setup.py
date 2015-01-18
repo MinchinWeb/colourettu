@@ -20,7 +20,7 @@ def find_version(*file_paths):
     raise RuntimeError("Unable to find version string.")
 
 
-long_description = read('README.rst') + '\n' + read('Changes.md')
+long_description = read('readme.rst') + '\n' + read('changes.rst')
 
 
 setup(
@@ -35,12 +35,13 @@ setup(
     description='Colour related functions',
     long_description=long_description,
     packages=['colourettu'],
-    package_data={'': ['README.md', 'Changes.md', 'LICENSE']},
+    package_data={'': ['readme.rst', 'changes.rst', 'LICENSE']},
     include_package_data=True,
     platforms='any',
     classifiers=[
         'Programming Language :: Python',
-        'Development Status :: 2 - Pre-Alpha',
+        'Programming Language :: Python :: 3',
+        'Development Status :: 5 - Production/Stable',
         'Natural Language :: English',
         'Environment :: Web Environment',
         'Intended Audience :: Developers',

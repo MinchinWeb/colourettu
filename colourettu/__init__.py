@@ -9,4 +9,4 @@ from ._colour import _AA_contrast as AA_contrast
 from ._colour import _AAA_contrast as AAA_contrast
 
 
-__version__ = '1.0.0-dev'
+__version__ = '1.0.0'

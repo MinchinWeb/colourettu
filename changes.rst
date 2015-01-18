@@ -3,7 +3,7 @@ Changelog
 
 Changelog for Colourettu
 
-1.0.0 -- unreleased
+1.0.0 -- January 17, 2015
 -------------------
 
 - documentation is now online at `minchin.ca/colourettu <http://www.minchin.ca/colourettu/>`_
