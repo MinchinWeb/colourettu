@@ -19,7 +19,9 @@ Then run (from the base directory)::
 Documentation Generation
 ------------------------
 To geneation the documentation (this) for *colourettu*,
-the following depencies are required:
+*colourettu* itself must be installed (it is imported in
+the process of building the docuemtation).
+The following depencies are also required:
 
  - sphinx 1.2
  - sphinxcontrib-napoleon
