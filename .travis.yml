@@ -11,4 +11,4 @@ python:
 install:
   - pip install -r tests/requirements.txt
 # command to run tests
-script: green tests
+script: green tests -vv
