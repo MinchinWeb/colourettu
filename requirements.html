@@ -1,0 +1,177 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Requirements &mdash; Colourettu 1.0.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/cloud.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noticia+Text|Open+Sans|Droid+Sans+Mono" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/jquery.cookie.js"></script>
+    <script type="text/javascript" src="_static/cloud.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="top" title="Colourettu 1.0.0 documentation" href="index.html" />
+    <link rel="next" title="Upgrading" href="upgrades.html" />
+    <link rel="prev" title="colourettu module" href="module-colourettu.html" /> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <div class="relbar-top">
+        
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="upgrades.html" title="Upgrading"
+             accesskey="N">next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="module-colourettu.html" title="colourettu module"
+             accesskey="P">previous</a> &nbsp; &nbsp;</li>
+    <li><a href="index.html">Colourettu 1.0.0 documentation</a> &raquo;</li>
+ 
+      </ul>
+    </div>
+    </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="requirements">
+<h1>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h1>
+<p>If you are just using the main <em>colourettu</em> module, it
+has no other dependencies.</p>
+<div class="section" id="testing">
+<h2>Testing<a class="headerlink" href="#testing" title="Permalink to this headline">¶</a></h2>
+<p>Testing <em>colourettu</em> requires:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">green</span>
+</pre></div>
+</div>
+<p>Then run (from the base directory):</p>
+<div class="highlight-python"><div class="highlight"><pre>green tests
+</pre></div>
+</div>
+</div>
+<div class="section" id="documentation-generation">
+<h2>Documentation Generation<a class="headerlink" href="#documentation-generation" title="Permalink to this headline">¶</a></h2>
+<p>To geneation the documentation (this) for <em>colourettu</em>,
+<em>colourettu</em> itself must be installed (it is imported in
+the process of building the docuemtation).
+The following depencies are also required:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">sphinx</span> <span class="o">==</span> <span class="mf">1.2</span>
+<span class="n">sphinxcontrib</span><span class="o">-</span><span class="n">napoleon</span>
+<span class="n">cloud_sptheme</span>
+</pre></div>
+</div>
+<p>Then run (on Windows) (from the <tt class="docutils literal"><span class="pre">docs</span></tt> directory):</p>
+<div class="highlight-python"><div class="highlight"><pre>make html
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper"><div class="sphinxlocaltoc">
+    <h3><a href="index.html">Page contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Requirements</a><ul>
+<li><a class="reference internal" href="#testing">Testing</a></li>
+<li><a class="reference internal" href="#documentation-generation">Documentation Generation</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div class="sphinxprev">
+    <h4>Previous page</h4>
+    <p class="topless"><a href="module-colourettu.html"
+                          title="Previous page">&larr; <em>colourettu</em> module</a></p>
+  </div>
+  <div class="sphinxnext">
+    <h4>Next page</h4>
+    <p class="topless"><a href="upgrades.html"
+                          title="Next page">&rarr; Upgrading</a></p>
+  </div>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/requirements.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="relbar-bottom">
+        
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="upgrades.html" title="Upgrading"
+             >next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="module-colourettu.html" title="colourettu module"
+             >previous</a> &nbsp; &nbsp;</li>
+    <li><a href="index.html">Colourettu 1.0.0 documentation</a> &raquo;</li>
+ 
+      </ul>
+    </div>
+    </div>
+
+    <div class="footer">
+        &copy; Copyright 2014-15, William Minchin.
+    </div>
+    <!-- cloud_sptheme 1.4 -->
+  </body>
+</html>
