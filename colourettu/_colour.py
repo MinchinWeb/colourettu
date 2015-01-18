@@ -114,10 +114,10 @@ class colour:
             Uses the formula:
 
             \\[ r_{norm} = \\begin{cases}
-            \\frac{r_{255}}{12.92}\\ \\qquad \\text{if $r_{255}$ $\\le$ 0.03928}
+            \\frac{r_{255}}{12.92}\\ \\qquad &\\text{if $r_{255}$ $\\le$ 0.03928}
             \\\\
             \\left(\\frac{r_{255} + 0.055}{1.055}\\right)^{2.4}
-            \\quad \\text{otherwise}
+            \\quad &\\text{otherwise}
             \\end{cases} \\]
 
         '''
