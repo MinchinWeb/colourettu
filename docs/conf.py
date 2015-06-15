@@ -39,7 +39,7 @@ extensions = [
     'sphinx.ext.coverage',
     'sphinx.ext.mathjax',
     'sphinx.ext.viewcode',
-    'sphinxcontrib.napoleon',  # becomes sphinx.ext.napoleon in Sphinx 1.3
+    'sphinx.ext.napoleon',  # requires Sphinx >=1.3
 ]
 
 # Add any paths that contain templates here, relative to this directory.

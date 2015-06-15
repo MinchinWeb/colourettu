@@ -3,6 +3,11 @@ Changelog
 
 Changelog for Colourettu
 
+1.1.0-a1
+--------
+
+- update to Sphinx 1.3 for documentation generation
+
 1.0.0 -- January 17, 2015
 -------------------
 
