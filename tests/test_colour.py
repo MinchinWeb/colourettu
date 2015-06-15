@@ -72,10 +72,40 @@ class Test_Colour(unittest.TestCase):
         Removed in v1.0.0'''
         self.assertEqual(colourettu.color, colourettu.colour)
 
-    def test_bad_colour(self):
-        '''Invalid colour should raise error'''
+    def test_colour_bad_hex_string_length(self):
+        '''Invalid hex string should raise error'''
         with self.assertRaises(ValueError):
             colour1 = colourettu.colour("#dddd")
+
+    def test_colour_not_hex_string(self):
+        '''Stings must start with '#', otherwiser raise Error'''
+        with self.assertRaises(ValueError):
+            colour1 = colourettu.colour("dddd")
+
+    def test_colour_bad_hex_chars(self):
+        '''Hex strings that don't contain only hex characters [0-9a-f] should raise error'''
+        with self.assertRaises(ValueError):
+            colour1 = colourettu.colour('#asdfgh')
+
+    def test_colour_bad_list_legnth(self):
+        '''Lists must be 3 long, otherwise raise error'''
+        with self.assertRaises(ValueError):
+            colour1 = colourettu.colour([1,1,1,1])
+
+    def test_colour_bad_tuple_legnth(self):
+        '''Tuples must be 3 long, otherwise raise error'''
+        with self.assertRaises(ValueError):
+            colour1 = colourettu.colour((1,1,1,1))
+
+    def test_colour_bad_list_value(self):
+        '''Lists my contain integer, otherwise raise error'''
+        with self.assertRaises(TypeError):
+            colour1 = colourettu.colour([1,2,"stuff"])
+
+    def test_colour_bad_Tuple_value(self):
+        '''Tuples my contain integer, otherwise raise error'''
+        with self.assertRaises(TypeError):
+            colour1 = colourettu.colour((1,2,"stuff"))
 
     def test_colour_rgb_normalized_white(self):
         '''Get normalized rgb tuple of white'''
@@ -96,3 +126,9 @@ class Test_Colour(unittest.TestCase):
         '''String representation of `colour` class'''
         colour1 = colourettu.colour()
         self.assertEqual(colour1.__str__(), "#FFFFFF")
+
+def main():
+    unittest.main()
+
+if __name__ == '__main__':
+    main()
