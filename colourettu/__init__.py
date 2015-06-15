@@ -8,5 +8,7 @@ from ._colour import _A_contrast as A_contrast
 from ._colour import _AA_contrast as AA_contrast
 from ._colour import _AAA_contrast as AAA_contrast
 
+from ._palette import palette
 
-__version__ = '1.0.0'
+
+__version__ = '1.1.0-a1'
