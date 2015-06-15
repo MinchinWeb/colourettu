@@ -127,6 +127,52 @@ class Test_Colour(unittest.TestCase):
         colour1 = colourettu.colour()
         self.assertEqual(colour1.__str__(), "#FFFFFF")
 
+
+class Test_Contrast(unittest.TestCase):
+
+    def test_contrast_white_white(self):
+        '''The Contrast of White and White should be 1'''
+        self.assertAlmostEqual(colourettu.contrast('#FFF', '#FFF'), 1)
+
+    def test_contrast_black_black(self):
+        '''The Contrast of Black and Black should be 1'''
+        self.assertAlmostEqual(colourettu.contrast('#000', '#000'), 1)
+
+    def test_contrast_white_black(self):
+        '''The Contrast of White and Black should be 21'''
+        self.assertAlmostEqual(colourettu.contrast('#FFF', '#000'), 21)
+
+    def test_contrast_from_colour(self):
+        '''The Contrast of a provided colour against White'''
+        colour1 = colourettu.colour("#cde")
+        self.assertTrue(colour1.contrast("#FFF"))
+
+
+class Test_Luminance(unittest.TestCase):
+
+    def test_luminance_white_hex(self):
+        '''The Luminance of White (as hex) should be 1'''
+        self.assertAlmostEqual(colourettu.luminance('#FFFFFF'), 1)
+
+    def test_luminance_white_tuple(self):
+        '''The Luminance of White (as a tuple) should be 1'''
+        self.assertAlmostEqual(colourettu.luminance((255, 255, 255)), 1)
+
+    def test_luminance_black(self):
+        '''The Luminance of Black should be 0'''
+        self.assertAlmostEqual(colourettu.luminance('#000'), 0)
+
+    def test_luminance_colour_provided(self):
+        '''The Luminance of a provided colour'''
+        colour1 = colourettu.colour()
+        self.assertAlmostEqual(colourettu.luminance(colour1), 1)
+
+    def test_luminance_as_colour_property(self):
+        '''The Luminance of as a property of a colour'''
+        colour1 = colourettu.colour()
+        self.assertAlmostEqual(colour1.luminance(), 1)
+
+
 def main():
     unittest.main()
 
