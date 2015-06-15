@@ -4,8 +4,20 @@ from __future__ import absolute_import
 from ._colour import colour
 from PIL import Image
 
+
 class palette:
-    """Class for creating a palette of colours."""
+    """Class for creating a palette of colours. A palette here is a list of colours.
+
+    Args:
+        startcolour (colourettu.colour): the colour you want your palette to start with.
+        endcolour (colourettu.colour): the colour you want your palette to end with.
+
+    .. note:
+
+        if a *string*, *tuple*, or *list* is provided for `startcolour` or `endcolour`,
+        a convertion to a *colourettu.colour* object will be attempted.
+
+    """
 
     _start = None
     _end = None
@@ -36,6 +48,11 @@ class palette:
 
     def __str__(self):
         return('{}'.format(", ".join([c.hex() for c in self._colours])))
+
+    def __len__(self):
+        return(len(self._colours))
+
+    # TO-DO     def __init(self)   #this allows   for colour in palette:
 
     def to_image(self, filename = 'palette.png', band_width = 1, length = 60, max_width = 0, vertical = True):
         if max_width < 1:

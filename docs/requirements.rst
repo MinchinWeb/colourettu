@@ -1,8 +1,10 @@
 Requirements
 ============
 
-If you are just using the main *colourettu* module, it
-has no other dependencies.
+The main *colourettu* module, has the following dependencies:
+
+.. include:: ../requirements.txt
+   :literal:
 
 Testing
 -------

@@ -2,4 +2,4 @@
 ===================
 
 .. automodule:: colourettu
-	:members: colour, luminance, contrast
+	:members: colour, luminance, contrast, palette

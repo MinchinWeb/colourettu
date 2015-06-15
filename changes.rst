@@ -6,14 +6,15 @@ Changelog for Colourettu
 1.1.0-a1
 --------
 
+- add `palette` class
 - update to Sphinx 1.3 for documentation generation
 
 1.0.0 -- January 17, 2015
--------------------
+-------------------------
 
 - documentation is now online at `minchin.ca/colourettu <http://www.minchin.ca/colourettu/>`_
 - convert Readme and Changelog from Markdown to ReStructured Text
-- *colourettu.color* (note, no *u*) no longer an alais for *colourettu.colour* (with the *u*)
+- *colourettu.color* (note, no *u*) no longer an alias for *colourettu.colour* (with the *u*)
 
 0.1.1 -- December 11, 2014
 --------------------------

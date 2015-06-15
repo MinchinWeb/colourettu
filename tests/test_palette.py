@@ -14,6 +14,11 @@ class Test_Palette(unittest.TestCase):
         palette1 = colourettu.palette()
         self.assertEqual(palette1.__str__(), "#FFFFFF, #000000")
 
+    def test_palette_length(self):
+        '''length function on a of `palette` class'''
+        palette1 = colourettu.palette()
+        self.assertEqual(len(palette1), 2)
+
 def main():
     unittest.main()
 
