@@ -1,3 +1,5 @@
+"""This is part of colourettu. See http://minchin.ca/colourettu/ """
+
 from math import sqrt, pow
 
 
@@ -67,6 +69,12 @@ class colour:
             self._b = int(b, 16)
         elif type(mycolour) in(list, tuple) and len(mycolour) == 3:
             self._r, self._g, self._b = mycolour
+
+    def __repr__(self):
+        return('<colourettu.colour {}>'.format(self.hex()))
+
+    def __str__(self):
+        return('{}'.format(self.hex()))
 
     def hex(self):
         '''

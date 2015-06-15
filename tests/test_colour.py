@@ -86,3 +86,13 @@ class Test_Colour(unittest.TestCase):
         '''Get normalize rgb tuple of black'''
         colour1 = colourettu.colour('#000')
         self.assertEqual(colour1.normalized_rgb(), (0, 0, 0))
+
+    def test_colour_repr(self):
+        '''Representation of `colour` class'''
+        colour1 = colourettu.colour()
+        self.assertEqual(colour1.__repr__(), "<colourettu.colour #FFFFFF>")
+
+    def test_colour_str(self):
+        '''String representation of `colour` class'''
+        colour1 = colourettu.colour()
+        self.assertEqual(colour1.__str__(), "#FFFFFF")
