@@ -15,5 +15,8 @@ matrix:
 install:
   - pip install -r requirements.txt
   - pip install -r tests/requirements.txt
+  - pip install coveralls
 # command to run tests
-script: green tests -vv
+script: green tests -vvr
+after_success:
+  coveralls
