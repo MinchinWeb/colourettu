@@ -7,6 +7,7 @@ Changelog for Colourettu
 --------
 
 - add `palette` class
+- allow creation of colours from normalized rgb values
 - update to Sphinx 1.3 for documentation generation
 
 1.0.0 -- January 17, 2015

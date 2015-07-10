@@ -66,6 +66,16 @@ class Test_Colour(unittest.TestCase):
         colour1 = colourettu.colour((35, 60, 128))
         self.assertEqual(colour1.hex(), "#233C80")
 
+    def test_colour_list_normalized_rgb(self):
+        '''Get value of colour given as a list of normalized rgb values'''
+        colour1 = colourettu.colour([0.24287275804811442, 0.4339925778684171, 0.16562176715691224], normalized_rgb=True)
+        self.assertEqual(colour1.hex(), "#3D6E2A")
+
+    def test_colour_tuple_normalized_rgb(self):
+        '''Get value of colour given as a tuple of normalized rgb values'''
+        colour1 = colourettu.colour((0.5656023325553875, 0.8070789468680986, 0.8006291331865334), normalized_rgb=True)
+        self.assertEqual(colour1.hex(), "#90CDCC")
+
     @expectedFailure
     def test_colour_vs_color(self):
         '''test alternate spelling

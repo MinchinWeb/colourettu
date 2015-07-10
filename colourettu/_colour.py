@@ -15,7 +15,9 @@ class colour:
 
     Colours are created by calling the ``colour`` class. Colour values can
     be provided via 3 or 6 digit hex notation, or providing a list or a
-    tuple of the Red, Green, and Blue values (as integers).
+    tuple of the Red, Green, and Blue values (as integers, if
+    ``normalized_rgb=False``, or as floating numbers between 0 and 1 if
+    ``normalized_rgb=True``).
 
     .. code:: python
 
@@ -26,6 +28,7 @@ class colour:
         c3 = colourettu.colour("#456bda")
         c4 = colourettu.colour([3, 56, 129])
         c5 = colourettu.colour((63, 199, 233))
+        c6 = colourettu.colour([0.242, 0.434, 0.165], normalized_rgb=True)
 
     The value of each channel can be pulled out:
 
@@ -50,7 +53,7 @@ class colour:
 
     _r = _g = _b = None
 
-    def __init__(self, mycolour="#FFF"):
+    def __init__(self, mycolour="#FFF", normalized_rgb=False):
         if type(mycolour) is str:
             if mycolour.startswith("#"):
                 myhex = mycolour[1:]
@@ -72,10 +75,23 @@ class colour:
                 raise ValueError("Strings must start with '#'")
         elif type(mycolour) in(list, tuple):
             if len(mycolour) == 3:
-                if (type(mycolour[0]) is int) and (type(mycolour[1]) is int) and (type(mycolour[2]) is int):
-                    self._r, self._g, self._b = mycolour
+                if not normalized_rgb:
+                    if(type(mycolour[0]) is int) and (type(mycolour[1]) is int) and (type(mycolour[2]) is int):
+                        self._r, self._g, self._b = mycolour
+                    else:
+                        raise TypeError('Tuple and Lists must be three integers if normalized_rgb=False.')
+                elif normalized_rgb:
+                    if (type(mycolour[0]) is float) and (type(mycolour[1]) is float) and (type(mycolour[2]) is float):
+                        if((0 <= mycolour[0] <= 1) and (0 <= mycolour[0] <= 1) and (0 <= mycolour[0] <= 1)):
+                            self._r = int(mycolour[0]*255)
+                            self._g = int(mycolour[1]*255)
+                            self._b = int(mycolour[2]*255)
+                        else:
+                            raise ValueError('Normalized RGB values must be between 0 and 1.')
+                    else:
+                        raise TypeError('Tuples and Lists myst be three floating numbers if normalized_rgb=True')
                 else:
-                    raise TypeError('Tuple and Lists must be three integers.')
+                    raise ValueError('normalized_rgb must be set to either True or False.')
             else:
                 raise ValueError('Tuples and Lists must be three items long.')
         else:
