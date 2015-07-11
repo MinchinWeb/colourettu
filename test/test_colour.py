@@ -1,5 +1,5 @@
 import unittest
-from unittest import expectedFailure
+from unittest import expectedFailure, skip
 import colourettu
 
 
@@ -75,6 +75,38 @@ class Test_Colour(unittest.TestCase):
         '''Get value of colour given as a tuple of normalized rgb values'''
         colour1 = colourettu.colour((0.5656023325553875, 0.8070789468680986, 0.8006291331865334), normalized_rgb=True)
         self.assertEqual(colour1.hex(), "#90CDCC")
+
+    @skip('Not yet defined')
+    def test_colour_tuple_normalized_rgb_too_big(self):
+        pass
+
+    @skip('Not yet defined')
+    def test_colour_tuple_normalized_rgb_too_small(self):
+        pass
+
+    @skip('Not yet defined')
+    def test_colour_list_normalized_rgb_too_big(self):
+        pass
+
+    @skip('Not yet defined')
+    def test_colour_list_normalized_rgb_too_small(self):
+        pass
+
+    @skip('Not yet defined')
+    def test_colour_tuple_not_normalized(self):
+        pass
+
+    @skip('Not yet defined')
+    def test_colour_list_not_normalized(self):
+        pass
+
+    @skip('Not yet defined')
+    def test_colour_tuple_normalized_rgb_too_long(self):
+        pass
+
+    @skip('Not yet defined')
+    def test_colour_tuple_normalized_rgb_too_short(self):
+        pass
 
     @expectedFailure
     def test_colour_vs_color(self):
