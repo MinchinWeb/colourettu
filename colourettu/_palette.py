@@ -6,16 +6,20 @@ from PIL import Image
 
 
 class palette:
-    """Class for creating a palette of colours. A palette here is a list of colours.
+    """Class for creating a palette of colours. A palette here is a list of
+        colours.
 
     Args:
-        startcolour (colourettu.colour): the colour you want your palette to start with.
-        endcolour (colourettu.colour): the colour you want your palette to end with.
+        startcolour (colourettu.colour): the colour you want your palette to
+            start with.
+        endcolour (colourettu.colour): the colour you want your palette to
+            end with.
 
     .. note:
 
-        if a *string*, *tuple*, or *list* is provided for `startcolour` or `endcolour`,
-        a convertion to a *colourettu.colour* object will be attempted.
+        If a *string*, *tuple*, or *list* is provided for `startcolour` or
+        `endcolour`, a convertion to a *colourettu.colour* object will be 
+        attempted.
 
     """
 
@@ -52,9 +56,52 @@ class palette:
     def __len__(self):
         return(len(self._colours))
 
-    # TO-DO     def __init(self)   #this allows   for colour in palette:
+    # TO-DO     def __init__(self)   #this allows :  for colour in palette:
+
+    def from_list(self, list_of_colours):
+        """Given an interable (usually a list or a tuple) containing colours,
+        this then becomes the colours contained by the palette.
+
+        Args:
+            list_of_colours(list, tuple, or other interable): a collection of
+                colours to be loaded into the palette. If these are
+                colourettu.colour's, they will be loaded directly. Otherwise,
+                an attempt to convert each item to a colourettu.colour will
+                take place.
+
+        .. note:
+            This will overwrite the colours already defined by the palette.
+        """
+        colour_for_type = colour()
+        self._colours = []
+
+        for c in list_of_colours:
+            if type(c) is type(colour_for_type):
+                self._colours.append(c)
+            else:
+                self._colours.append(colour(c))
+
+        self._start = self._colours[0]
+        self._end = self._colours[-1]
+
+
 
     def to_image(self, filename = 'palette.png', band_width = 1, length = 60, max_width = 0, vertical = True):
+        """Creates an image from the palette.
+
+        Args:
+            filename(optional[string]): filename of swaved filename. Defaults to
+                ``palette.png`` in the current working directory.
+            band_width(optional[int]): how wide each colour band should be. 
+                Defaults to 1 pixel.
+            length(optional[int]): the length of the overall image in pixels.  
+                This is the dimension orthoganal to ``band_width``. Defualts 
+                to 60 pixels.
+            max_width(optional[int]): if ``band_width`` is not set and this is, 
+                this determines how wide the whole image should be.
+            vertical(optional[bool]): if the image runs vertical (``True``,
+                default) or horizontal (``False``).
+        """
         if max_width < 1:
             max_width = band_width * len(self._colours)
 

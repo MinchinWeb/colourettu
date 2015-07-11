@@ -11,7 +11,7 @@ Testing
 
 Testing *colourettu* requires:
 
-.. include:: ../tests/requirements.txt
+.. include:: ../test/requirements.txt
    :literal:
 
 Then run (from the base directory)::
@@ -21,10 +21,10 @@ Then run (from the base directory)::
 
 Documentation Generation
 ------------------------
-To geneation the documentation (this) for *colourettu*,
+To generation the documentation (this) for *colourettu*,
 *colourettu* itself must be installed (it is imported in
-the process of building the docuemtation).
-The following depencies are also required:
+the process of building the documentation).
+The following dependencies are also required:
 
 .. include:: requirements.txt
    :literal:
