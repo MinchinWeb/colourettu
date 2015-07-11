@@ -7,19 +7,32 @@ from PIL import Image
 
 class palette:
     """Class for creating a palette of colours. A palette here is a list of
-        colours.
+    colours.
 
     Args:
-        startcolour (colourettu.colour): the colour you want your palette to
+        start_colour (colourettu.colour): the colour you want your palette to
             start with.
-        endcolour (colourettu.colour): the colour you want your palette to
+        end_colour (colourettu.colour): the colour you want your palette to
             end with.
 
-    .. note:
+    .. note::
 
-        If a *string*, *tuple*, or *list* is provided for `startcolour` or
-        `endcolour`, a convertion to a *colourettu.colour* object will be 
+        If a *string*, *tuple*, or *list* is provided for `start_colour` or
+        `end_colour`, a convertion to a *colourettu.colour* object will be 
         attempted.
+
+    .. code:: python
+
+        p1 = colourettu.palette()
+        p1.to_image('p1.png', 60)
+
+
+    .. code:: python
+
+        all_colours = [c1, c2, c3, c4, c5, c6]
+        p2 = colourettu.palette()
+        p2.from_list(all_colours)
+        p2.to_image('p2.png', max_width=360, vertical=False)
 
     """
 
@@ -27,23 +40,23 @@ class palette:
     _end = None
     _colours = []
 
-    def __init__(self, startcolour = colour("#FFF"), endcolour = colour("#000")):
+    def __init__(self, start_colour = colour("#FFF"), end_colour = colour("#000")):
         # testing to see if the type is colourettu.colour throws an error. This is an ugly hack
         colour_for_type = colour()
-        if type(startcolour) is type(colour_for_type):
-            self._start = startcolour
+        if type(start_colour) is type(colour_for_type):
+            self._start = start_colour
         else:
             try:
-                self._start = colour(startcolour)
+                self._start = colour(start_colour)
             except:
-                raise(ValueError, "Invalid startcolour given.")
-        if type(endcolour) is type(colour_for_type):
-            self._end = endcolour
+                raise(ValueError, "Invalid start_colour given.")
+        if type(end_colour) is type(colour_for_type):
+            self._end = end_colour
         else:
             try:
-                self._end = colour(endcolour)
+                self._end = colour(end_colour)
             except:
-                raise(ValueError, "Invalid endcolour given.")
+                raise(ValueError, "Invalid end_colour given.")
 
         self._colours = [self._start, self._end]
 
@@ -70,7 +83,9 @@ class palette:
                 take place.
 
         .. note:
+
             This will overwrite the colours already defined by the palette.
+
         """
         colour_for_type = colour()
         self._colours = []
@@ -90,7 +105,7 @@ class palette:
         """Creates an image from the palette.
 
         Args:
-            filename(optional[string]): filename of swaved filename. Defaults to
+            filename(optional[string]): filename of saved file. Defaults to
                 ``palette.png`` in the current working directory.
             band_width(optional[int]): how wide each colour band should be. 
                 Defaults to 1 pixel.
@@ -102,8 +117,14 @@ class palette:
             vertical(optional[bool]): if the image runs vertical (``True``,
                 default) or horizontal (``False``).
         """
+        # max_width is approximate
+        # vertical option doesn't work yet
+        # add output pictures to documentation
+        
         if max_width < 1:
             max_width = band_width * len(self._colours)
+        else:
+            band_width = int(max_width/len(self._colours))
 
         my_image = Image.new('RGB', (max_width, length))
         image_loaded = my_image.load()
