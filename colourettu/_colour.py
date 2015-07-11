@@ -49,6 +49,15 @@ class colour:
         '#EEEEEE'
         >>> c2.rgb()
         (238, 238, 238)
+
+    Colours are considered equal is the values of the R, G, and B channels match.
+
+    .. code:: python
+
+        >>> c1 == c2
+        False
+        >>> c2 == colourettu.color([238, 238, 238])
+        True
     '''
 
     _r = _g = _b = None
@@ -102,6 +111,10 @@ class colour:
 
     def __str__(self):
         return('{}'.format(self.hex()))
+
+    def __eq__(self, other):
+        """Colours are considered equal if the values of the R, G, and B channels match."""
+        return (self._r is other._r) and (self._g is other._g) and (self._b is other._b)
 
     def hex(self):
         '''
@@ -192,7 +205,7 @@ def _luminance(mycolour):
     r'''Determine (relative) luminance of a colour.
 
     Args:
-        mycolour (colourettu.colour):
+        mycolour(colourettu.colour): a colour
 
     Luminance is a measure of how 'bright' a colour is. Values are
     normalized so that the Luminance of White is 1 and the Luminance of
@@ -238,8 +251,8 @@ def _contrast(colour1, colour2):
     r'''Determines the contrast between two colours.
 
     Args:
-        colour1 (colourettu.colour):
-        colour2 (colourettu.colour):
+        colour1 (colourettu.colour): a colour
+        colour2 (colourettu.colour): a second colour
 
     Contrast the difference in (perceived) brightness between colours.
     Values vary between 1:1 (a given colour on itself) and 21:1 (white on
