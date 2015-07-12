@@ -18,7 +18,7 @@ class palette:
     .. note::
 
         If a *string*, *tuple*, or *list* is provided for `start_colour` or
-        `end_colour`, a convertion to a *colourettu.colour* object will be 
+        `end_colour`, a conversion to a *colourettu.colour* object will be 
         attempted.
 
     .. code:: python
@@ -26,6 +26,7 @@ class palette:
         p1 = colourettu.palette()
         p1.to_image('p1.png', 60)
 
+    .. image:: p1.png
 
     .. code:: python
 
@@ -33,6 +34,8 @@ class palette:
         p2 = colourettu.palette()
         p2.from_list(all_colours)
         p2.to_image('p2.png', max_width=360, vertical=False)
+
+    .. image:: p2.png
 
     """
 
@@ -110,7 +113,7 @@ class palette:
             band_width(optional[int]): how wide each colour band should be. 
                 Defaults to 1 pixel.
             length(optional[int]): the length of the overall image in pixels.  
-                This is the dimension orthoganal to ``band_width``. Defualts 
+                This is the dimension orthogonal to ``band_width``. Defaults 
                 to 60 pixels.
             max_width(optional[int]): if ``band_width`` is not set and this is, 
                 this determines how wide the whole image should be.
@@ -118,8 +121,7 @@ class palette:
                 default) or horizontal (``False``).
         """
         # max_width is approximate
-        # vertical option doesn't work yet
-        # add output pictures to documentation
+        # generate output pictures for documentation automatically
         
         if max_width < 1:
             max_width = band_width * len(self._colours)
@@ -135,5 +137,8 @@ class palette:
                 for y in range(length):
                     image_loaded[x, y] = my_colour.rgb()
                 x = x + 1
+
+        if vertical:
+            my_image = my_image.rotate(270)
 
         my_image.save(filename)
