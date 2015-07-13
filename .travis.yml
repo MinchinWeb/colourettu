@@ -17,6 +17,6 @@ install:
   - pip install -r test/requirements.txt
   - pip install coveralls
 # command to run tests
-script: green tests -vvr
+script: green -vvr
 after_success:
   coveralls

@@ -11,7 +11,8 @@ print('    make html')
 print('    index.html')
 print('    cd ..')
 print('Build distribution')
-print('    pip install setuptools twine pip -U')
+print('    python -m pip install pip -U')
+print('    pip install setuptools twine -U')
 print('    python setup.py sdist bdist_egg bdist_wheel')
 print('Test distribution')
 # see https://hynek.me/articles/sharing-your-labor-of-love-pypi-quick-and-dirty/
@@ -34,3 +35,4 @@ print('   tag v(version number)')
 print('   push tag')
 
 # swtich to twine  https://pypi.python.org/pypi/twine/
+# twine upload dist/*
