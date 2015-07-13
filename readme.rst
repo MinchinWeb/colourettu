@@ -14,7 +14,7 @@ between two colours.
 .. image:: https://coveralls.io/repos/MinchinWeb/colourettu/badge.svg?branch=master&service=github
     :target: https://coveralls.io/github/MinchinWeb/colourettu?branch=master
 
-.. image:: https://img.shields.io/pypi/l/colourettu?style=flat
+.. image:: https://img.shields.io/pypi/l/colourettu.svg?style=flat
     :target: https://github.com/MinchinWeb/colourettu/blob/master/LICENSE
 
 .. https://landscape.io/github/USERNAME/PROJECT/master/landscape.png
