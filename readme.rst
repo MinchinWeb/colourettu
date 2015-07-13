@@ -2,19 +2,19 @@ Colourettu is a small collection of colour functions in Python, that can be
 used to determine the (relative) luminosity of a colour and the contrast
 between two colours.
 
-.. image:: https://pypip.in/version/colourettu/badge.svg?style=flat
+.. image:: https://img.shields.io/pypi/v/colourettu.svg?style=flat
     :target: https://pypi.python.org/pypi/colourettu/
 
-.. image:: https://pypip.in/download/colourettu/badge.svg?style=flat
+.. image:: https://img.shields.io/pypi/dm/colourettu/badge.svg?style=flat
     :target: https://pypi.python.org/pypi/colourettu/
 
 .. image:: https://api.travis-ci.org/MinchinWeb/colourettu.svg
     :target: http://travis-ci.org/MinchinWeb/colourettu
 
-.. image:: https://coveralls.io/repos/MinchinWeb/colourettu/badge.svg
-    :target: https://coveralls.io/r/MinchinWeb/colourettu
+.. image:: https://coveralls.io/repos/MinchinWeb/colourettu/badge.svg?branch=master&service=github
+    :target: https://coveralls.io/github/MinchinWeb/colourettu?branch=master
 
-.. image:: https://pypip.in/license/colourettu/badge.svg?style=flat
+.. image:: https://img.shields.io/pypi/l/colourettu?style=flat
     :target: https://github.com/MinchinWeb/colourettu/blob/master/LICENSE
 
 .. https://landscape.io/github/USERNAME/PROJECT/master/landscape.png
