@@ -63,6 +63,9 @@ class colour:
     _r = _g = _b = None
 
     def __init__(self, mycolour="#FFF", normalized_rgb=False):
+        if type(normalized_rgb) is not bool:
+            raise TypeError('normalized_rgb must be either True or False')
+
         if type(mycolour) is str:
             if mycolour.startswith("#"):
                 myhex = mycolour[1:]
@@ -82,14 +85,14 @@ class colour:
                 self._b = int(b, 16)
             else:
                 raise ValueError("Strings must start with '#'")
-        elif type(mycolour) in(list, tuple):
+        elif type(mycolour) in (list, tuple):
             if len(mycolour) == 3:
                 if not normalized_rgb:
                     if(type(mycolour[0]) is int) and (type(mycolour[1]) is int) and (type(mycolour[2]) is int):
                         self._r, self._g, self._b = mycolour
                     else:
                         raise TypeError('Tuple and Lists must be three integers if normalized_rgb=False.')
-                elif normalized_rgb:
+                else:
                     if ((type(mycolour[0]) in (float, int)) and
                         (type(mycolour[1]) in (float, int)) and
                         (type(mycolour[2]) in (float, int))):
@@ -103,8 +106,6 @@ class colour:
                             raise ValueError('Normalized RGB values must be between 0 and 1.')
                     else:
                         raise TypeError('Tuples and Lists must be three floating point numbers if normalized_rgb=True')
-                else:
-                    raise ValueError('normalized_rgb must be set to either True or False.')
             else:
                 raise ValueError('Tuples and Lists must be three items long.')
         else:
