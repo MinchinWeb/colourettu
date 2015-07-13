@@ -52,14 +52,14 @@ class palette:
             try:
                 self._start = colour(start_colour)
             except:
-                raise(ValueError, "Invalid start_colour given.")
+                raise ValueError("Invalid start_colour given.")
         if type(end_colour) is type(colour_for_type):
             self._end = end_colour
         else:
             try:
                 self._end = colour(end_colour)
             except:
-                raise(ValueError, "Invalid end_colour given.")
+                raise ValueError("Invalid end_colour given.")
 
         self._colours = [self._start, self._end]
 
