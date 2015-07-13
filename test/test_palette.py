@@ -77,6 +77,14 @@ class Test_Palette_with_Images(unittest.TestCase):
         p1.to_image()
         self.assertTrue(os.path.isfile('palette.png'))
 
+    @skip('not yet defined')
+    def test_to_image_band_width(self):
+        pass
+
+    @skip('not yet defined')
+    def test_to_image_max_width(self):
+        pass
+
 
 def main():
     unittest.main()
