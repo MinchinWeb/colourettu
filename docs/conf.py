@@ -17,6 +17,7 @@ import sys
 import os
 from colourettu import __version__
 import re
+from datetime import datetime
 import cloud_sptheme as csp
 
 # If extensions (or modules to document with autodoc) are in another directory,
@@ -28,7 +29,7 @@ sys.path.insert(0, os.path.os.path.abspath('../colourettu'))
 # -- General configuration ------------------------------------------------
 
 # If your documentation needs a minimal Sphinx version, state it here.
-#needs_sphinx = '1.0'
+needs_sphinx = '1.3'
 
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
@@ -40,7 +41,11 @@ extensions = [
     'sphinx.ext.mathjax',
     'sphinx.ext.viewcode',
     'sphinx.ext.napoleon',  # requires Sphinx >=1.3
+    'releases',
 ]
+
+releases_github_path = 'minchinweb/colourettu'
+# releases_debug = True
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -56,7 +61,9 @@ master_doc = 'index'
 
 # General information about the project.
 project = 'Colourettu'
-copyright = '2014-15, William Minchin'
+year = datetime.now().year
+year = str(year)[:-2]
+copyright = '2014-{}, William Minchin'.format(year)
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the

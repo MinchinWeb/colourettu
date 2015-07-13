@@ -21,7 +21,7 @@ Contents
 .. toctree::
    :maxdepth: 2
 
-   module*
+   module-colourettu
    requirements
    upgrades
    changelog
