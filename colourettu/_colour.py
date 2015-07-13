@@ -90,15 +90,19 @@ class colour:
                     else:
                         raise TypeError('Tuple and Lists must be three integers if normalized_rgb=False.')
                 elif normalized_rgb:
-                    if (type(mycolour[0]) is float) and (type(mycolour[1]) is float) and (type(mycolour[2]) is float):
-                        if((0 <= mycolour[0] <= 1) and (0 <= mycolour[0] <= 1) and (0 <= mycolour[0] <= 1)):
+                    if ((type(mycolour[0]) in (float, int)) and
+                        (type(mycolour[1]) in (float, int)) and
+                        (type(mycolour[2]) in (float, int))):
+                        if((0 <= mycolour[0] <= 1) and
+                            (0 <= mycolour[1] <= 1) and
+                            (0 <= mycolour[2] <= 1)):
                             self._r = int(mycolour[0]*255)
                             self._g = int(mycolour[1]*255)
                             self._b = int(mycolour[2]*255)
                         else:
                             raise ValueError('Normalized RGB values must be between 0 and 1.')
                     else:
-                        raise TypeError('Tuples and Lists myst be three floating numbers if normalized_rgb=True')
+                        raise TypeError('Tuples and Lists must be three floating point numbers if normalized_rgb=True')
                 else:
                     raise ValueError('normalized_rgb must be set to either True or False.')
             else:

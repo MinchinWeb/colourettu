@@ -76,37 +76,66 @@ class Test_Colour(unittest.TestCase):
         colour1 = colourettu.colour((0.5656023325553875, 0.8070789468680986, 0.8006291331865334), normalized_rgb=True)
         self.assertEqual(colour1.hex(), "#90CDCC")
 
-    @skip('Not yet defined')
-    def test_tuple_normalized_rgb_too_big(self):
-        pass
+    def test_tuple_normalized_rgb_value_too_big(self):
+        '''Fail on invalid normalized RGB values (too big, tuple)'''
+        with self.assertRaises(ValueError):
+            colour1 = colourettu.colour((1.2, 0.4, 0.378), normalized_rgb=True)
 
-    @skip('Not yet defined')
-    def test_tuple_normalized_rgb_too_small(self):
-        pass
+    def test_tuple_normalized_rgb_value_too_small(self):
+        '''Fail on invalid normalized RGB values (too small, tuple)'''
+        with self.assertRaises(ValueError):
+            colour1 = colourettu.colour((0.28, -0.4, 0.378), normalized_rgb=True)
 
-    @skip('Not yet defined')
-    def test_list_normalized_rgb_too_big(self):
-        pass
+    def test_list_normalized_rgb_value_too_big(self):
+        '''Fail on invalid normalized RGB values (too big, list)'''
+        with self.assertRaises(ValueError):
+            colour1 = colourettu.colour([0.289, 0.289, 1.33], normalized_rgb=True)
 
-    @skip('Not yet defined')
-    def test_list_normalized_rgb_too_small(self):
-        pass
+    def test_list_normalized_rgb_value_too_small(self):
+        '''Fail on invalid normalized RGB values (too small, list)'''
+        with self.assertRaises(ValueError):
+            colour1 = colourettu.colour([-0.289, 0.289, 0.33], normalized_rgb=True)
 
-    @skip('Not yet defined')
     def test_tuple_not_normalized(self):
-        pass
+        '''Fail if something other than `True` or `False` is passed for `normalized_rgb`'''
+        with self.assertRaises(TypeError):
+            colour1 = colourettu.colour(normalized_rgb='stuff')
 
     @skip('Not yet defined')
     def test_list_not_normalized(self):
         pass
 
     @skip('Not yet defined')
-    def test_tuple_normalized_rgb_too_long(self):
+    def test_tuple_for_normalized_rgb_too_long(self):
         pass
 
     @skip('Not yet defined')
-    def test_tuple_normalized_rgb_too_short(self):
+    def test_tuple_for_normalized_rgb_too_short(self):
         pass
+
+    def test_normalized_value_zero_float(self):
+        '''Pass a value of 0 for a normalized RGB value'''
+        colour1 = colourettu.colour([0.0, 0.0, 0.0], normalized_rgb=True)
+        colour2 = colourettu.colour('#000')
+        self.assertEqual(colour1, colour2)
+
+    def test_normalized_value_one_float(self):
+        '''Pass a value of 1 for a normalized RGB value'''
+        colour1 = colourettu.colour([1.0, 1.0, 1.0], normalized_rgb=True)
+        colour2 = colourettu.colour('#FFF')
+        self.assertEqual(colour1, colour2)
+
+    def test_normalized_value_zero_int(self):
+        '''Pass a value of 0 for a normalized RGB value'''
+        colour1 = colourettu.colour([0, 0, 0], normalized_rgb=True)
+        colour2 = colourettu.colour('#000')
+        self.assertEqual(colour1, colour2)
+
+    def test_normalized_value_one_int(self):
+        '''Pass a value of 1 for a normalized RGB value'''
+        colour1 = colourettu.colour([1, 1, 1], normalized_rgb=True)
+        colour2 = colourettu.colour('#FFF')
+        self.assertEqual(colour1, colour2)
 
     @expectedFailure
     def test_colour_vs_color(self):
