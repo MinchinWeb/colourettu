@@ -6,6 +6,7 @@ from PIL import Image
 
 
 class palette:
+
     """Class for creating a palette of colours. A palette here is a list of
     colours.
 
@@ -18,7 +19,7 @@ class palette:
     .. note::
 
         If a *string*, *tuple*, or *list* is provided for `start_colour` or
-        `end_colour`, a conversion to a *colourettu.colour* object will be 
+        `end_colour`, a conversion to a *colourettu.colour* object will be
         attempted.
 
     .. code:: python
@@ -38,12 +39,17 @@ class palette:
     .. image:: p2.png
 
     """
+    """Convert these code examples to an external file, so we can auto-generate the .png
+    files!
+
+    see http://sphinx-doc.org/markup/code.html#includes
+    """
 
     _start = None
     _end = None
     _colours = []
 
-    def __init__(self, start_colour = colour("#FFF"), end_colour = colour("#000")):
+    def __init__(self, start_colour=colour("#FFF"), end_colour=colour("#000")):
         # testing to see if the type is colourettu.colour throws an error. This is an ugly hack
         colour_for_type = colour()
         if type(start_colour) is type(colour_for_type):
@@ -105,27 +111,25 @@ class palette:
         self._start = self._colours[0]
         self._end = self._colours[-1]
 
-
-
-    def to_image(self, filename = 'palette.png', band_width = 1, length = 60, max_width = 0, vertical = True):
+    def to_image(self, filename='palette.png', band_width=1, length=60, max_width=0, vertical=True):
         """Creates an image from the palette.
 
         Args:
             filename(optional[string]): filename of saved file. Defaults to
                 ``palette.png`` in the current working directory.
-            band_width(optional[int]): how wide each colour band should be. 
+            band_width(optional[int]): how wide each colour band should be.
                 Defaults to 1 pixel.
-            length(optional[int]): the length of the overall image in pixels.  
-                This is the dimension orthogonal to ``band_width``. Defaults 
+            length(optional[int]): the length of the overall image in pixels.
+                This is the dimension orthogonal to ``band_width``. Defaults
                 to 60 pixels.
-            max_width(optional[int]): if ``band_width`` is not set and this is, 
+            max_width(optional[int]): if ``band_width`` is not set and this is,
                 this determines how wide the whole image should be.
             vertical(optional[bool]): if the image runs vertical (``True``,
                 default) or horizontal (``False``).
         """
         # max_width is approximate
         # generate output pictures for documentation automatically
-        
+
         if max_width < 1:
             max_width = band_width * len(self._colours)
         else:
