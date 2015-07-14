@@ -5,6 +5,7 @@ Changelog
 - :feature:`-` add `palette` class
 - :feature:`-` allow creation of colours from normalized rgb values
 - :support:`-` update to Sphinx 1.3 for documentation generation
+
 - :release:`1.0.0 <2015-01-17>`
 - :support:`1` documentation is now online at `minchin.ca/colourettu <http://www.minchin.ca/colourettu/>`_
 - :support:`-` convert Readme and Changelog from Markdown to ReStructured Text

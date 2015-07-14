@@ -74,7 +74,7 @@ class palette:
 
     # TO-DO     def __init__(self)   #this allows :  for colour in palette:
 
-    def from_list(self, list_of_colours):
+    def from_list(self, list_of_colours, normalized_rgb=False):
         """Given an interable (usually a list or a tuple) containing colours,
         this then becomes the colours contained by the palette.
 
@@ -84,6 +84,9 @@ class palette:
                 colourettu.colour's, they will be loaded directly. Otherwise,
                 an attempt to convert each item to a colourettu.colour will
                 take place.
+            normalized_rgb(bool): assuming the list is to be converted to
+                colourettu.colour's, this parameter is passed on as part of
+                that conversion process.
 
         .. note:
 
@@ -97,7 +100,7 @@ class palette:
             if type(c) is type(colour_for_type):
                 self._colours.append(c)
             else:
-                self._colours.append(colour(c))
+                self._colours.append(colour(c, normalized_rgb))
 
         self._start = self._colours[0]
         self._end = self._colours[-1]
