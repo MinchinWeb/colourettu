@@ -111,21 +111,24 @@ class palette:
         self._start = self._colours[0]
         self._end = self._colours[-1]
 
-    def to_image(self, filename='palette.png', band_width=1, length=60, max_width=0, vertical=True):
+    def to_image(self, filename='palette.png', band_width=1, length=60,
+                 max_width=0, vertical=True, alpha_channel=False):
         """Creates an image from the palette.
 
         Args:
-            filename(optional[string]): filename of saved file. Defaults to
+            filename(Optional[string]): filename of saved file. Defaults to
                 ``palette.png`` in the current working directory.
             band_width(optional[int]): how wide each colour band should be.
                 Defaults to 1 pixel.
-            length(optional[int]): the length of the overall image in pixels.
+            length(Optional[int]): the length of the overall image in pixels.
                 This is the dimension orthogonal to ``band_width``. Defaults
                 to 60 pixels.
-            max_width(optional[int]): if ``band_width`` is not set and this is,
+            max_width(Optional[int]): if ``band_width`` is not set and this is,
                 this determines how wide the whole image should be.
-            vertical(optional[bool]): if the image runs vertical (``True``,
+            vertical(Optional[bool]): if the image runs vertical (``True``,
                 default) or horizontal (``False``).
+            alpha_channel(Optional[bool]): if ``True``, the created image will
+                have an Alpha channel. Defaults to ``False``.
         """
         # max_width is approximate
         # generate output pictures for documentation automatically
@@ -135,7 +138,10 @@ class palette:
         else:
             band_width = int(max_width/len(self._colours))
 
-        my_image = Image.new('RGB', (max_width, length))
+        if alpha_channel:
+            my_image = Image.new('RGBA', (max_width, length))
+        else:
+            my_image = Image.new('RGB', (max_width, length))
         image_loaded = my_image.load()
 
         x = 0
