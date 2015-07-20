@@ -97,8 +97,8 @@ class colour:
                         (type(mycolour[1]) in (float, int)) and
                         (type(mycolour[2]) in (float, int))):
                         if((0 <= mycolour[0] <= 1) and
-                            (0 <= mycolour[1] <= 1) and
-                            (0 <= mycolour[2] <= 1)):
+                           (0 <= mycolour[1] <= 1) and
+                           (0 <= mycolour[2] <= 1)):
                             self._r = int(mycolour[0]*255)
                             self._g = int(mycolour[1]*255)
                             self._b = int(mycolour[2]*255)

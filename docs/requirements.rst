@@ -16,7 +16,7 @@ Testing *colourettu* requires:
 
 Then run (from the base directory)::
 
-	green tests
+	green test -vv
 
 
 Documentation Generation

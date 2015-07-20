@@ -207,13 +207,12 @@ class Test_Colour(unittest.TestCase):
         c5 = colourettu.colour('#123456')
         c6 = c5
         c7 = colourettu.colour('#000000')
-        c8 = colourettu.colour([0,0,0])
-        
+        c8 = colourettu.colour([0, 0, 0])
+
         self.assertEqual(c1, c2)
         self.assertEqual(c3, c4)
         self.assertEqual(c5, c6)
         self.assertEqual(c7, c8)
-
 
 
 class Test_Contrast(unittest.TestCase):

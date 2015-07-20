@@ -1,6 +1,7 @@
 Changelog
 =========
 
+- :feature:'8' allow addition of palettes and palettes and colours
 - :support:`-` manage changelog with `Releases <https://github.com/bitprophet/releases>`_
 - :feature:`-` add `palette` class
 - :feature:`-` allow creation of colours from normalized rgb values

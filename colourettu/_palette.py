@@ -78,6 +78,41 @@ class palette:
     def __len__(self):
         return(len(self._colours))
 
+    def __add__(self, other):
+        """
+        - adding two `colourettu.palette`s will concatenate the two together
+        - if two `colourettu.palette`s are added, and the last colour of the
+        first palette is the same as the first colour of the second palette,
+        that colour will only appear once in the new palette
+        - `colourettu.palette`s and `colourettu.colour`s can be added to
+        create new `colourettu.palette`s
+        """
+        colour_for_type = colour()
+        palette_for_type = palette()
+        if type(other) is type(colour_for_type):
+            self._colours.append(other)
+            self._end = other
+            return self
+        elif type(other) is type(palette_for_type):
+            if (self._end == other._start):
+                self._colours.extend(other._colours[1:])
+            else:
+                self._colours.extend(other._colours)
+            self._end = other._end
+            return self
+        else:
+            raise TypeError('unsupported opperand type(s) for +: {} and {}'.format(type(self), type(other)))
+
+    def __radd__(self, other):
+        # used for `colour + palette`
+        colour_for_type = colour()
+        if type(other) is type(colour_for_type):
+            self._colours.insert(0, other)
+            self._start = other
+            return self
+        else:
+            raise TypeError('unsupported opperand type(s) for +: {} and {}'.format(type(self), type(other)))
+
     # TO-DO     def __init__(self)   #this allows :  for colour in palette:
 
     def from_list(self, list_of_colours, normalized_rgb=False):
