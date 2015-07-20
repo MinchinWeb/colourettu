@@ -1,0 +1,479 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>colourettu._colour &mdash; Colourettu 1.1.0 documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/cloud.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noticia+Text|Open+Sans|Droid+Sans+Mono" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '1.1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../../_static/jquery.cookie.js"></script>
+    <script type="text/javascript" src="../../_static/cloud.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="top" title="Colourettu 1.1.0 documentation" href="../../index.html" />
+    <link rel="up" title="Module code" href="../index.html" /> 
+        <meta name="viewport" content="width=device-width, initial-scale=1"><script type="text/javascript">
+var ga_enabled = !$.cookie('disable-ga');
+if(ga_enabled){
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-384291-3']);
+  _gaq.push(['_setCookiePath', '/']);
+  _gaq.push(['_setDetectFlash', false]);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+}
+</script>
+  </head>
+  <body role="document">
+    <div class="relbar-top">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+    <li><a href="../../index.html">Colourettu 1.1.0 documentation</a> &raquo;</li>
+
+          <li class="nav-item nav-item-1"><a href="../index.html" accesskey="U">Module code</a> &raquo;</li> 
+      </ul>
+    </div>
+    </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for colourettu._colour</h1><div class="highlight"><pre>
+<span class="sd">&quot;&quot;&quot;This is part of colourettu. See http://minchin.ca/colourettu/ &quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sqrt</span><span class="p">,</span> <span class="nb">pow</span>
+
+
+<div class="viewcode-block" id="colour"><a class="viewcode-back" href="../../class-colour.html#colourettu.colour">[docs]</a><span class="k">class</span> <span class="nc">colour</span><span class="p">:</span>
+
+    <span class="sd">&#39;&#39;&#39;Base class for dealing with colours.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        mycolour (str, list, or tuple):  string of hex representation of colour</span>
+<span class="sd">            you are creating, or</span>
+<span class="sd">            a 3 item list or tuple of the red, green, and blue channels of</span>
+<span class="sd">            the colour you are creating. Default is &quot;#FFF&quot; (white).</span>
+
+<span class="sd">    Colours are created by calling the ``colour`` class. Colour values can</span>
+<span class="sd">    be provided via 3 or 6 digit hex notation, or providing a list or a</span>
+<span class="sd">    tuple of the Red, Green, and Blue values (as integers, if</span>
+<span class="sd">    ``normalized_rgb=False``, or as floating numbers between 0 and 1 if</span>
+<span class="sd">    ``normalized_rgb=True``).</span>
+
+<span class="sd">    .. code:: python</span>
+
+<span class="sd">        import colourettu</span>
+
+<span class="sd">        c1 = colourettu.colour()        # defaults to #FFF</span>
+<span class="sd">        c2 = colourettu.colour(&quot;#eee&quot;)  # equivalent to #EEEEEE</span>
+<span class="sd">        c3 = colourettu.colour(&quot;#456bda&quot;)</span>
+<span class="sd">        c4 = colourettu.colour([3, 56, 129])</span>
+<span class="sd">        c5 = colourettu.colour((63, 199, 233))</span>
+<span class="sd">        c6 = colourettu.colour([0.242, 0.434, 0.165], normalized_rgb=True)</span>
+
+<span class="sd">    The value of each channel can be pulled out:</span>
+
+<span class="sd">    .. code:: python</span>
+
+<span class="sd">        &gt;&gt;&gt; c4.red()</span>
+<span class="sd">        3</span>
+<span class="sd">        &gt;&gt;&gt; c4.green()</span>
+<span class="sd">        56</span>
+<span class="sd">        &gt;&gt;&gt; c4.blue()</span>
+<span class="sd">        129</span>
+
+<span class="sd">    You can also get the colour back as either a hex value, or a rgb tuple:</span>
+
+<span class="sd">    .. code:: python</span>
+
+<span class="sd">        &gt;&gt;&gt; c2.hex()</span>
+<span class="sd">        &#39;#EEEEEE&#39;</span>
+<span class="sd">        &gt;&gt;&gt; c2.rgb()</span>
+<span class="sd">        (238, 238, 238)</span>
+
+<span class="sd">    Colours are considered equal is the values of the R, G, and B channels match.</span>
+
+<span class="sd">    .. code:: python</span>
+
+<span class="sd">        &gt;&gt;&gt; c1 == c2</span>
+<span class="sd">        False</span>
+<span class="sd">        &gt;&gt;&gt; c2 == colourettu.color([238, 238, 238])</span>
+<span class="sd">        True</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="n">_r</span> <span class="o">=</span> <span class="n">_g</span> <span class="o">=</span> <span class="n">_b</span> <span class="o">=</span> <span class="bp">None</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mycolour</span><span class="o">=</span><span class="s">&quot;#FFF&quot;</span><span class="p">,</span> <span class="n">normalized_rgb</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">normalized_rgb</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="nb">bool</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s">&#39;normalized_rgb must be either True or False&#39;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">mycolour</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">str</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">mycolour</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s">&quot;#&quot;</span><span class="p">):</span>
+                <span class="n">myhex</span> <span class="o">=</span> <span class="n">mycolour</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">myhex</span><span class="p">)</span> <span class="o">%</span> <span class="mi">3</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&quot;Invalid Hex Colour&quot;</span><span class="p">)</span>
+                <span class="n">thirds</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">myhex</span><span class="p">)</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span>
+                <span class="n">r</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">myhex</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">thirds</span><span class="p">],</span> <span class="n">myhex</span><span class="p">[</span><span class="n">thirds</span><span class="p">:</span><span class="mi">2</span><span class="o">*</span><span class="n">thirds</span><span class="p">],</span> \
+                    <span class="n">myhex</span><span class="p">[</span><span class="mi">2</span><span class="o">*</span><span class="n">thirds</span><span class="p">:</span><span class="mi">3</span><span class="o">*</span><span class="n">thirds</span><span class="p">]</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">r</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                    <span class="n">r</span> <span class="o">=</span> <span class="n">r</span> <span class="o">+</span> <span class="n">r</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">g</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                    <span class="n">g</span> <span class="o">=</span> <span class="n">g</span> <span class="o">+</span> <span class="n">g</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                    <span class="n">b</span> <span class="o">=</span> <span class="n">b</span> <span class="o">+</span> <span class="n">b</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_r</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="mi">16</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_g</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="mi">16</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_b</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="mi">16</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&quot;Strings must start with &#39;#&#39;&quot;</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">type</span><span class="p">(</span><span class="n">mycolour</span><span class="p">)</span> <span class="ow">in</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">):</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">mycolour</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">normalized_rgb</span><span class="p">:</span>
+                    <span class="k">if</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">mycolour</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="ow">is</span> <span class="nb">int</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">mycolour</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="ow">is</span> <span class="nb">int</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">mycolour</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span> <span class="ow">is</span> <span class="nb">int</span><span class="p">):</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">_r</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_g</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_b</span> <span class="o">=</span> <span class="n">mycolour</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s">&#39;Tuple and Lists must be three integers if normalized_rgb=False.&#39;</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="p">((</span><span class="nb">type</span><span class="p">(</span><span class="n">mycolour</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="ow">in</span> <span class="p">(</span><span class="nb">float</span><span class="p">,</span> <span class="nb">int</span><span class="p">))</span> <span class="ow">and</span>
+                        <span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">mycolour</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="ow">in</span> <span class="p">(</span><span class="nb">float</span><span class="p">,</span> <span class="nb">int</span><span class="p">))</span> <span class="ow">and</span>
+                        <span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">mycolour</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span> <span class="ow">in</span> <span class="p">(</span><span class="nb">float</span><span class="p">,</span> <span class="nb">int</span><span class="p">))):</span>
+                        <span class="k">if</span><span class="p">((</span><span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">mycolour</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">)</span> <span class="ow">and</span>
+                           <span class="p">(</span><span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">mycolour</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">)</span> <span class="ow">and</span>
+                           <span class="p">(</span><span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">mycolour</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">)):</span>
+                            <span class="bp">self</span><span class="o">.</span><span class="n">_r</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">mycolour</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mi">255</span><span class="p">)</span>
+                            <span class="bp">self</span><span class="o">.</span><span class="n">_g</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">mycolour</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="mi">255</span><span class="p">)</span>
+                            <span class="bp">self</span><span class="o">.</span><span class="n">_b</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">mycolour</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">*</span><span class="mi">255</span><span class="p">)</span>
+                        <span class="k">else</span><span class="p">:</span>
+                            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&#39;Normalized RGB values must be between 0 and 1.&#39;</span><span class="p">)</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s">&#39;Tuples and Lists must be three floating point numbers if normalized_rgb=True&#39;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&#39;Tuples and Lists must be three items long.&#39;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s">&#39;Must supply a string, a list, or a tuple&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span><span class="p">(</span><span class="s">&#39;&lt;colourettu.colour {}&gt;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">hex</span><span class="p">()))</span>
+
+    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span><span class="p">(</span><span class="s">&#39;{}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">hex</span><span class="p">()))</span>
+
+    <span class="k">def</span> <span class="nf">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Colours are considered equal if the values of the R, G, and B channels match.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_r</span> <span class="ow">is</span> <span class="n">other</span><span class="o">.</span><span class="n">_r</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_g</span> <span class="ow">is</span> <span class="n">other</span><span class="o">.</span><span class="n">_g</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_b</span> <span class="ow">is</span> <span class="n">other</span><span class="o">.</span><span class="n">_b</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">hex</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Returns:</span>
+<span class="sd">            str: the colour as a HTML-sytle hex string</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="s">&quot;#{:02x}{:02x}{:02x}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_r</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_g</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_b</span><span class="p">)</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">red</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Returns:</span>
+<span class="sd">            int: value of the red channel of the colour</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_r</span>
+
+    <span class="k">def</span> <span class="nf">green</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Returns:</span>
+<span class="sd">            int: value of the green channel of the colour</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_g</span>
+
+    <span class="k">def</span> <span class="nf">blue</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Returns:</span>
+<span class="sd">            int: value of the blue channel of the colour</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_b</span>
+
+    <span class="k">def</span> <span class="nf">rgb</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Returns:</span>
+<span class="sd">            tuple: the rgb values of the colour (with values between 0 and 255)</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_r</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_g</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_b</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">normalized_rgb</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">r&#39;&#39;&#39;</span>
+<span class="sd">        Returns:</span>
+<span class="sd">            tuple: the rgb values of the colour (with values normalized between</span>
+<span class="sd">                   0.0 and 1.0)</span>
+
+<span class="sd">        .. note::</span>
+
+<span class="sd">            Uses the formula:</span>
+
+<span class="sd">            \\[ r_{norm} = \\begin{cases}</span>
+<span class="sd">            \\frac{r_{255}}{12.92}\\ \\qquad &amp;\\text{if $r_{255}$ $\\le$ 0.03928}</span>
+<span class="sd">            \\\\</span>
+<span class="sd">            \\left(\\frac{r_{255} + 0.055}{1.055}\\right)^{2.4}</span>
+<span class="sd">            \\quad &amp;\\text{otherwise}</span>
+<span class="sd">            \\end{cases} \\]</span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="sd">&#39;&#39;&#39;Source:</span>
+<span class="sd">        http://www.w3.org/TR/2008/REC-WCAG20-20081211/#relativeluminancedef</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+
+        <span class="n">r1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_r</span> <span class="o">/</span> <span class="mi">255</span>
+        <span class="n">g1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_g</span> <span class="o">/</span> <span class="mi">255</span>
+        <span class="n">b1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_b</span> <span class="o">/</span> <span class="mi">255</span>
+
+        <span class="k">if</span> <span class="n">r1</span> <span class="o">&lt;=</span> <span class="mf">0.03928</span><span class="p">:</span>
+            <span class="n">r2</span> <span class="o">=</span> <span class="n">r1</span> <span class="o">/</span> <span class="mf">12.92</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">r2</span> <span class="o">=</span> <span class="nb">pow</span><span class="p">(((</span><span class="n">r1</span> <span class="o">+</span> <span class="mf">0.055</span><span class="p">)</span> <span class="o">/</span> <span class="mf">1.055</span><span class="p">),</span> <span class="mf">2.4</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">g1</span> <span class="o">&lt;=</span> <span class="mf">0.03928</span><span class="p">:</span>
+            <span class="n">g2</span> <span class="o">=</span> <span class="n">g1</span> <span class="o">/</span> <span class="mf">12.92</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">g2</span> <span class="o">=</span> <span class="nb">pow</span><span class="p">(((</span><span class="n">g1</span> <span class="o">+</span> <span class="mf">0.055</span><span class="p">)</span> <span class="o">/</span> <span class="mf">1.055</span><span class="p">),</span> <span class="mf">2.4</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">b1</span> <span class="o">&lt;=</span> <span class="mf">0.03928</span><span class="p">:</span>
+            <span class="n">b2</span> <span class="o">=</span> <span class="n">b1</span> <span class="o">/</span> <span class="mf">12.92</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">b2</span> <span class="o">=</span> <span class="nb">pow</span><span class="p">(((</span><span class="n">b1</span> <span class="o">+</span> <span class="mf">0.055</span><span class="p">)</span> <span class="o">/</span> <span class="mf">1.055</span><span class="p">),</span> <span class="mf">2.4</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="p">(</span><span class="n">r2</span><span class="p">,</span> <span class="n">g2</span><span class="p">,</span> <span class="n">b2</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">luminance</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;calls ``colourettu.luminance()`` on the colour defined&#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="n">_luminance</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">contrast</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">myothercolour</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;calls ``colourettu.contrast()`` on the colour defined&#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="n">_contrast</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">myothercolour</span><span class="p">)</span>
+
+</div>
+<span class="k">def</span> <span class="nf">_luminance</span><span class="p">(</span><span class="n">mycolour</span><span class="p">):</span>
+    <span class="sd">r&#39;&#39;&#39;Determine (relative) luminance of a colour.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        mycolour(colourettu.colour): a colour</span>
+
+<span class="sd">    Luminance is a measure of how &#39;bright&#39; a colour is. Values are</span>
+<span class="sd">    normalized so that the Luminance of White is 1 and the Luminance of</span>
+<span class="sd">    Black is 0. That is to say:</span>
+
+<span class="sd">    .. code:: python</span>
+
+<span class="sd">        &gt;&gt;&gt; colourettu.luminance(&quot;#FFF&quot;)    # white</span>
+<span class="sd">        0.9999999999999999</span>
+<span class="sd">        &gt;&gt;&gt; colourettu.luminance(&quot;#000&quot;)    # black</span>
+<span class="sd">        0.0</span>
+
+<span class="sd">    ``luminance()`` can also be called on an already existing colour:</span>
+
+<span class="sd">    .. code:: python</span>
+
+<span class="sd">        &gt;&gt;&gt; c3.luminance()</span>
+<span class="sd">        0.2641668488934239</span>
+<span class="sd">        &gt;&gt;&gt; colourettu.luminance(c4)</span>
+<span class="sd">        0.08007571268096524</span>
+
+<span class="sd">    .. note::</span>
+
+<span class="sd">        Uses the formula:</span>
+
+<span class="sd">        \\[ lum = \\sqrt{0.299 r^2 + 0.587 g^2 + 0.114 b^2} \\]</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="n">colour_for_type</span> <span class="o">=</span> <span class="n">colour</span><span class="p">()</span>
+    <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">mycolour</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">type</span><span class="p">(</span><span class="n">colour_for_type</span><span class="p">):</span>
+        <span class="n">mycolour2</span> <span class="o">=</span> <span class="n">mycolour</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">mycolour2</span> <span class="o">=</span> <span class="n">colour</span><span class="p">(</span><span class="n">mycolour</span><span class="p">)</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s">&quot;Must supply a colourettu.colour&quot;</span><span class="p">)</span>
+
+    <span class="p">(</span><span class="n">r1</span><span class="p">,</span> <span class="n">g1</span><span class="p">,</span> <span class="n">b1</span><span class="p">)</span> <span class="o">=</span> <span class="n">mycolour2</span><span class="o">.</span><span class="n">normalized_rgb</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">sqrt</span><span class="p">(</span><span class="mf">0.299</span><span class="o">*</span><span class="nb">pow</span><span class="p">(</span><span class="n">r1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.587</span><span class="o">*</span><span class="nb">pow</span><span class="p">(</span><span class="n">g1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.114</span><span class="o">*</span><span class="nb">pow</span><span class="p">(</span><span class="n">b1</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+
+
+<span class="k">def</span> <span class="nf">_contrast</span><span class="p">(</span><span class="n">colour1</span><span class="p">,</span> <span class="n">colour2</span><span class="p">):</span>
+    <span class="sd">r&#39;&#39;&#39;Determines the contrast between two colours.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        colour1 (colourettu.colour): a colour</span>
+<span class="sd">        colour2 (colourettu.colour): a second colour</span>
+
+<span class="sd">    Contrast the difference in (perceived) brightness between colours.</span>
+<span class="sd">    Values vary between 1:1 (a given colour on itself) and 21:1 (white on</span>
+<span class="sd">    black).</span>
+
+<span class="sd">    To compute contrast, two colours are required.</span>
+
+<span class="sd">    .. code:: python</span>
+
+<span class="sd">        &gt;&gt;&gt; colourettu.contrast(&quot;#FFF&quot;, &quot;#FFF&quot;) # white on white</span>
+<span class="sd">        1.0</span>
+<span class="sd">        &gt;&gt;&gt; colourettu.contrast(c1, &quot;#000&quot;) # black on white</span>
+<span class="sd">        20.999999999999996</span>
+<span class="sd">        &gt;&gt;&gt; colourettu.contrast(c4, c5)</span>
+<span class="sd">        4.363552233203198</span>
+
+<span class="sd">    ``contrast`` can also be called on an already existing colour, but a</span>
+<span class="sd">    second colour needs to be provided:</span>
+
+<span class="sd">    .. code:: python</span>
+
+<span class="sd">        &gt;&gt;&gt; c4.contrast(c5)</span>
+<span class="sd">        4.363552233203198</span>
+
+<span class="sd">    .. note::</span>
+
+<span class="sd">        Uses the formula:</span>
+
+<span class="sd">        \\[ contrast = \\frac{lum_1 + 0.05}{lum_2 + 0.05} \\]</span>
+
+<span class="sd">    **Use of Contrast**</span>
+
+<span class="sd">    For Basic readability, the ANSI standard is a contrast of 3:1 between</span>
+<span class="sd">    the text and it&#39;s background. The W3C proposes this as a minimum</span>
+<span class="sd">    accessibility standard for regular text under 18pt and bold text under</span>
+<span class="sd">    14pt. This is referred to as the *A* standard. The W3C defines a higher</span>
+<span class="sd">    *AA* standard with a minimum contrast of 4.5:1. This is approximately</span>
+<span class="sd">    equivalent to 20/40 vision, and is common for those over 80. The W3C</span>
+<span class="sd">    define an even higher *AAA* standard with a 7:1 minimum contrast. This</span>
+<span class="sd">    would be equivalent to 20/80 vision. Generally, it is assumed that those</span>
+<span class="sd">    with vision beyond this would access the web with the use of assistive</span>
+<span class="sd">    technologies.</span>
+
+<span class="sd">    If needed, these constants are stored in the library.</span>
+
+<span class="sd">    .. code:: python</span>
+
+<span class="sd">        &gt;&gt;&gt; colourettu.A_contrast</span>
+<span class="sd">        3.0</span>
+<span class="sd">        &gt;&gt;&gt; colourettu.AA_contrast</span>
+<span class="sd">        4.5</span>
+<span class="sd">        &gt;&gt;&gt; colourettu.AAA_contrast</span>
+<span class="sd">        7.0</span>
+
+<span class="sd">    I&#39;ve also found mention that if the contrast is *too* great, this can</span>
+<span class="sd">    also cause readability problems when reading longer passages. This is</span>
+<span class="sd">    confirmed by personal experience, but I have been (yet) unable to find</span>
+<span class="sd">    any quantitative research to this effect.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="n">colour_for_type</span> <span class="o">=</span> <span class="n">colour</span><span class="p">()</span>
+    <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">colour1</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">type</span><span class="p">(</span><span class="n">colour_for_type</span><span class="p">):</span>
+        <span class="n">mycolour1</span> <span class="o">=</span> <span class="n">colour1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">mycolour1</span> <span class="o">=</span> <span class="n">colour</span><span class="p">(</span><span class="n">colour1</span><span class="p">)</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s">&quot;colour1 must be a colourettu.colour&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">colour2</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">type</span><span class="p">(</span><span class="n">colour_for_type</span><span class="p">):</span>
+        <span class="n">mycolour2</span> <span class="o">=</span> <span class="n">colour2</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">mycolour2</span> <span class="o">=</span> <span class="n">colour</span><span class="p">(</span><span class="n">colour2</span><span class="p">)</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s">&quot;colour2 must be a colourettu.colour&quot;</span><span class="p">)</span>
+
+    <span class="n">lum1</span> <span class="o">=</span> <span class="n">mycolour1</span><span class="o">.</span><span class="n">luminance</span><span class="p">()</span>
+    <span class="n">lum2</span> <span class="o">=</span> <span class="n">mycolour2</span><span class="o">.</span><span class="n">luminance</span><span class="p">()</span>
+
+    <span class="n">minlum</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">lum1</span><span class="p">,</span> <span class="n">lum2</span><span class="p">)</span>
+    <span class="n">maxlum</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">lum1</span><span class="p">,</span> <span class="n">lum2</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="p">(</span><span class="n">maxlum</span> <span class="o">+</span> <span class="mf">0.05</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">minlum</span> <span class="o">+</span> <span class="mf">0.05</span><span class="p">)</span>
+
+<span class="n">_A_contrast</span> <span class="o">=</span> <span class="mf">3.0</span>
+<span class="n">_AA_contrast</span> <span class="o">=</span> <span class="mf">4.5</span>
+<span class="n">_AAA_contrast</span> <span class="o">=</span> <span class="mf">7.0</span>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+        <p class="logo"><a href="../../index.html" title="index">
+          <img class="logo" src="../../_static/colourettu-logo.png" alt="Logo"/>
+        </a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="relbar-bottom">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+    <li><a href="../../index.html">Colourettu 1.1.0 documentation</a> &raquo;</li>
+
+          <li class="nav-item nav-item-1"><a href="../index.html" >Module code</a> &raquo;</li> 
+      </ul>
+    </div>
+    </div>
+
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2014-15, William Minchin.
+    </div><script type="text/javascript">
+    if(ga_enabled){
+        document.write("<div class=\"footer\">This page uses <a href=\"http://analytics.google.com\">Google Analytics</a> to collect statistics. ");
+        document.write("Click <button title=\"set cookie to disable analytics for this site\" class=\"link\" onclick=\"$.cookie('disable-ga', 'true', {expires: 3650, path: '/'}); window.location.reload(); return false; \">here</button> to disable analytics for this site.");
+        document.write("</div>");
+    }else{
+        document.write("<div class=\"footer\">Google Analytics has been disabled. ");
+        document.write("Click <button title=\"set cookie to re-enable analytics for this site\" class=\"link\" onclick=\"$.cookie('disable-ga', null, {path: '/'}); window.location.reload(); return false; \">here</button> to re-enable analytics for this site.");
+    };
+</script>
+    <!-- cloud_sptheme 1.4 -->
+  </body>
+</html>
