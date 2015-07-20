@@ -20,8 +20,10 @@ Contents
 
 .. toctree::
    :maxdepth: 2
+   :glob:
 
-   module-colourettu
+   class-*
+   function-*
    requirements
    upgrades
    changelog

@@ -19,7 +19,7 @@ class palette:
     .. note::
 
         If a *string*, *tuple*, or *list* is provided for `start_colour` or
-        `end_colour`, a conversion to a *colourettu.colour* object will be
+        `end_colour`, a conversion to a :py:class:`colourettu.colour` object will be
         attempted.
 
     .. code:: python

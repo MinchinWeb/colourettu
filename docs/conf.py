@@ -62,7 +62,7 @@ master_doc = 'index'
 # General information about the project.
 project = 'Colourettu'
 year = datetime.now().year
-year = str(year)[:-2]
+year = str(year)[-2:]
 copyright = '2014-{}, William Minchin'.format(year)
 
 # The version info for the project you're documenting, acts as replacement for

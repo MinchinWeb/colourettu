@@ -1,9 +1,11 @@
 Changelog
 =========
 
-- :feature:'8' allow addition of palettes and palettes and colours
+.. currentmodule:: colourettu
+
+- :feature:`8` allow addition of palettes, and palettes and colours
 - :support:`-` manage changelog with `Releases <https://github.com/bitprophet/releases>`_
-- :feature:`-` add `palette` class
+- :feature:`-` add :py:class:`palette` class
 - :feature:`-` allow creation of colours from normalized rgb values
 - :support:`-` update to Sphinx 1.3 for documentation generation
 
@@ -15,4 +17,4 @@ Changelog
 - :bug:`-` include extra files so module can install off of pip
 - :release:`0.1.0 <2014-12-11>`
 - :feature:`-` first working version!
-- :feature:`-` base `colour` class, and (relative) `luminance` and `contrast` functions
+- :feature:`-` base :py:class:`colour` class, and (relative) :py:func:`luminance` and :py:func:`contrast` functions
