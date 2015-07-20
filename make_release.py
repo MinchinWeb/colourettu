@@ -4,7 +4,7 @@ For now, it just prints what they are.'''
 print('Commit current changes')
 print('Update version number in __init__.py')
 print('Test pass?')
-print('    run `green -vv`')
+print('    run `green test -vv`')
 print('Update documenation')
 print('    cd docs')
 print('    make html')

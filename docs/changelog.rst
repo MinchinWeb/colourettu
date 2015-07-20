@@ -3,6 +3,7 @@ Changelog
 
 .. currentmodule:: colourettu
 
+- :support:`5` add project logo
 - :feature:`8` allow addition of palettes, and palettes and colours
 - :support:`-` manage changelog with `Releases <https://github.com/bitprophet/releases>`_
 - :feature:`-` add :py:class:`palette` class
