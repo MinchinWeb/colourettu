@@ -239,7 +239,8 @@ def _luminance(mycolour):
         \\[ lum = \\sqrt{0.299 r^2 + 0.587 g^2 + 0.114 b^2} \\]
     '''
 
-    if type(mycolour) is colour:
+    colour_for_type = colour()
+    if type(mycolour) is type(colour_for_type):
         mycolour2 = mycolour
     else:
         try:
@@ -318,7 +319,8 @@ def _contrast(colour1, colour2):
     any quantitative research to this effect.
     '''
 
-    if type(colour1) is colour:
+    colour_for_type = colour()
+    if type(colour1) is type(colour_for_type):
         mycolour1 = colour1
     else:
         try:
@@ -326,7 +328,7 @@ def _contrast(colour1, colour2):
         except:
             raise TypeError("colour1 must be a colourettu.colour")
 
-    if type(colour2) is colour:
+    if type(colour2) is type(colour_for_type):
         mycolour2 = colour2
     else:
         try:
