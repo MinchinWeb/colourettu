@@ -32,7 +32,12 @@ Installation
 Documentation
 -------------
 
-Full documentation is at http://minchin.ca/colourettu/
+Full documentation is available at http://minchin.ca/colourettu/
+
+Changelog
+---------
+
+Full changelog is available at http://minchin.ca/colourettu/changelog.html
 
 Links
 -----

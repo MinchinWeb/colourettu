@@ -12,7 +12,7 @@ print('    index.html')
 print('    cd ..')
 print('Build distribution')
 print('    python -m pip install pip -U')
-print('    pip install setuptools twine -U')
+print('    pip install setuptools wheel twine -U')
 print('    python setup.py sdist bdist_egg bdist_wheel')
 print('Test distribution')
 # see https://hynek.me/articles/sharing-your-labor-of-love-pypi-quick-and-dirty/

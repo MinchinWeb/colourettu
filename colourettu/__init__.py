@@ -11,4 +11,4 @@ from ._colour import _AAA_contrast as AAA_contrast
 from ._palette import palette
 
 
-__version__ = '1.1.0-a2'
+__version__ = '1.1.0'

@@ -20,7 +20,7 @@ def find_version(*file_paths):
     raise RuntimeError("Unable to find version string.")
 
 
-long_description = read('readme.rst') + '\n' + read('changes.rst')
+long_description = read('readme.rst')
 
 
 setup(
@@ -29,13 +29,13 @@ setup(
     url='http://github.com/minchinweb/colourettu',
     license='MIT License',
     author='William Minchin',
-    install_requires=['',
+    install_requires=['Pillow',
                       ],
     author_email='w_minchin@hotmail.com',
     description='Colour related functions',
     long_description=long_description,
     packages=['colourettu'],
-    package_data={'': ['readme.rst', 'changes.rst', 'LICENSE']},
+    package_data={'': ['readme.rst', 'LICENSE']},
     include_package_data=True,
     platforms='any',
     classifiers=[

@@ -3,6 +3,7 @@ Changelog
 
 .. currentmodule:: colourettu
 
+- :release:`1.1.0 <2015-07-20>`
 - :support:`5` add project logo
 - :feature:`8` allow addition of palettes, and palettes and colours
 - :support:`-` manage changelog with `Releases <https://github.com/bitprophet/releases>`_
