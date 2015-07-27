@@ -6,18 +6,25 @@ python:
   - "3.2"
   - "3.3"
   - "3.4"
+  - "3.5-dev"
   - "pypy"
   - "pypy3"
 matrix:
   allow_failures:
     - python: "2.7"
     - python: "pypy"
+    - python: "3.5-dev"
+# Cache Dependencies
+cache:
+  directories:
+    - $HOME/travis/.cache/pip
 # command to install dependencies
 install:
   - pip install --upgrade pip
   - pip install -r requirements.txt
   - pip install -r tests/requirements.txt
   - pip install coveralls
+before_script:
   - green --version
 # command to run tests
 script: green tests -vvr
