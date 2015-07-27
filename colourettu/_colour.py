@@ -199,14 +199,14 @@ class colour:
 
     def luminance(self):
         '''calls ``colourettu.luminance()`` on the colour defined'''
-        return _luminance(self)
+        return luminance(self)
 
     def contrast(self, myothercolour):
         '''calls ``colourettu.contrast()`` on the colour defined'''
-        return _contrast(self, myothercolour)
+        return contrast(self, myothercolour)
 
 
-def _luminance(mycolour):
+def luminance(mycolour):
     r'''Determine (relative) luminance of a colour.
 
     Args:
@@ -253,7 +253,7 @@ def _luminance(mycolour):
     return sqrt(0.299*pow(r1, 2) + 0.587*pow(g1, 2) + 0.114*pow(b1, 2))
 
 
-def _contrast(colour1, colour2):
+def contrast(colour1, colour2):
     r'''Determines the contrast between two colours.
 
     Args:
@@ -344,6 +344,6 @@ def _contrast(colour1, colour2):
 
     return (maxlum + 0.05) / (minlum + 0.05)
 
-_A_contrast = 3.0
-_AA_contrast = 4.5
-_AAA_contrast = 7.0
+A_contrast = 3.0
+AA_contrast = 4.5
+AAA_contrast = 7.0
