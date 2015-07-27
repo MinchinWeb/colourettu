@@ -11,7 +11,7 @@ Testing
 
 Testing *colourettu* requires:
 
-.. include:: ../test/requirements.txt
+.. include:: ../tests/requirements.txt
    :literal:
 
 Then run (from the base directory)::

@@ -1,7 +1,7 @@
 .. image:: https://raw.githubusercontent.com/MinchinWeb/colourettu/master/docs/colourettu-logo-4x.png
     :align: center
 
-Colourettu is a small collection of colour functions in Python. These can be used to determine the (relative) luminosity of a colour and the contrast between two colours. There is also the palette class for dealing with a ‘list’ of colours.
+Colourettu is a small collection of colour functions in Python. These can be used to determine the (relative) luminosity of a colour and the contrast between two colours. There is also the palette class for dealing with a 'list' of colours.
 
 .. image:: https://img.shields.io/pypi/v/colourettu.svg?style=flat
     :target: https://pypi.python.org/pypi/colourettu/
