@@ -2,7 +2,8 @@
 For now, it just prints what they are.'''
 
 print('Commit current changes')
-print('Update version number in __init__.py')
+# test with `isort` -- https://github.com/timothycrosley/isort
+print('Update version number in __init__.py')  # use `bumpversion` ?? -- https://pypi.python.org/pypi/bumpversion
 print('Test pass?')
 print('    run `green test -vv`')
 print('Update documenation')
