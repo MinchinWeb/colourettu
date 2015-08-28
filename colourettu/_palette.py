@@ -1,8 +1,10 @@
 """This is part of colourettu. See http://minchin.ca/colourettu/ """
 
 from __future__ import absolute_import
-from ._colour import colour
+
 from PIL import Image
+
+from ._colour import colour
 
 
 class palette:

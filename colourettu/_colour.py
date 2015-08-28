@@ -1,6 +1,6 @@
 """This is part of colourettu. See http://minchin.ca/colourettu/ """
 
-from math import sqrt, pow
+from math import pow, sqrt
 
 
 class colour:

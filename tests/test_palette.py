@@ -1,7 +1,8 @@
-import unittest
-import colourettu
-from unittest import skip
 import os
+import unittest
+from unittest import skip
+
+import colourettu
 
 
 class Test_Palette(unittest.TestCase):
