@@ -32,7 +32,7 @@ class colour:
 
     The value of each channel can be pulled out:
 
-    .. code:: python
+    .. code:: pycon
 
         >>> c4.red()
         3
@@ -43,7 +43,7 @@ class colour:
 
     You can also get the colour back as either a hex value, or a rgb tuple:
 
-    .. code:: python
+    .. code:: pycon
 
         >>> c2.hex()
         '#EEEEEE'
@@ -52,7 +52,7 @@ class colour:
 
     Colours are considered equal is the values of the R, G, and B channels match.
 
-    .. code:: python
+    .. code:: pycon
 
         >>> c1 == c2
         False
@@ -216,7 +216,7 @@ def luminance(mycolour):
     normalized so that the Luminance of White is 1 and the Luminance of
     Black is 0. That is to say:
 
-    .. code:: python
+    .. code:: pycon
 
         >>> colourettu.luminance("#FFF")    # white
         0.9999999999999999
@@ -225,7 +225,7 @@ def luminance(mycolour):
 
     ``luminance()`` can also be called on an already existing colour:
 
-    .. code:: python
+    .. code:: pycon
 
         >>> c3.luminance()
         0.2641668488934239
@@ -266,7 +266,7 @@ def contrast(colour1, colour2):
 
     To compute contrast, two colours are required.
 
-    .. code:: python
+    .. code:: pycon
 
         >>> colourettu.contrast("#FFF", "#FFF") # white on white
         1.0
@@ -278,7 +278,7 @@ def contrast(colour1, colour2):
     ``contrast`` can also be called on an already existing colour, but a
     second colour needs to be provided:
 
-    .. code:: python
+    .. code:: pycon
 
         >>> c4.contrast(c5)
         4.363552233203198
@@ -304,7 +304,7 @@ def contrast(colour1, colour2):
 
     If needed, these constants are stored in the library.
 
-    .. code:: python
+    .. code:: pycon
 
         >>> colourettu.A_contrast
         3.0
