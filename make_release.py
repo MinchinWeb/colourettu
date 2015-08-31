@@ -1,29 +1,37 @@
 '''Eventaully, this file will execute the necessary steps.
 For now, it just prints what they are.'''
 
+import os
 import re
+import shutil
 import subprocess
+from pathlib import Path
 from sys import exit
 
 import colorama
-from colorama import Fore, Style
-from minchin import text
-from pathlib import Path
-import os
 import semantic_version
+from colorama import Fore, Style
+from isort import SortImports
+from minchin import text
+from datetime import datetime
 
 # also requires:
-# isort
-# git on commandline
+# - green
+#
+# assumes:
+# - git on commandline
+# - tests written for green
+# - green available on command line
 
 __version__ = "0.1.0"
 
 version_re = re.compile(r"__version__ = [\"\']{1,3}(?P<major>\d+)\.(?P<minor>\d+).(?P<patch>\d+)(?:-(?P<prerelease>[0-9A-Za-z\.]+))?(?:\+[0-9A-Za-z-\.]+)?[\"\']{1,3}")
 bare_version_re = re.compile(r"__version__ = [\"\']{1,3}([\.\dA-Za-z+-]*)[\"\']{1,3}")
+list_match_re = re.compile(r"(?P<leading>[ \t]*)(?P<mark>[-\*+]) +:\w+:")
 
 
 def here_directory():
-    return(Path(os.getcwd()))
+    return(Path.cwd())
 
 
 def source_directory():
@@ -38,6 +46,10 @@ def version_file():
     return(source_directory() / "__init__.py")
 
 
+def changelog_file():
+    return(here_directory() / 'docs' / "changelog.rst")
+
+
 def git_check():
     """Check for uncomitted changes"""
     git_status = subprocess.check_output(['git', 'status', '--porcelain'])
@@ -48,10 +60,12 @@ def git_check():
 
 
 def sort_imports(my_dir):
-    """Sort Imports"""
+    """Sort Imports
 
-    import_status = subprocess.check_output(['isort', '-rc', my_dir])
-    print('{}{}'.format(" "*4, import_status.decode('ascii')))
+    Assumes `my_dir` is a Pathlib object"""
+
+    for f in my_dir.glob('**/*.py'):
+        SortImports(str(f))
 
 
 def run_tests():
@@ -67,38 +81,75 @@ def update_version_number(update_level='patch'):
     text.clock_on_right('Update version number')
 
     """Find current version"""
-    with open(str(version_file()), 'r') as f:
-        for line in f:
-            version_matches = bare_version_re.match(line)
-            if version_matches:
-                bare_version_str = version_matches.groups(0)[0]
-                if semantic_version.validate(bare_version_str):
-                    current_version = semantic_version.Version(bare_version_str)
-                    print("{}Current version is {}".format(" "*4, current_version))
-                else:
-                    current_version = semantic_version.Version.coerce(bare_version_str)
-                    if not text.query_yes_quit("{}I think the version is {}. Use it?".format(" "*4, current_version), default="yes"):
-                        exit(Fore.RED + 'Please set an initial version number to continue')
+    temp_file = version_file().parent / ("~" + version_file().name)
+    with open(str(temp_file), 'w') as g:
+        with open(str(version_file()), 'r') as f:
+            for line in f:
+                version_matches = bare_version_re.match(line)
+                if version_matches:
+                    bare_version_str = version_matches.groups(0)[0]
+                    if semantic_version.validate(bare_version_str):
+                        current_version = semantic_version.Version(bare_version_str)
+                        print("{}Current version is {}".format(" "*4, current_version))
+                    else:
+                        current_version = semantic_version.Version.coerce(bare_version_str)
+                        if not text.query_yes_quit("{}I think the version is {}. Use it?".format(" "*4, current_version), default="yes"):
+                            exit(Fore.RED + 'Please set an initial version number to continue')
 
-    """Determine new version number"""
-    if update_level is 'major':
-        current_version = current_version.next_major()
-    elif update_level is 'minor':
-        current_version = current_version.next_minor()
-    elif update_level is 'patch':
-        current_version = current_version.next_patch()
-    elif update_level is 'prerelease':
-        if not current_version.prerelease:
-            current_version.prerelease = ('dev', )
-    else:
-        exit(Fore.RED + 'Cannot update version in {} mode'.format(update_level))
+                    """Determine new version number"""
+                    if update_level is 'major':
+                        current_version = current_version.next_major()
+                    elif update_level is 'minor':
+                        current_version = current_version.next_minor()
+                    elif update_level is 'patch':
+                        current_version = current_version.next_patch()
+                    elif update_level is 'prerelease':
+                        if not current_version.prerelease:
+                            current_version = current_version.next_patch()
+                            current_version.prerelease = ('dev', )
+                    else:
+                        exit(Fore.RED + 'Cannot update version in {} mode'.format(update_level))
 
-    print("{}New version is {}".format(" "*4, current_version))
+                    print("{}New version is     {}".format(" "*4, current_version))
 
-    """Update version number"""
+                    """Update version number"""
+                    line = '__version__ = "{}"'.format(current_version)
+                print(line, file=g, end="")
+        print('', file=g)  # add a blank line at the end of the file
+    shutil.copyfile(str(temp_file), str(version_file()))
+    os.remove(str(temp_file))
+    return(current_version)
+
+
+def add_release_to_changelog(version):
+    """Add release line at the top of the first list it finds"""
+    temp_file = changelog_file().parent / ("~" + changelog_file().name)
+    now = datetime.today()
+    release_added = False
+    with open(str(temp_file), 'w') as g:
+        with open(str(changelog_file()), 'r') as f:
+            for line in f:
+                list_match = list_match_re.match(line)
+                if list_match and not release_added:
+                    release_line = "{}{} :release:`{} <{}-{:02}-{:02}>`".format(
+                                        list_match.group("leading"),
+                                        list_match.group("mark"),
+                                        version, now.year, now.month, now.day)
+                    print(release_line, file=g)
+                    release_added = True
+                print(line, file=g, end="")
+            if not release_added:
+                release_line = "{}{} :release:`{} <{}-{:02}-{:02}>`".format(
+                                " ", "-", version, now.year, now.month, now.day)
+                print(release_line, file=g)
+        print('', file=g)  # add a blank line at the end of the file
+    shutil.copyfile(str(temp_file), str(changelog_file()))
+    os.remove(str(temp_file))
+
 
 
 def print_all_steps():
+    print('Add release to documenation')
     print('Update documenation')
     print('    cd docs')
     print('    make html')
@@ -111,12 +162,6 @@ def print_all_steps():
     print('Test distribution')
     # see https://hynek.me/articles/sharing-your-labor-of-love-pypi-quick-and-dirty/
     # use `vex` for virtual envs?
-    print('Push new documentation')
-    print('    cd ..\colourettu-gh-pages')
-    print('   (copy changes)')
-    print('   git add -a')
-    print('   git commit -m "Documentation updated!"')
-    print('   cd ..\colourettu')
     print('Push to test PyPI')
     print('    python setup.py sdist upload -r pypitest')
     print('    pip install -i https://testpypi.python.org/pypi [package-name]')
@@ -128,6 +173,13 @@ def print_all_steps():
     print('Tag release')
     print('   tag v(version number)')
     print('   push tag')
+    print('Push new documentation')
+    print('    cd ..\colourettu-gh-pages')
+    print('   (copy changes)')
+    print('   git add -a')
+    print('   git commit -m "Documentation updated!"')
+    print('   cd ..\colourettu')
+    print('Push to git repo')
 
     # swtich to twine  https://pypi.python.org/pypi/twine/
     # twine upload dist/*
@@ -144,10 +196,11 @@ def main():
 
     # git_check()
     # text.clock_on_right('Sort import statements')
-    # sort_imports(str(source_directory()))
-    # sort_imports(str(test_directory()))
+    # sort_imports(source_directory())
+    # sort_imports(test_directory())
     # run_tests()
-    update_version_number('patch')
+    new_version = update_version_number('patch')
+    add_release_to_changelog(new_version)
 
     # after everything is done
     update_version_number('prerelease')
