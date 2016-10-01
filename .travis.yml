@@ -20,8 +20,10 @@ matrix:
     - python: "3.6-dev"
     - env: DOC_TESTS=true
   fast_finish: true
+  exclude:
+    - env: DOC_TESTS=true
   include:
-    - env: UNIT_TESTS=ture
+    - env: UNIT_TESTS=true
     - python: 3.5
       env: DOC_TESTS=true
 # Cache Dependencies
@@ -32,33 +34,33 @@ cache:
 install:
   - pip install --upgrade pip
   - pip install -r requirements.txt
-  - if [ "$UNIT_TESTS" = "true"]; then
+  - if [ "${UNIT_TESTS}" = "true"]; then
       pip install -r tests/requirements.txt
       pip install coveralls
     fi
-  - if [ "$DOC_TESTS" = "true"]; then
+  - if [ "${DOC_TESTS}" = "true"]; then
       pip install isort pydocstyle pycodestyle
     fi
 before_script:
-  - if [ "$UNIT_TESTS" = "true"]; then
+  - if [ "${UNIT_TESTS}" = "true"]; then
       green --version
     fi
-   - if [ "$DOC_TESTS" = "true"]; then
+   - if [ "${DOC_TESTS}" = "true"]; then
       isort --version
       pydocstyle --version
       pycodestyle --version
     fi
 # command to run tests
 script:
-  - if [ "$UNIT_TESTS" = "true"]; then
+  - if [ "${UNIT_TESTS}" = "true"]; then
       green test -vvr
     fi
-   - if [ "$DOC_TESTS" = "true"]; then
+   - if [ "${DOC_TESTS}" = "true"]; then
       isort --recusrive colourettu --verbose
       pydocstyle colourettu
       pycodestyle colourettu
     fi
 after_success:
-  - if [ "$UNIT_TESTS" = "true"]; then
+  - if [ "${UNIT_TESTS}" = "true"]; then
       coveralls
     fi
