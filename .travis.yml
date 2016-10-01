@@ -2,18 +2,28 @@ sudo: false  # run on new infrastructure
 language: python
 python:
   # - "2.6"  # green doesn't run on Python 2.6
-  - "2.7"
-  - "3.2"
-  - "3.3"
-  - "3.4"
-  - "3.5-dev"
+  - 2.7
+  - 3.2
+  - 3.3
+  - 3.4
+  - 3.5
+  - "3.6-dev"
   - "pypy"
   - "pypy3"
+env:
+  - UNIT_TESTS=true
+  - DOC_TESTS=true
 matrix:
   allow_failures:
     - python: "2.7"
     - python: "pypy"
-    - python: "3.5-dev"
+    - python: "3.6-dev"
+    - env: DOC_TESTS=true
+  fast_finish: true
+  include:
+    - env: UNIT_TESTS=ture
+    - python: 3.5
+      env: DOC_TESTS=true
 # Cache Dependencies
 cache:
   directories:
@@ -22,11 +32,33 @@ cache:
 install:
   - pip install --upgrade pip
   - pip install -r requirements.txt
-  - pip install -r tests/requirements.txt
-  - pip install coveralls
+  - if [ "$UNIT_TESTS" = "true"]; then
+      pip install -r tests/requirements.txt
+      pip install coveralls
+    fi
+  - if [ "$DOC_TESTS" = "true"]; then
+      pip install isort pydocstyle pycodestyle
+    fi
 before_script:
-  - green --version
+  - if [ "$UNIT_TESTS" = "true"]; then
+      green --version
+    fi
+   - if [ "$DOC_TESTS" = "true"]; then
+      isort --version
+      pydocstyle --version
+      pycodestyle --version
+    fi
 # command to run tests
-script: green tests -vvr
+script:
+  - if [ "$UNIT_TESTS" = "true"]; then
+      green test -vvr
+    fi
+   - if [ "$DOC_TESTS" = "true"]; then
+      isort --recusrive colourettu --verbose
+      pydocstyle colourettu
+      pycodestyle colourettu
+    fi
 after_success:
-  - coveralls
+  - if [ "$UNIT_TESTS" = "true"]; then
+      coveralls
+    fi
