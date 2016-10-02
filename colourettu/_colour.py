@@ -1,11 +1,11 @@
-"""This is part of colourettu. See http://minchin.ca/colourettu/ """
+# This is part of colourettu. See http://minchin.ca/colourettu/
 
 from math import pow, sqrt
 
 
 class colour:
-
-    '''Base class for dealing with colours.
+    """
+    Base class for dealing with colours.
 
     Args:
         mycolour (str, list, or tuple):  string of hex representation of colour
@@ -50,7 +50,8 @@ class colour:
         >>> c2.rgb()
         (238, 238, 238)
 
-    Colours are considered equal is the values of the R, G, and B channels match.
+    Colours are considered equal is the values of the R, G, and B channels
+    match.
 
     .. code:: pycon
 
@@ -58,7 +59,7 @@ class colour:
         False
         >>> c2 == colourettu.color([238, 238, 238])
         True
-    '''
+    """
 
     _r = _g = _b = None
 
@@ -88,14 +89,17 @@ class colour:
         elif type(mycolour) in (list, tuple):
             if len(mycolour) == 3:
                 if not normalized_rgb:
-                    if(type(mycolour[0]) is int) and (type(mycolour[1]) is int) and (type(mycolour[2]) is int):
+                    if((type(mycolour[0]) is int)
+                            and (type(mycolour[1]) is int)
+                            and (type(mycolour[2]) is int)):
                         self._r, self._g, self._b = mycolour
                     else:
-                        raise TypeError('Tuple and Lists must be three integers if normalized_rgb=False.')
+                        raise TypeError('Tuple and Lists must be three'
+                                        'integers if normalized_rgb=False.')
                 else:
                     if ((type(mycolour[0]) in (float, int)) and
-                        (type(mycolour[1]) in (float, int)) and
-                        (type(mycolour[2]) in (float, int))):
+                            (type(mycolour[1]) in (float, int)) and
+                            (type(mycolour[2]) in (float, int))):
                         if((0 <= mycolour[0] <= 1) and
                            (0 <= mycolour[1] <= 1) and
                            (0 <= mycolour[2] <= 1)):
@@ -103,9 +107,12 @@ class colour:
                             self._g = int(mycolour[1]*255)
                             self._b = int(mycolour[2]*255)
                         else:
-                            raise ValueError('Normalized RGB values must be between 0 and 1.')
+                            raise ValueError('Normalized RGB values must be'
+                                             'between 0 and 1.')
                     else:
-                        raise TypeError('Tuples and Lists must be three floating point numbers if normalized_rgb=True')
+                        raise TypeError('Tuples and Lists must be three'
+                                        'floating point numbers if'
+                                        'normalized_rgb=True')
             else:
                 raise ValueError('Tuples and Lists must be three items long.')
         else:
@@ -118,46 +125,67 @@ class colour:
         return('{}'.format(self.hex()))
 
     def __eq__(self, other):
-        """Colours are considered equal if the values of the R, G, and B channels match."""
-        return (self._r is other._r) and (self._g is other._g) and (self._b is other._b)
+        """
+        Determine if Colours are 'equal'.
+
+        Colours are considered equal if the values of the R, G, and B channels
+        match.
+        """
+        return ((self._r is other._r)
+                and (self._g is other._g)
+                and (self._b is other._b))
 
     def hex(self):
-        '''
+        """
+        Returns the HTML-style hex code for the Colour.
+
         Returns:
             str: the colour as a HTML-sytle hex string
-        '''
+        """
         return "#{:02x}{:02x}{:02x}".format(self._r, self._g, self._b).upper()
 
     def red(self):
-        '''
+        """
+        Returns the value of the red channel of the Colour.
+
         Returns:
             int: value of the red channel of the colour
-        '''
+        """
         return self._r
 
     def green(self):
-        '''
+        """
+        Returns the value of the green channel of the Colour.
+
         Returns:
             int: value of the green channel of the colour
-        '''
+        """
         return self._g
 
     def blue(self):
-        '''
+        """
+        Returns the value of the blue channel of the Colour.
+
         Returns:
             int: value of the blue channel of the colour
-        '''
+        """
         return self._b
 
     def rgb(self):
-        '''
+        """
+        Returns a tuples of the values of the red, green, and blue channels of
+        the Colour.
+
         Returns:
             tuple: the rgb values of the colour (with values between 0 and 255)
-        '''
+        """
         return(self._r, self._g, self._b)
 
     def normalized_rgb(self):
-        r'''
+        r"""
+        Returns a tuples of the normalized values of the red, green, and blue
+        channels of the Colour.
+
         Returns:
             tuple: the rgb values of the colour (with values normalized between
                    0.0 and 1.0)
@@ -173,7 +201,7 @@ class colour:
             \\quad &\\text{otherwise}
             \\end{cases} \\]
 
-        '''
+        """
         '''Source:
         http://www.w3.org/TR/2008/REC-WCAG20-20081211/#relativeluminancedef
         '''
@@ -198,16 +226,16 @@ class colour:
         return (r2, g2, b2)
 
     def luminance(self):
-        '''calls ``colourettu.luminance()`` on the colour defined'''
+        """Calls ``colourettu.luminance()`` on the colour defined."""
         return luminance(self)
 
     def contrast(self, myothercolour):
-        '''calls ``colourettu.contrast()`` on the colour defined'''
+        """Calls ``colourettu.contrast()`` on the colour defined."""
         return contrast(self, myothercolour)
 
 
 def luminance(mycolour):
-    r'''Determine (relative) luminance of a colour.
+    r"""Determine (relative) luminance of a colour.
 
     Args:
         mycolour(colourettu.colour): a colour
@@ -237,7 +265,7 @@ def luminance(mycolour):
         Uses the formula:
 
         \\[ lum = \\sqrt{0.299 r^2 + 0.587 g^2 + 0.114 b^2} \\]
-    '''
+    """
 
     colour_for_type = colour()
     if type(mycolour) is type(colour_for_type):
@@ -254,7 +282,7 @@ def luminance(mycolour):
 
 
 def contrast(colour1, colour2):
-    r'''Determines the contrast between two colours.
+    r"""Determines the contrast between two colours.
 
     Args:
         colour1 (colourettu.colour): a colour
@@ -317,7 +345,7 @@ def contrast(colour1, colour2):
     also cause readability problems when reading longer passages. This is
     confirmed by personal experience, but I have been (yet) unable to find
     any quantitative research to this effect.
-    '''
+    """
 
     colour_for_type = colour()
     if type(colour1) is type(colour_for_type):

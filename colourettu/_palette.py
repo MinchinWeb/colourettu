@@ -1,4 +1,4 @@
-"""This is part of colourettu. See http://minchin.ca/colourettu/ """
+# This is part of colourettu. See http://minchin.ca/colourettu/
 
 from __future__ import absolute_import
 
@@ -8,9 +8,9 @@ from ._colour import colour
 
 
 class palette:
+    """Class for creating a palette of colours.
 
-    """Class for creating a palette of colours. A palette here is a list of
-    colours.
+    A palette here is a list of colours.
 
     Args:
         start_colour (colourettu.colour): the colour you want your palette to
@@ -21,8 +21,8 @@ class palette:
     .. note::
 
         If a *string*, *tuple*, or *list* is provided for `start_colour` or
-        `end_colour`, a conversion to a :py:class:`colourettu.colour` object will be
-        attempted.
+        `end_colour`, a conversion to a :py:class:`colourettu.colour` object
+        will be attempted.
 
     .. code:: python
 
@@ -41,8 +41,8 @@ class palette:
     .. image:: p2.png
 
     """
-    """Convert these code examples to an external file, so we can auto-generate the .png
-    files!
+    """Convert these code examples to an external file, so we can auto-generate
+    the .png files!
 
     see http://sphinx-doc.org/markup/code.html#includes
     """
@@ -52,7 +52,8 @@ class palette:
     _colours = []
 
     def __init__(self, start_colour=colour("#FFF"), end_colour=colour("#000")):
-        # testing to see if the type is colourettu.colour throws an error. This is an ugly hack
+        # testing to see if the type is colourettu.colour throws an error.
+        # This is an ugly hack.
         colour_for_type = colour()
         if type(start_colour) is type(colour_for_type):
             self._start = start_colour
@@ -72,7 +73,8 @@ class palette:
         self._colours = [self._start, self._end]
 
     def __repr__(self):
-        return('<colourettu.palette {} to {}, {} colours>'.format(self._start, self._end, len(self._colours)))
+        return('<colourettu.palette {} to {}, {} colours>'.format(
+               self._start, self._end, len(self._colours)))
 
     def __str__(self):
         return('{}'.format(", ".join([c.hex() for c in self._colours])))
@@ -82,6 +84,8 @@ class palette:
 
     def __add__(self, other):
         """
+        Combine to Palettes.
+
         - adding two `colourettu.palette`s will concatenate the two together
         - if two `colourettu.palette`s are added, and the last colour of the
         first palette is the same as the first colour of the second palette,
@@ -103,7 +107,8 @@ class palette:
             self._end = other._end
             return self
         else:
-            raise TypeError('unsupported opperand type(s) for +: {} and {}'.format(type(self), type(other)))
+            raise TypeError('unsupported opperand type(s) for +: {} and'
+                            '{}'.format(type(self), type(other)))
 
     def __radd__(self, other):
         # used for `colour + palette`
@@ -113,12 +118,14 @@ class palette:
             self._start = other
             return self
         else:
-            raise TypeError('unsupported opperand type(s) for +: {} and {}'.format(type(self), type(other)))
+            raise TypeError('unsupported opperand type(s) for +: {} and'
+                            '{}'.format(type(self), type(other)))
 
     # TO-DO     def __init__(self)   #this allows :  for colour in palette:
 
     def from_list(self, list_of_colours, normalized_rgb=False):
-        """Given an interable (usually a list or a tuple) containing colours,
+        """
+        Given an interable (usually a list or a tuple) containing colours,
         this then becomes the colours contained by the palette.
 
         Args:
@@ -150,7 +157,8 @@ class palette:
 
     def to_image(self, filename='palette.png', band_width=1, length=60,
                  max_width=0, vertical=True, alpha_channel=False):
-        """Creates an image from the palette.
+        """
+        Creates an image from the palette.
 
         Args:
             filename(Optional[string]): filename of saved file. Defaults to

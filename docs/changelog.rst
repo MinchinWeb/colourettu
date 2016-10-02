@@ -3,6 +3,8 @@ Changelog
 
 .. currentmodule:: colourettu
 
+- :support:`14` add code-style tests as another part of the Travis-CI test suite
+
 - :release:`1.1.0 <2015-07-20>`
 - :support:`5` add project logo
 - :feature:`8` allow addition of palettes, and palettes and colours
