@@ -57,10 +57,10 @@ before_script:
 # command to run tests
 script:
   - if [ "$UNIT_TESTS" = "true" ]; then
-      green test -vvr;
+      green tests -vvr;
     fi
   - if [ "$DOC_TESTS" = "true" ]; then
-      isort --recusrive colourettu --verbose;
+      isort --recursive colourettu --verbose;
       pydocstyle colourettu;
       pycodestyle colourettu;
     fi
