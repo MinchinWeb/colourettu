@@ -25,41 +25,46 @@ matrix:
     - python: 3.5
       env: DOC_TESTS=true
 # Cache Dependencies
-cache:
-  directories:
-    - $HOME/travis/.cache/pip
+cache: pip
 before_install:
-  - if [ "$UNIT_TESTS" = "true"];
-    then echo "Running Unit Tests";
+  - if [ "$UNIT_TESTS" = "true" ];
+      then echo "Running Unit Tests";
     fi
-  - if [ "$DOC_TESTS" = "true"];
-    then echo "Running Code Style Tests";
+  - if [ "$DOC_TESTS" = "true" ];
+      then echo "Running Code Style Tests";
     fi
   - printenv
 # command to install dependencies
 install:
   - pip install --upgrade pip
   - pip install -r requirements.txt
-  - test $UNIT_TESTS = true
-      && pip install -r tests/requirements.txt 
-      && pip install coveralls
-  - test $DOC_TESTS = true 
-      && pip install isort pydocstyle pycodestyle
+  - if [ "$UNIT_TESTS" = "true" ];
+      pip install -r tests/requirements.txt;
+      pip install coveralls;
+    fi
+  - if [ "$DOC_TESTS" = "true" ];
+      pip install isort pydocstyle pycodestyle;
+    fi
 before_script:
-  - test $UNIT_TESTS = true
-      && green --version
-  - test $DOC_TESTS = true
-      && isort --version
-      && pydocstyle --version
-      && pycodestyle --version
+  - if [ "$UNIT_TESTS" = "true" ];
+      green --version;
+    fi
+  - if [ "$DOC_TESTS" = "true" ];
+      isort --version;
+      pydocstyle --version;
+      pycodestyle --version;
+    fi
 # command to run tests
 script:
-  - test $UNIT_TESTS = true
-      && green test -vvr
-  - test $DOC_TESTS = true
-      && isort --recusrive colourettu --verbose
-      && pydocstyle colourettu
-      && pycodestyle colourettu
+  - if [ "$UNIT_TESTS" = "true" ];
+      green test -vvr;
+    fi
+  - if [ "$DOC_TESTS" = "true" ];
+      isort --recusrive colourettu --verbose;
+      pydocstyle colourettu;
+      pycodestyle colourettu;
+    fi
 after_success:
-  - test $UNIT_TESTS = true
-      && coveralls
+  - if [ "$UNIT_TESTS" = "true" ];
+      coveralls;
+    fi
