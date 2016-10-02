@@ -29,11 +29,11 @@ cache:
   directories:
     - $HOME/travis/.cache/pip
 before_install:
-  - if [ "$UNIT_TESTS" = "true"]
-    then echo "Running Unit Tests"
+  - if [ "$UNIT_TESTS" = "true"];
+    then echo "Running Unit Tests";
     fi
-  - if [ "$DOC_TESTS" = "true"]
-    then echo "Running Code Style Tests"
+  - if [ "$DOC_TESTS" = "true"];
+    then echo "Running Code Style Tests";
     fi
   - printenv
 # command to install dependencies
