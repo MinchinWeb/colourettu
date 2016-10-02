@@ -10,8 +10,8 @@ python:
   - "pypy"
   - "pypy3"
 env:
-  - UNIT_TESTS=true
-  - DOC_TESTS=true
+  - UNIT_TESTS=true  DOC_TESTS=false
+  - UNIT_TESTS=false DOC_TESTS=true
 matrix:
   allow_failures:
     - python: 2.7
@@ -28,6 +28,8 @@ matrix:
 cache:
   directories:
     - $HOME/travis/.cache/pip
+before_install:
+  - printenv
 # command to install dependencies
 install:
   - pip install --upgrade pip
