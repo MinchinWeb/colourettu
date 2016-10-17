@@ -61,7 +61,7 @@ def dist_directory():
 
 
 def version_file():
-    return(source_directory() / "__init__.py")
+    return(source_directory() / "__version__.py")
 
 
 def changelog_file():

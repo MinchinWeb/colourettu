@@ -26,7 +26,7 @@ long_description = read('readme.rst')
 
 setup(
     name='colourettu',
-    version=find_version('colourettu', '__init__.py'),
+    version=find_version('colourettu', '__version__.py'),
     url='http://github.com/minchinweb/colourettu',
     license='MIT License',
     author='William Minchin',
