@@ -1,4 +1,4 @@
 pip
 wheel
 setuptools
-twine
+twine==1.8.1
