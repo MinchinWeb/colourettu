@@ -1,2 +1,2 @@
 green>=1.9.4,<=2.0.0
-coverage
+coverage==4.2
