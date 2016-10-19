@@ -1,4 +1,4 @@
 pip
 wheel
-setuptools
+setuptools==28.6.1
 twine
