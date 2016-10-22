@@ -3,6 +3,7 @@ Changelog
 
 .. currentmodule:: colourettu
 
+- :support:`-` re-arragne and simplify internal package metadata and corresponding changes in ``setup.py``
 - :support:`14` add code-style tests as another part of the Travis-CI test suite
 
 - :release:`1.1.0 <2015-07-20>`

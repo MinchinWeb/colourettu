@@ -6,8 +6,7 @@ Colourettu is a small collection of colour functions in Python. These can be use
 .. image:: https://img.shields.io/pypi/v/colourettu.svg?style=flat
     :target: https://pypi.python.org/pypi/colourettu/
 
-.. monthly downloads -- image:: https://img.shields.io/pypi/dm/colourettu.svg?style=flat
-    :target: https://pypi.python.org/pypi/colourettu/
+.. monthly downloads -- https://img.shields.io/pypi/dm/colourettu.svg?style=flat
 
 .. image:: https://api.travis-ci.org/MinchinWeb/colourettu.svg?branch=master
     :target: http://travis-ci.org/MinchinWeb/colourettu

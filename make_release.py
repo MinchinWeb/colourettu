@@ -1,4 +1,4 @@
-﻿'''Eventaully, this file will execute the necessary steps.
+'''Eventaully, this file will execute the necessary steps.
 For now, it just prints what they are.'''
 
 import os
@@ -29,6 +29,7 @@ from datetime import datetime
 # - a valid `.pypirc` file with credentials for TestPyPI and PyPI
 # - your project is already registered on TestPyPi and PyPI
 
+# version of this script
 __version__ = "0.1.0"
 
 version_re = re.compile(r"__version__ = [\"\']{1,3}(?P<major>\d+)\.(?P<minor>\d+).(?P<patch>\d+)(?:-(?P<prerelease>[0-9A-Za-z\.]+))?(?:\+[0-9A-Za-z-\.]+)?[\"\']{1,3}")
@@ -61,7 +62,7 @@ def dist_directory():
 
 
 def version_file():
-    return(source_directory() / "__version__.py")
+    return(source_directory() / "__init__.py")
 
 
 def changelog_file():
