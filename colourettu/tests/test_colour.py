@@ -155,29 +155,30 @@ class Test_Colour(unittest.TestCase):
             colour1 = colourettu.colour("dddd")
 
     def test_bad_hex_chars(self):
-        '''Hex strings that don't contain only hex characters [0-9a-f] should raise error'''
+        '''Hex strings that don't contain only hex characters [0-9a-f]
+        should raise error'''
         with self.assertRaises(ValueError):
             colour1 = colourettu.colour('#asdfgh')
 
     def test_bad_list_legnth(self):
         '''Lists must be 3 long, otherwise raise error'''
         with self.assertRaises(ValueError):
-            colour1 = colourettu.colour([1,1,1,1])
+            colour1 = colourettu.colour([1, 1, 1, 1])
 
     def test_bad_tuple_legnth(self):
         '''Tuples must be 3 long, otherwise raise error'''
         with self.assertRaises(ValueError):
-            colour1 = colourettu.colour((1,1,1,1))
+            colour1 = colourettu.colour((1, 1, 1, 1))
 
     def test_bad_list_value(self):
         '''Lists my contain integer, otherwise raise error'''
         with self.assertRaises(TypeError):
-            colour1 = colourettu.colour([1,2,"stuff"])
+            colour1 = colourettu.colour([1, 2, "stuff"])
 
     def test_bad_Tuple_value(self):
         '''Tuples my contain integer, otherwise raise error'''
         with self.assertRaises(TypeError):
-            colour1 = colourettu.colour((1,2,"stuff"))
+            colour1 = colourettu.colour((1, 2, "stuff"))
 
     def test_rgb_normalized_white(self):
         '''Get normalized rgb tuple of white'''

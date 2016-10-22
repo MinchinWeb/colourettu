@@ -4,6 +4,6 @@ Test suite for Coloutettu.
 
 from __future__ import absolute_import
 
-import test_colour
-import test_palette
-import test_setup
+from . import test_colour
+from . import test_palette
+from . import test_setup

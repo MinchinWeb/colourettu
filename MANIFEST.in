@@ -1,3 +1,15 @@
-include requirements.txt
+include *.py
+include *.txt
 include *.rst
 include LICENSE
+include tests
+recursive-include colourettu *.txt
+recursive-include docs *.bat
+recursive-include docs *.ico
+recursive-include docs *.png
+recursive-include docs *.txt
+recursive-include docs *.rst
+recursive-include docs *.py
+recursive-include tests *.py
+recursive-include tests *.txt
+prune docs/_build

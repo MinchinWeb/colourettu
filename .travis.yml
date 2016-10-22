@@ -12,6 +12,7 @@ python:
 env:
   - UNIT_TESTS=true
   - DOC_TESTS=true
+  - CHECK_MANIFEST=true
 matrix:
   allow_failures:
     - python: 2.7
@@ -21,9 +22,12 @@ matrix:
   fast_finish: true
   exclude:
     - env: DOC_TESTS=true
+    - env: CHECK_MANIFEST=true
   include:
     - python: 3.5
       env: DOC_TESTS=true
+    - python: 3.5
+      env: CHECK_MANIFEST=true
 # Cache Dependencies
 cache: pip
 before_install:
@@ -33,17 +37,23 @@ before_install:
   - if [ "$DOC_TESTS" = "true" ]; then
       echo "Running Code Style Tests";
     fi
+  - if [ "$CHECK_MANIFEST" = "true" ]; then
+      echo "Checking Manifest.in";
+    fi
   - printenv
 # command to install dependencies
 install:
   - pip install --upgrade pip
   - if [ "$UNIT_TESTS" = "true" ]; then
       pip install -r requirements.txt;
-      pip install -r tests/requirements.txt;
+      pip install -r colourettu/tests/requirements.txt;
       pip install coveralls;
     fi
   - if [ "$DOC_TESTS" = "true" ]; then
       pip install isort pydocstyle pycodestyle;
+    fi
+  - if [ "$CHECK_MANIFEST" = "true" ]; then
+      pip install check-manifest;
     fi
 before_script:
   - if [ "$UNIT_TESTS" = "true" ]; then
@@ -54,10 +64,13 @@ before_script:
       pydocstyle --version;
       pycodestyle --version;
     fi
+  - if [ "$CHECK_MANIFEST" = "true" ]; then
+      check-manifest --version;
+    fi
 # command to run tests
 script:
   - if [ "$UNIT_TESTS" = "true" ]; then
-      green tests -vvr;
+      green colourettu.tests -vvr;
     fi
   - if [ "$DOC_TESTS" = "true" ]; then
       isort --recursive colourettu --verbose;
@@ -67,6 +80,9 @@ script:
     fi
   - if [ "$DOC_TESTS" = "true" ]; then
       pycodestyle colourettu;
+    fi
+  - if [ "$CHECK_MANIFEST" = "true" ]; then
+      check-manifest -v;
     fi
 after_success:
   - if [ "$UNIT_TESTS" = "true" ]; then
