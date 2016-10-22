@@ -18,6 +18,7 @@ matrix:
   allow_failures:
     - python: 2.7
     - python: "pypy"
+    - python: 3.6
     - python: "nightly"
     - env: DOC_TESTS=true
   fast_finish: true
