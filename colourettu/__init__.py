@@ -11,6 +11,7 @@ of colours.
 
 from __future__ import absolute_import
 
+
 # METADATA
 
 __title__ = "colourettu"
@@ -35,7 +36,7 @@ internal code changes that do not affect the API.
 Version 0.x should be considered a development version with an unstable API,
 and backwards compatibility is not guaranteed for minor versions.
 """
-__version__ = "1.1.1-dev.0"
+__version__ = "1.1.1-dev.6"
 
 
 # Package Implementation

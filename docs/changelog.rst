@@ -3,6 +3,7 @@ Changelog
 
 .. currentmodule:: colourettu
 
+- :support:`-` ship tests such that the command ``green colourettu`` works from the command-line after ``colourettu`` has been installed on the system
 - :support:`-` ship tests as a subpackage of ``colourettu``
 - :support:`-` re-arragne and simplify internal package metadata and corresponding changes in ``setup.py``
 - :support:`14` add code-style tests as another part of the Travis-CI test suite
