@@ -12,21 +12,21 @@ python:
   - "pypy3"
 env:
   - UNIT_TESTS=true
-  - DOC_TESTS=true
+  - STYLE_TESTS=true
   - CHECK_MANIFEST=true
 matrix:
   allow_failures:
     - python: 2.7
     - python: "pypy"
     - python: "nightly"
-    - env: DOC_TESTS=true
+    - env: STYLE_TESTS=true
   fast_finish: true
   exclude:
-    - env: DOC_TESTS=true
+    - env: STYLE_TESTS=true
     - env: CHECK_MANIFEST=true
   include:
     - python: 3.5
-      env: DOC_TESTS=true
+      env: STYLE_TESTS=true
     - python: 3.5
       env: CHECK_MANIFEST=true
 # Cache Dependencies
@@ -35,7 +35,7 @@ before_install:
   - if [ "$UNIT_TESTS" = "true" ]; then
       echo "Running Unit Tests";
     fi
-  - if [ "$DOC_TESTS" = "true" ]; then
+  - if [ "$STYLE_TESTS" = "true" ]; then
       echo "Running Code Style Tests";
     fi
   - if [ "$CHECK_MANIFEST" = "true" ]; then
@@ -47,20 +47,20 @@ install:
   - pip install --upgrade pip
   - if [ "$UNIT_TESTS" = "true" ]; then
       pip install -r requirements.txt;
-      pip install -r colourettu/tests/requirements.txt;
+      pip install -r colourettu/test/requirements.txt;
       pip install coveralls;
     fi
-  - if [ "$DOC_TESTS" = "true" ]; then
-      pip install isort pydocstyle pycodestyle;
+  - if [ "$STYLE_TESTS" = "true" ]; then
+      pip install -r colourettu/test/requirements.txt;
     fi
   - if [ "$CHECK_MANIFEST" = "true" ]; then
-      pip install check-manifest;
+      pip install -r colourettu/test/requirements.txt;
     fi
 before_script:
   - if [ "$UNIT_TESTS" = "true" ]; then
       green --version;
     fi
-  - if [ "$DOC_TESTS" = "true" ]; then
+  - if [ "$STYLE_TESTS" = "true" ]; then
       isort --version;
       pydocstyle --version;
       pycodestyle --version;
@@ -73,13 +73,13 @@ script:
   - if [ "$UNIT_TESTS" = "true" ]; then
       green colourettu.tests -vvr;
     fi
-  - if [ "$DOC_TESTS" = "true" ]; then
+  - if [ "$STYLE_TESTS" = "true" ]; then
       isort --recursive colourettu --verbose;
     fi
-  - if [ "$DOC_TESTS" = "true" ]; then
+  - if [ "$STYLE_TESTS" = "true" ]; then
       pydocstyle colourettu;
     fi
-  - if [ "$DOC_TESTS" = "true" ]; then
+  - if [ "$STYLE_TESTS" = "true" ]; then
       pycodestyle colourettu;
     fi
   - if [ "$CHECK_MANIFEST" = "true" ]; then

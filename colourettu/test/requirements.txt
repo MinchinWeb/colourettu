@@ -1,2 +1,6 @@
 green>=1.9.4,<=2.0.0
 coverage
+isort==4.2.5
+pydocstyle==1.1.1
+pycodestyle==2.0.0
+check-manifes==0.34
