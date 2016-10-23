@@ -45,6 +45,30 @@ INSTALL_REQUIRES = [
     'Pillow'
 ]
 
+EXTRA_REQUIRES = {
+    'build': [
+        'pip',
+        'wheel',
+        'setuptools >=18.0',
+        'twine',
+    ],
+    'docs': [
+        'sphinx >= 1.3, <1.4',  # theme isssue with 1.4
+        'cloud_sptheme >=1.6, !=1.7',  # 1.7 throws 'divide by zero'
+        'releases',
+        'Babel >=1.3,!=2.0',  # 2.0 breaks on Windows
+
+    ],
+    'test': [
+        'green >=1.9.4, <=2.0.0',
+        'coverage',
+        'isort',
+        'pydocstyle',
+        'pycodestyle',
+        'check-manifest'
+    ],
+}
+
 # full list of Classifiers at
 # https://pypi.python.org/pypi?%3Aaction=list_classifiers
 CLASSIFIERS = [
@@ -84,6 +108,12 @@ CLASSIFIERS = [
 if LICENSE in ['MIT License']:
     CLASSIFIERS += ['License :: OSI Approved :: {}'.format(LICENSE)]
 
+# add 'all' key to EXTRA_REQUIRES
+all_requires = []
+for k, v in EXTRA_REQUIRES.items():
+    all_requires.extend(v)
+EXTRA_REQUIRES['all'] = all_requires
+
 
 setuptools.setup(
     name=NAME,
@@ -91,13 +121,14 @@ setuptools.setup(
     url=URL,
     license=LICENSE,
     author=AUTHOR,
-    install_requires=INSTALL_REQUIRES,
     author_email=AUTHOR_EMAIL,
     description=SHORT_DESC,
     long_description=LONG_DESC,
     packages=PACKAGES,
     package_data={'': ['readme.rst', 'LICENSE']},
     include_package_data=True,
+    install_requires=INSTALL_REQUIRES,
+    extras_require=EXTRA_REQUIRES,
     platforms='any',
     classifiers=CLASSIFIERS,
 )
