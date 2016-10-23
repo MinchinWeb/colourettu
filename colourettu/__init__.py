@@ -14,7 +14,7 @@ from __future__ import absolute_import
 
 # METADATA
 
-__title__ = "colourettu"
+__title__ = "Colourettu"
 __description__ = "Colourettu is a collection of colour related functions."
 __url__ = "http://minchin.ca/colourettu/"
 __author__ = "William Minchin"
@@ -36,7 +36,7 @@ internal code changes that do not affect the API.
 Version 0.x should be considered a development version with an unstable API,
 and backwards compatibility is not guaranteed for minor versions.
 """
-__version__ = "1.1.1-dev.6"
+__version__ = "1.1.1-dev.7"
 
 
 # Package Implementation

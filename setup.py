@@ -30,7 +30,7 @@ def find_meta(*meta_file_parts, meta_key):
 ##############################################################################
 META_PATH = ['colourettu', '__init__.py']
 
-NAME         = find_meta(*META_PATH, meta_key='title')
+NAME         = find_meta(*META_PATH, meta_key='title').lower()
 VERSION      = find_meta(*META_PATH, meta_key='version')
 SHORT_DESC   = find_meta(*META_PATH, meta_key='description')
 LONG_DESC    = read('readme.rst')
@@ -60,7 +60,7 @@ EXTRA_REQUIRES = {
 
     ],
     'test': [
-        'green >=1.9.4, <=2.0.0',
+        'green >=1.9.4',  # v2 works
         'coverage',
         'isort',
         'pydocstyle',

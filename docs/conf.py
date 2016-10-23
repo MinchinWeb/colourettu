@@ -16,11 +16,8 @@
 import os
 import re
 import sys
-from datetime import datetime
 
-import cloud_sptheme as csp
-
-from colourettu import __version__
+import colourettu
 
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
@@ -63,10 +60,8 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = 'Colourettu'
-year = datetime.now().year
-year = str(year)[-2:]
-copyright = '2014-{}, William Minchin'.format(year)
+project = colourettu.__title__
+copyright = colourettu.__copyright__
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -77,7 +72,7 @@ copyright = '2014-{}, William Minchin'.format(year)
 # The full version, including alpha/beta/rc tags.
 #release = '0.1.1'
 
-release = str(__version__)
+release = colourettu.__version__
 p = re.compile('\d+\.\d+')
 versionmatch = p.match(release)
 version = versionmatch.group()
@@ -139,7 +134,6 @@ html_theme_options = {"roottarget": "index",
 
 # Add any paths that contain custom themes here, relative to this directory.
 #html_theme_path = []
-html_theme_path = [csp.get_theme_dir()]
 
 # The name for this set of Sphinx documents.  If None, it defaults to
 # "<project> v<release> documentation".
@@ -211,7 +205,7 @@ html_show_sphinx = False
 #html_file_suffix = None
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'Colourettudoc'
+htmlhelp_basename = colourettu.__title__+'doc'
 
 
 # -- Options for LaTeX output ---------------------------------------------
@@ -231,8 +225,9 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-  ('index', 'Colourettu.tex', 'Colourettu Documentation',
-   'William Minchin', 'manual'),
+  ('index', colourettu.__title__+'.tex',
+   colourettu.__title__+' Documentation',
+   colourettu.__author__, 'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
@@ -261,8 +256,9 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    ('index', 'colourettu', 'Colourettu Documentation',
-     ['William Minchin'], 1)
+    ('index', colourettu.__title__.lower(),
+     colourettu.__title__+' Documentation',
+     [colourettu.__author__], 1)
 ]
 
 # If true, show URL addresses after external links.
@@ -275,8 +271,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-  ('index', 'Colourettu', 'Colourettu Documentation',
-   'William Minchin', 'Colourettu', 'Colour related functions.',
+  ('index', colourettu.__title__, colourettu.__title__+' Documentation',
+   colourettu.__author__, colourettu.__title__, colourettu.__description__,
    'Miscellaneous'),
 ]
 
