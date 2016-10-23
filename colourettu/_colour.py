@@ -1,6 +1,6 @@
 # This is part of colourettu. See http://minchin.ca/colourettu/
 
-from math import pow, sqrt
+import math
 
 
 class colour:
@@ -213,15 +213,15 @@ class colour:
         if r1 <= 0.03928:
             r2 = r1 / 12.92
         else:
-            r2 = pow(((r1 + 0.055) / 1.055), 2.4)
+            r2 = math.pow(((r1 + 0.055) / 1.055), 2.4)
         if g1 <= 0.03928:
             g2 = g1 / 12.92
         else:
-            g2 = pow(((g1 + 0.055) / 1.055), 2.4)
+            g2 = math.pow(((g1 + 0.055) / 1.055), 2.4)
         if b1 <= 0.03928:
             b2 = b1 / 12.92
         else:
-            b2 = pow(((b1 + 0.055) / 1.055), 2.4)
+            b2 = math.pow(((b1 + 0.055) / 1.055), 2.4)
 
         return (r2, g2, b2)
 
@@ -278,7 +278,9 @@ def luminance(mycolour):
 
     (r1, g1, b1) = mycolour2.normalized_rgb()
 
-    return sqrt(0.299*pow(r1, 2) + 0.587*pow(g1, 2) + 0.114*pow(b1, 2))
+    return math.sqrt(0.299*math.pow(r1, 2) +
+                     0.587*math.pow(g1, 2) +
+                     0.114*math.pow(b1, 2))
 
 
 def contrast(colour1, colour2):
