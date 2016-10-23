@@ -131,9 +131,9 @@ class colour:
         Colours are considered equal if the values of the R, G, and B channels
         match.
         """
-        return ((self._r is other._r)
-                and (self._g is other._g)
-                and (self._b is other._b))
+        return ((self._r is other.red())
+                and (self._g is other.green())
+                and (self._b is other.blue()))
 
     def hex(self):
         """
@@ -201,10 +201,8 @@ class colour:
             \\quad &\\text{otherwise}
             \\end{cases} \\]
 
+        `Source <http://www.w3.org/TR/2008/REC-WCAG20-20081211/#relativeluminancedef>`_
         """
-        '''Source:
-        http://www.w3.org/TR/2008/REC-WCAG20-20081211/#relativeluminancedef
-        '''
 
         r1 = self._r / 255
         g1 = self._g / 255

@@ -41,11 +41,11 @@ class palette:
     .. image:: p2.png
 
     """
-    """Convert these code examples to an external file, so we can auto-generate
-    the .png files!
 
-    see http://sphinx-doc.org/markup/code.html#includes
-    """
+    # TODO: Convert these code examples to an external file, so we can
+    # auto-generate the .png files!
+    #
+    # see http://sphinx-doc.org/markup/code.html#includes
 
     _start = None
     _end = None
@@ -54,6 +54,7 @@ class palette:
     def __init__(self, start_colour=colour("#FFF"), end_colour=colour("#000")):
         # testing to see if the type is colourettu.colour throws an error.
         # This is an ugly hack.
+        # TODO: Fix this!
         colour_for_type = colour()
         if type(start_colour) is type(colour_for_type):
             self._start = start_colour
