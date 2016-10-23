@@ -11,12 +11,26 @@ Testing
 
 Testing *colourettu* requires:
 
-.. include:: ../tests/requirements.txt
+.. include:: ../colourettu/test/requirements.txt
    :literal:
 
-Then run (from the base directory)::
+For unit test, then run (from the base directory)::
 
-	green colourettu.tests -vv
+    green colourettu.tests -vv
+
+For code-style test, then run (from the base directory)::
+
+    isort --recursive colourettu --verbose
+    pydocstyle colourettu
+    pycodestyle colourettu
+
+.. note:: Code-style tests remain aspirational at this point, and so
+          failures here are permitted.
+
+Before packaging, check the manifest (``Manifest.in``) by running (from the
+base directory)::
+
+    check-manifest -v
 
 
 Documentation Generation
@@ -31,4 +45,4 @@ The following dependencies are also required:
 
 Then run (on Windows) (from the ``docs`` directory)::
 
-	make html
+    make html

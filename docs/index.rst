@@ -44,10 +44,7 @@ Links
 .. image:: https://img.shields.io/pypi/v/colourettu.svg?style=flat
     :target: https://pypi.python.org/pypi/colourettu/
 
-.. image:: https://img.shields.io/pypi/dm/colourettu/badge.svg?style=flat
-    :target: https://pypi.python.org/pypi/colourettu/
-
-.. image:: https://api.travis-ci.org/MinchinWeb/colourettu.svg
+.. image:: https://api.travis-ci.org/MinchinWeb/colourettu.svg?branch=master
     :target: http://travis-ci.org/MinchinWeb/colourettu
 
 .. image:: https://coveralls.io/repos/MinchinWeb/colourettu/badge.svg?branch=master&service=github
