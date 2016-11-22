@@ -53,8 +53,8 @@ EXTRA_REQUIRES = {
         'twine',
     ],
     'docs': [
-        'sphinx >= 1.3, <1.4',  # theme isssue with 1.4
-        'cloud_sptheme >=1.6, !=1.7',  # 1.7 throws 'divide by zero'
+        'sphinx >= 1.4',  # theme requires at least 1.4
+        'cloud_sptheme >=1.8',
         'releases',
         'Babel >=1.3,!=2.0',  # 2.0 breaks on Windows
 

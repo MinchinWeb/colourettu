@@ -28,7 +28,7 @@ sys.path.insert(0, os.path.os.path.abspath('../colourettu'))
 # -- General configuration ------------------------------------------------
 
 # If your documentation needs a minimal Sphinx version, state it here.
-needs_sphinx = '1.3'
+needs_sphinx = '1.4'
 
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
@@ -42,6 +42,7 @@ extensions = [
     'sphinx.ext.napoleon',  # requires Sphinx >=1.3
     'releases',
     'cloud_sptheme.ext.index_styling',
+    # 'cloud_sptheme.ext.relbar_toc',
 ]
 
 releases_github_path = 'minchinweb/colourettu'
@@ -57,11 +58,15 @@ source_suffix = '.rst'
 #source_encoding = 'utf-8-sig'
 
 # The master toctree document.
-master_doc = 'index'
+master_doc = 'contents'
+
+# The frontpage document.
+index_doc = 'index'
 
 # General information about the project.
 project = colourettu.__title__
-copyright = colourettu.__copyright__
+copyright = "{} {}".format(colourettu.__copyright_years__,
+                           colourettu.__author__)
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -129,7 +134,7 @@ html_theme = 'cloud'
 # further.  For a list of options available for each theme, see the
 # documentation.
 #html_theme_options = {}
-html_theme_options = {"roottarget": "index",
+html_theme_options = {"roottarget": index_doc,
                       "googleanalytics_id": "UA-384291-3"}
 
 # Add any paths that contain custom themes here, relative to this directory.

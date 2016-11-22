@@ -20,7 +20,8 @@ __url__ = "http://minchin.ca/colourettu/"
 __author__ = "William Minchin"
 __email__ = "w_minchin@hotmail.com"
 __license__ = "MIT License"
-__copyright__ = "Copyright (c) 2014-16 William Minchin"
+__copyright_years__ = '2014-16'
+__copyright__ = "Copyright (c) {} {}".format(__copyright_years__, __author__)
 
 """
 This project uses the Semantic Versioning scheme in conjunction with PEP 0440:
@@ -36,7 +37,7 @@ internal code changes that do not affect the API.
 Version 0.x should be considered a development version with an unstable API,
 and backwards compatibility is not guaranteed for minor versions.
 """
-__version__ = "1.1.1-dev.7"
+__version__ = "1.1.1-dev.8"
 
 
 # Package Implementation

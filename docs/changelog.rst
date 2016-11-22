@@ -3,6 +3,7 @@ Changelog
 
 .. currentmodule:: colourettu
 
+- :support:`40` update cloud theme to v1.8, and with it Sphinx to v1.4. Also added to documentation layout improvements. (also :issue:`30`)
 - :support:`-` ship tests such that the command ``green colourettu`` works from the command-line after ``colourettu`` has been installed on the system
 - :support:`-` ship tests as a subpackage of ``colourettu``
 - :support:`-` re-arragne and simplify internal package metadata and corresponding changes in ``setup.py``
