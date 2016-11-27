@@ -37,7 +37,7 @@ internal code changes that do not affect the API.
 Version 0.x should be considered a development version with an unstable API,
 and backwards compatibility is not guaranteed for minor versions.
 """
-__version__ = "1.1.1-dev.8"
+__version__ = "2.0.0-dev+0"
 
 
 # Package Implementation

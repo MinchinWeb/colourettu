@@ -4,10 +4,10 @@ from __future__ import absolute_import
 
 from PIL import Image
 
-from ._colour import colour
+from ._colour import Colour
 
 
-class palette:
+class Palette:
     """Class for creating a palette of colours.
 
     A palette here is a list of colours.
@@ -21,12 +21,12 @@ class palette:
     .. note::
 
         If a *string*, *tuple*, or *list* is provided for `start_colour` or
-        `end_colour`, a conversion to a :py:class:`colourettu.colour` object
+        `end_colour`, a conversion to a :py:class:`colourettu.Colour` object
         will be attempted.
 
     .. code:: python
 
-        p1 = colourettu.palette()
+        p1 = colourettu.Palette()
         p1.to_image('p1.png', 60)
 
     .. image:: p1.png
@@ -34,7 +34,7 @@ class palette:
     .. code:: python
 
         all_colours = [c1, c2, c3, c4, c5, c6]
-        p2 = colourettu.palette()
+        p2 = colourettu.Palette()
         p2.from_list(all_colours)
         p2.to_image('p2.png', max_width=360, vertical=False)
 
@@ -51,30 +51,30 @@ class palette:
     _end = None
     _colours = []
 
-    def __init__(self, start_colour=colour("#FFF"), end_colour=colour("#000")):
+    def __init__(self, start_colour=Colour("#FFF"), end_colour=Colour("#000")):
         # testing to see if the type is colourettu.colour throws an error.
         # This is an ugly hack.
         # TODO: Fix this!
-        colour_for_type = colour()
+        colour_for_type = Colour()
         if type(start_colour) is type(colour_for_type):
             self._start = start_colour
         else:
             try:
-                self._start = colour(start_colour)
+                self._start = Colour(start_colour)
             except:
                 raise ValueError("Invalid start_colour given.")
         if type(end_colour) is type(colour_for_type):
             self._end = end_colour
         else:
             try:
-                self._end = colour(end_colour)
+                self._end = Colour(end_colour)
             except:
                 raise ValueError("Invalid end_colour given.")
 
         self._colours = [self._start, self._end]
 
     def __repr__(self):
-        return('<colourettu.palette {} to {}, {} colours>'.format(
+        return('<colourettu.Palette {} to {}, {} colours>'.format(
                self._start, self._end, len(self._colours)))
 
     def __str__(self):
@@ -85,17 +85,17 @@ class palette:
 
     def __add__(self, other):
         """
-        Combine to Palettes.
+        Combine two Palettes.
 
-        - adding two `colourettu.palette`s will concatenate the two together
-        - if two `colourettu.palette`s are added, and the last colour of the
+        - adding two `colourettu.Palette`s will concatenate the two together
+        - if two `colourettu.Palette`s are added, and the last colour of the
         first palette is the same as the first colour of the second palette,
         that colour will only appear once in the new palette
-        - `colourettu.palette`s and `colourettu.colour`s can be added to
-        create new `colourettu.palette`s
+        - `colourettu.Palette`s and `colourettu.Colour`s can be added to
+        create new `colourettu.Palette`s
         """
-        colour_for_type = colour()
-        palette_for_type = palette()
+        colour_for_type = Colour()
+        palette_for_type = Palette()
         if type(other) is type(colour_for_type):
             self._colours.append(other)
             self._end = other
@@ -112,8 +112,8 @@ class palette:
                             '{}'.format(type(self), type(other)))
 
     def __radd__(self, other):
-        # used for `colour + palette`
-        colour_for_type = colour()
+        # used for `Colour + Palette`
+        colour_for_type = Colour()
         if type(other) is type(colour_for_type):
             self._colours.insert(0, other)
             self._start = other
@@ -126,17 +126,19 @@ class palette:
 
     def from_list(self, list_of_colours, normalized_rgb=False):
         """
-        Given an interable (usually a list or a tuple) containing colours,
-        this then becomes the colours contained by the palette.
+        Given an interable (usually a list or a tuple) containing
+        :py:class:`Colour` s,
+        this then becomes the Colours contained by the Palette.
 
         Args:
             list_of_colours(list, tuple, or other interable): a collection of
-                colours to be loaded into the palette. If these are
-                colourettu.colour's, they will be loaded directly. Otherwise,
-                an attempt to convert each item to a colourettu.colour will
-                take place.
+                :py:class:`Colour` s to be loaded into the palette. If these
+                are :py:class:`colourettu.Colour` 's, they will be loaded
+                directly. Otherwise, an attempt to convert each item to a
+                :py:class:`colourettu.Colour` will take place.
             normalized_rgb(bool): assuming the list is to be converted to
-                colourettu.colour's, this parameter is passed on as part of
+                :py:class:`colourettu.Colour` s, this parameter is passed on
+                as part of
                 that conversion process.
 
         .. note:
@@ -144,14 +146,14 @@ class palette:
             This will overwrite the colours already defined by the palette.
 
         """
-        colour_for_type = colour()
+        colour_for_type = Colour()
         self._colours = []
 
         for c in list_of_colours:
             if type(c) is type(colour_for_type):
                 self._colours.append(c)
             else:
-                self._colours.append(colour(c, normalized_rgb))
+                self._colours.append(Colour(c, normalized_rgb))
 
         self._start = self._colours[0]
         self._end = self._colours[-1]

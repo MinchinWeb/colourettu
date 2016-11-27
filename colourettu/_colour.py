@@ -3,7 +3,7 @@
 import math
 
 
-class colour:
+class Colour:
     """
     Base class for dealing with colours.
 
@@ -12,8 +12,11 @@ class colour:
             you are creating, or
             a 3 item list or tuple of the red, green, and blue channels of
             the colour you are creating. Default is "#FFF" (white).
+        normalized_rgb (bool): whether the values for the red, green, and blue
+            channels are *normalized* (i.e. values scaled from 0 to 1) or not
+            (i.e. values scaled from 0 to 255). Default is *False*.
 
-    Colours are created by calling the ``colour`` class. Colour values can
+    Colours are created by calling the ``Colour`` class. Colour values can
     be provided via 3 or 6 digit hex notation, or providing a list or a
     tuple of the Red, Green, and Blue values (as integers, if
     ``normalized_rgb=False``, or as floating numbers between 0 and 1 if
@@ -23,12 +26,12 @@ class colour:
 
         import colourettu
 
-        c1 = colourettu.colour()        # defaults to #FFF
-        c2 = colourettu.colour("#eee")  # equivalent to #EEEEEE
-        c3 = colourettu.colour("#456bda")
-        c4 = colourettu.colour([3, 56, 129])
-        c5 = colourettu.colour((63, 199, 233))
-        c6 = colourettu.colour([0.242, 0.434, 0.165], normalized_rgb=True)
+        c1 = colourettu.Colour()        # defaults to #FFF
+        c2 = colourettu.Colour("#eee")  # equivalent to #EEEEEE
+        c3 = colourettu.Colour("#456bda")
+        c4 = colourettu.Colour([3, 56, 129])
+        c5 = colourettu.Colour((63, 199, 233))
+        c6 = colourettu.Colour([0.242, 0.434, 0.165], normalized_rgb=True)
 
     The value of each channel can be pulled out:
 
@@ -57,7 +60,7 @@ class colour:
 
         >>> c1 == c2
         False
-        >>> c2 == colourettu.color([238, 238, 238])
+        >>> c2 == colourettu.Color([238, 238, 238])
         True
     """
 
@@ -119,7 +122,7 @@ class colour:
             raise TypeError('Must supply a string, a list, or a tuple')
 
     def __repr__(self):
-        return('<colourettu.colour {}>'.format(self.hex()))
+        return('<colourettu.Colour {}>'.format(self.hex()))
 
     def __str__(self):
         return('{}'.format(self.hex()))
@@ -224,11 +227,11 @@ class colour:
         return (r2, g2, b2)
 
     def luminance(self):
-        """Calls ``colourettu.luminance()`` on the colour defined."""
+        """Calls the :py:func:`luminance` on the colour defined."""
         return luminance(self)
 
     def contrast(self, myothercolour):
-        """Calls ``colourettu.contrast()`` on the colour defined."""
+        """Calls the :py:func:`contrast` on the colour defined."""
         return contrast(self, myothercolour)
 
 
@@ -236,7 +239,7 @@ def luminance(mycolour):
     r"""Determine (relative) luminance of a colour.
 
     Args:
-        mycolour(colourettu.colour): a colour
+        mycolour(colourettu.Colour): a colour
 
     Luminance is a measure of how 'bright' a colour is. Values are
     normalized so that the Luminance of White is 1 and the Luminance of
@@ -265,14 +268,14 @@ def luminance(mycolour):
         \\[ lum = \\sqrt{0.299 r^2 + 0.587 g^2 + 0.114 b^2} \\]
     """
 
-    colour_for_type = colour()
+    colour_for_type = Colour()
     if type(mycolour) is type(colour_for_type):
         mycolour2 = mycolour
     else:
         try:
-            mycolour2 = colour(mycolour)
+            mycolour2 = Colour(mycolour)
         except:
-            raise TypeError("Must supply a colourettu.colour")
+            raise TypeError("Must supply a colourettu.Colour")
 
     (r1, g1, b1) = mycolour2.normalized_rgb()
 
@@ -285,8 +288,8 @@ def contrast(colour1, colour2):
     r"""Determines the contrast between two colours.
 
     Args:
-        colour1 (colourettu.colour): a colour
-        colour2 (colourettu.colour): a second colour
+        colour1 (colourettu.Colour): a colour
+        colour2 (colourettu.Colour): a second colour
 
     Contrast the difference in (perceived) brightness between colours.
     Values vary between 1:1 (a given colour on itself) and 21:1 (white on
@@ -347,12 +350,12 @@ def contrast(colour1, colour2):
     any quantitative research to this effect.
     """
 
-    colour_for_type = colour()
+    colour_for_type = Colour()
     if type(colour1) is type(colour_for_type):
         mycolour1 = colour1
     else:
         try:
-            mycolour1 = colour(colour1)
+            mycolour1 = Colour(colour1)
         except:
             raise TypeError("colour1 must be a colourettu.colour")
 
@@ -360,7 +363,7 @@ def contrast(colour1, colour2):
         mycolour2 = colour2
     else:
         try:
-            mycolour2 = colour(colour2)
+            mycolour2 = Colour(colour2)
         except:
             raise TypeError("colour2 must be a colourettu.colour")
 
@@ -371,6 +374,7 @@ def contrast(colour1, colour2):
     maxlum = max(lum1, lum2)
 
     return (maxlum + 0.05) / (minlum + 0.05)
+
 
 A_contrast = 3.0
 AA_contrast = 4.5
