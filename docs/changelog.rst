@@ -3,6 +3,10 @@ Changelog
 
 .. currentmodule:: colourettu
 
+- :release:`2.0.0 <2016-11-28>`
+- :feature:`6` add *blend* functionality as both standalone functionaility as
+  :py:func:`blend()` and as a method of the Palette class as
+  :py:func:`Palette.blend()`
 - :bug:`- major` :py:func:`Palette.to_image()` now treats ``max_width`` as a
   maximum width. This way there isn't a black bar on the bottom/left of the
   image if the number of bands do not devide evenly into ``max_width``.
