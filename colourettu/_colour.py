@@ -25,13 +25,14 @@ class Colour:
     .. code:: python
 
         import colourettu
+        from colourettu import Colour
 
-        c1 = colourettu.Colour()        # defaults to #FFF
-        c2 = colourettu.Colour("#eee")  # equivalent to #EEEEEE
-        c3 = colourettu.Colour("#456bda")
-        c4 = colourettu.Colour([3, 56, 129])
-        c5 = colourettu.Colour((63, 199, 233))
-        c6 = colourettu.Colour([0.242, 0.434, 0.165], normalized_rgb=True)
+        c1 = Colour()        # defaults to #FFF
+        c2 = Colour("#eee")  # equivalent to #EEEEEE
+        c3 = Colour("#456bda")
+        c4 = Colour([3, 56, 129])
+        c5 = Colour((63, 199, 233))
+        c6 = Colour([0.242, 0.434, 0.165], normalized_rgb=True)
 
     The value of each channel can be pulled out:
 
@@ -60,7 +61,7 @@ class Colour:
 
         >>> c1 == c2
         False
-        >>> c2 == colourettu.Color([238, 238, 238])
+        >>> c2 == Color([238, 238, 238])
         True
     """
 
@@ -374,6 +375,53 @@ def contrast(colour1, colour2):
     maxlum = max(lum1, lum2)
 
     return (maxlum + 0.05) / (minlum + 0.05)
+
+
+def blend(colour1, colour2):
+    r"""Takes two :py:class:`Colour` s and returns the 'average' Colour.
+
+    Args:
+        colour1 (colourettu.Colour): a colour
+        colour2 (colourettu.Colour): a second colour
+
+    .. note::
+
+        Uses the formula:
+
+        \\[ r_{blended} = \\sqrt \\frac{r_1^2 + r_2^2}{2} \\]
+
+
+        It is hown here for the red channel, but applied independantly to each
+        of the red, green, and blue channels. The reason for doing it this way
+        (rather than using a simple average) is that the brightness of the
+        colours is stored in a logrythmic scale, rather than a linear one.
+
+        For a fuller explaination, Minute Physics has released a great
+        `YouTube video <https://youtu.be/LKnqECcg6Gw>`_.
+
+    .. seealso:: :py:func:`Palette.blend`
+    """
+    # raw docstring is needed so that MathJax will render in generated
+    # documentation
+
+    # gamma is the power we're going to use to do this conversion
+    gamma = 2.0
+
+    # start by normalizing values
+    r_1 = colour1.red()/255.
+    g_1 = colour1.green()/255.
+    b_1 = colour1.blue()/255.
+    r_2 = colour2.red()/255.
+    g_2 = colour2.green()/255.
+    b_2 = colour2.blue()/255.
+
+    r_m = math.pow(((math.pow(r_1, gamma) + math.pow(r_2, gamma)) / 2), 1/gamma)
+    g_m = math.pow(((math.pow(g_1, gamma) + math.pow(g_2, gamma)) / 2), 1/gamma)
+    b_m = math.pow(((math.pow(b_1, gamma) + math.pow(b_2, gamma)) / 2), 1/gamma)
+
+    c_m = Colour([r_m, g_m, b_m], normalized_rgb=True)
+
+    return c_m
 
 
 A_contrast = 3.0

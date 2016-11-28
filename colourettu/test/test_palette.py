@@ -97,6 +97,24 @@ class Test_Palette(unittest.TestCase):
         self.assertEqual(p3._end, colourettu.Colour('#789'))
         self.assertEqual(p3._colours[1], colourettu.Colour('#456'))
 
+    def test_blend_black_white(self):
+        p1 = colourettu.Palette()  # black, white palette is default
+        p1.blend()
+
+        self.assertEqual(len(p1), 3)
+        self.assertEqual(p1._start, colourettu.Colour('#fff'))
+        self.assertEqual(p1._end, colourettu.Colour('#000'))
+        self.assertEqual(p1._colours[1], colourettu.Colour([180, 180, 180]))
+
+    def test_blend_multicycles(self):
+        p1 = colourettu.Palette()  # black, white palette is default
+        p1.blend(3)
+
+        self.assertEqual(len(p1), 9)
+        self.assertEqual(p1._start, colourettu.Colour('#fff'))
+        self.assertEqual(p1._end, colourettu.Colour('#000'))
+        self.assertEqual(p1._colours[4], colourettu.Colour([180, 180, 180]))
+
 
 class Test_Palette_with_Images(unittest.TestCase):
 

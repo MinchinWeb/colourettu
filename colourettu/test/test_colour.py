@@ -262,6 +262,46 @@ class Test_Luminance(unittest.TestCase):
         self.assertAlmostEqual(colour1.luminance(), 1)
 
 
+class Test_Blend(unittest.TestCase):
+
+    def test_white_white(self):
+        '''Blending White with White should still be White.'''
+        c1 = colourettu.Colour('#fff')
+        c2 = colourettu.Colour([255, 255, 255])
+
+        c3 = colourettu.blend(c1, c2)
+        self.assertEqual(c3, c1)
+
+    def test_black_black(self):
+        '''Blending Black with Black should still be Black.'''
+        c1 = colourettu.Colour('#000')
+        c2 = colourettu.Colour([0, 0, 0])
+
+        c3 = colourettu.blend(c1, c2)
+        self.assertEqual(c3, c1)
+
+    def test_white_black(self):
+        '''Blending White with Black should still be dark grey.'''
+        c1 = colourettu.Colour('#fff')
+        c2 = colourettu.Colour('#000')
+        c_expected = colourettu.Colour([180, 180, 180])
+
+        c3 = colourettu.blend(c1, c2)
+        self.assertEqual(c3, c_expected)
+
+    def test_black_white(self):
+        '''
+        Order shouldn't matter. Blending White with Black should still be
+        dark grey again.
+        '''
+        c1 = colourettu.Colour('#fff')
+        c2 = colourettu.Colour('#000')
+        c_expected = colourettu.Colour([180, 180, 180])
+
+        c3 = colourettu.blend(c2, c1)
+        self.assertEqual(c3, c_expected)
+
+
 def main():
     unittest.main()
 
