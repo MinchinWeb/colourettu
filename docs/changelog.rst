@@ -3,6 +3,9 @@ Changelog
 
 .. currentmodule:: colourettu
 
+- :bug:`- major` :py:func:`Palette.to_image()` now treats ``max_width`` as a
+  maximum width. This way there isn't a black bar on the bottom/left of the
+  image if the number of bands do not devide evenly into ``max_width``.
 - :bug:`- major` [Breaking] Update :py:class:`Colour` and :py:class:`Palette`
   class naming to CapWords-style, to match PEP8.
 - :support:`40` update cloud theme to v1.8, and with it Sphinx to v1.4. Also

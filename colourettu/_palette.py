@@ -182,14 +182,16 @@ class Palette:
         # generate output pictures for documentation automatically
 
         if max_width < 1:
-            max_width = band_width * len(self._colours)
+            pass
         else:
             band_width = int(max_width/len(self._colours))
 
+        image_width = band_width * len(self._colours)
+
         if alpha_channel:
-            my_image = Image.new('RGBA', (max_width, length))
+            my_image = Image.new('RGBA', (image_width, length))
         else:
-            my_image = Image.new('RGB', (max_width, length))
+            my_image = Image.new('RGB', (image_width, length))
         image_loaded = my_image.load()
 
         x = 0
