@@ -39,8 +39,8 @@ and backwards compatibility is not guaranteed for minor versions.
 """
 __version__ = "2.0.0"
 
-
 # Package Implementation
 
 from ._colour import *
 from ._palette import *
+
