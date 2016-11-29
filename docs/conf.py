@@ -40,6 +40,7 @@ extensions = [
     'sphinx.ext.mathjax',
     'sphinx.ext.viewcode',
     'sphinx.ext.napoleon',  # requires Sphinx >=1.3
+    'sphinx.ext.githubpages',  # produces .nojekyll file
     'releases',
     'cloud_sptheme.ext.index_styling',
     # 'cloud_sptheme.ext.relbar_toc',

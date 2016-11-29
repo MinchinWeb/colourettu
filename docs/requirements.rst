@@ -45,4 +45,4 @@ The following dependencies are also required:
 
 Then run (on Windows) (from the ``docs`` directory)::
 
-    make dirhtml
+    make html
