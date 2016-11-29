@@ -8,7 +8,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>colour class &mdash; Colourettu 1.1.0 documentation</title>
+    <title>Colour class &#8212; Colourettu 2.0.0 documentation</title>
     
     <link rel="stylesheet" href="_static/cloud.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -17,7 +17,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '1.1.0',
+        VERSION:     '2.0.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -30,9 +30,11 @@
     <script type="text/javascript" src="_static/jquery.cookie.js"></script>
     <script type="text/javascript" src="_static/cloud.js"></script>
     <link rel="shortcut icon" href="_static/favicon.ico"/>
-    <link rel="top" title="Colourettu 1.1.0 documentation" href="index.html" />
-    <link rel="next" title="palette class" href="class-palette.html" />
-    <link rel="prev" title="Colourettu version 1.1 documentation" href="index.html" /> 
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="top" title="Colourettu 2.0.0 documentation" href="contents.html" />
+    <link rel="next" title="Palette class" href="class-palette.html" />
+    <link rel="prev" title="Colourettu version 2.0 documentation" href="index.html" /> 
         <meta name="viewport" content="width=device-width, initial-scale=1"><script type="text/javascript">
 var ga_enabled = !$.cookie('disable-ga');
 if(ga_enabled){
@@ -59,12 +61,12 @@ if(ga_enabled){
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="class-palette.html" title="palette class"
+          <a href="class-palette.html" title="Palette class"
              accesskey="N">next</a> &nbsp; &nbsp;</li>
         <li class="right" >
-          <a href="index.html" title="Colourettu version 1.1 documentation"
+          <a href="index.html" title="Colourettu version 2.0 documentation"
              accesskey="P">previous</a> &nbsp; &nbsp;</li>
-    <li><a href="index.html">Colourettu 1.1.0 documentation</a> &raquo;</li>
+    <li><a href="index.html">Colourettu 2.0.0 documentation</a> &#187;</li>
  
       </ul>
     </div>
@@ -77,39 +79,46 @@ if(ga_enabled){
           <div class="body" role="main">
             
   <div class="section" id="colour-class">
-<h1><em>colour</em> class<a class="headerlink" href="#colour-class" title="Permalink to this headline">¶</a></h1>
+<h1><em>Colour</em> class<a class="headerlink" href="#colour-class" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
-<dt id="colourettu.colour">
-<em class="property">class </em><code class="descclassname">colourettu.</code><code class="descname">colour</code><span class="sig-paren">(</span><em>mycolour='#FFF'</em>, <em>normalized_rgb=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/colourettu/_colour.html#colour"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#colourettu.colour" title="Permalink to this definition">¶</a></dt>
+<dt id="colourettu.Colour">
+<em class="property">class </em><code class="descclassname">colourettu.</code><code class="descname">Colour</code><span class="sig-paren">(</span><em>mycolour='#FFF'</em>, <em>normalized_rgb=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/colourettu/_colour.html#Colour"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#colourettu.Colour" title="Permalink to this definition">¶</a></dt>
 <dd><p>Base class for dealing with colours.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>mycolour</strong> (<em>str, list, or tuple</em>) &#8211; string of hex representation of colour
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>mycolour</strong> (<em>str, list, or tuple</em>) &#8211; string of hex representation of colour
 you are creating, or
 a 3 item list or tuple of the red, green, and blue channels of
-the colour you are creating. Default is &#8220;#FFF&#8221; (white).</td>
+the colour you are creating. Default is &#8220;#FFF&#8221; (white).</li>
+<li><strong>normalized_rgb</strong> (<em>bool</em>) &#8211; whether the values for the red, green, and blue
+channels are <em>normalized</em> (i.e. values scaled from 0 to 1) or not
+(i.e. values scaled from 0 to 255). Default is <em>False</em>.</li>
+</ul>
+</td>
 </tr>
 </tbody>
 </table>
-<p>Colours are created by calling the <code class="docutils literal"><span class="pre">colour</span></code> class. Colour values can
+<p>Colours are created by calling the <code class="docutils literal"><span class="pre">Colour</span></code> class. Colour values can
 be provided via 3 or 6 digit hex notation, or providing a list or a
 tuple of the Red, Green, and Blue values (as integers, if
 <code class="docutils literal"><span class="pre">normalized_rgb=False</span></code>, or as floating numbers between 0 and 1 if
 <code class="docutils literal"><span class="pre">normalized_rgb=True</span></code>).</p>
-<div class="code python highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">colourettu</span>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">colourettu</span>
+<span class="kn">from</span> <span class="nn">colourettu</span> <span class="k">import</span> <span class="n">Colour</span>
 
-<span class="n">c1</span> <span class="o">=</span> <span class="n">colourettu</span><span class="o">.</span><span class="n">colour</span><span class="p">()</span>        <span class="c"># defaults to #FFF</span>
-<span class="n">c2</span> <span class="o">=</span> <span class="n">colourettu</span><span class="o">.</span><span class="n">colour</span><span class="p">(</span><span class="s">&quot;#eee&quot;</span><span class="p">)</span>  <span class="c"># equivalent to #EEEEEE</span>
-<span class="n">c3</span> <span class="o">=</span> <span class="n">colourettu</span><span class="o">.</span><span class="n">colour</span><span class="p">(</span><span class="s">&quot;#456bda&quot;</span><span class="p">)</span>
-<span class="n">c4</span> <span class="o">=</span> <span class="n">colourettu</span><span class="o">.</span><span class="n">colour</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">56</span><span class="p">,</span> <span class="mi">129</span><span class="p">])</span>
-<span class="n">c5</span> <span class="o">=</span> <span class="n">colourettu</span><span class="o">.</span><span class="n">colour</span><span class="p">((</span><span class="mi">63</span><span class="p">,</span> <span class="mi">199</span><span class="p">,</span> <span class="mi">233</span><span class="p">))</span>
-<span class="n">c6</span> <span class="o">=</span> <span class="n">colourettu</span><span class="o">.</span><span class="n">colour</span><span class="p">([</span><span class="mf">0.242</span><span class="p">,</span> <span class="mf">0.434</span><span class="p">,</span> <span class="mf">0.165</span><span class="p">],</span> <span class="n">normalized_rgb</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">c1</span> <span class="o">=</span> <span class="n">Colour</span><span class="p">()</span>        <span class="c1"># defaults to #FFF</span>
+<span class="n">c2</span> <span class="o">=</span> <span class="n">Colour</span><span class="p">(</span><span class="s2">&quot;#eee&quot;</span><span class="p">)</span>  <span class="c1"># equivalent to #EEEEEE</span>
+<span class="n">c3</span> <span class="o">=</span> <span class="n">Colour</span><span class="p">(</span><span class="s2">&quot;#456bda&quot;</span><span class="p">)</span>
+<span class="n">c4</span> <span class="o">=</span> <span class="n">Colour</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">56</span><span class="p">,</span> <span class="mi">129</span><span class="p">])</span>
+<span class="n">c5</span> <span class="o">=</span> <span class="n">Colour</span><span class="p">((</span><span class="mi">63</span><span class="p">,</span> <span class="mi">199</span><span class="p">,</span> <span class="mi">233</span><span class="p">))</span>
+<span class="n">c6</span> <span class="o">=</span> <span class="n">Colour</span><span class="p">([</span><span class="mf">0.242</span><span class="p">,</span> <span class="mf">0.434</span><span class="p">,</span> <span class="mf">0.165</span><span class="p">],</span> <span class="n">normalized_rgb</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>The value of each channel can be pulled out:</p>
-<div class="code python highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">c4</span><span class="o">.</span><span class="n">red</span><span class="p">()</span>
+<div class="code pycon highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">c4</span><span class="o">.</span><span class="n">red</span><span class="p">()</span>
 <span class="go">3</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">c4</span><span class="o">.</span><span class="n">green</span><span class="p">()</span>
 <span class="go">56</span>
@@ -118,19 +127,145 @@ tuple of the Red, Green, and Blue values (as integers, if
 </pre></div>
 </div>
 <p>You can also get the colour back as either a hex value, or a rgb tuple:</p>
-<div class="code python highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">c2</span><span class="o">.</span><span class="n">hex</span><span class="p">()</span>
+<div class="code pycon highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">c2</span><span class="o">.</span><span class="n">hex</span><span class="p">()</span>
 <span class="go">&#39;#EEEEEE&#39;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">c2</span><span class="o">.</span><span class="n">rgb</span><span class="p">()</span>
 <span class="go">(238, 238, 238)</span>
 </pre></div>
 </div>
-<p>Colours are considered equal is the values of the R, G, and B channels match.</p>
-<div class="code python highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">c1</span> <span class="o">==</span> <span class="n">c2</span>
+<p>Colours are considered equal is the values of the R, G, and B channels
+match.</p>
+<div class="code pycon highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">c1</span> <span class="o">==</span> <span class="n">c2</span>
 <span class="go">False</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">c2</span> <span class="o">==</span> <span class="n">colourettu</span><span class="o">.</span><span class="n">color</span><span class="p">([</span><span class="mi">238</span><span class="p">,</span> <span class="mi">238</span><span class="p">,</span> <span class="mi">238</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c2</span> <span class="o">==</span> <span class="n">Color</span><span class="p">([</span><span class="mi">238</span><span class="p">,</span> <span class="mi">238</span><span class="p">,</span> <span class="mi">238</span><span class="p">])</span>
 <span class="go">True</span>
 </pre></div>
 </div>
+<dl class="method">
+<dt id="colourettu.Colour.blue">
+<code class="descname">blue</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/colourettu/_colour.html#Colour.blue"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#colourettu.Colour.blue" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the value of the blue channel of the Colour.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">value of the blue channel of the colour</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">int</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="colourettu.Colour.contrast">
+<code class="descname">contrast</code><span class="sig-paren">(</span><em>myothercolour</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/colourettu/_colour.html#Colour.contrast"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#colourettu.Colour.contrast" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calls the <a class="reference internal" href="function-contrast.html#colourettu.contrast" title="colourettu.contrast"><code class="xref py py-func docutils literal"><span class="pre">contrast()</span></code></a> on the colour defined.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="colourettu.Colour.green">
+<code class="descname">green</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/colourettu/_colour.html#Colour.green"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#colourettu.Colour.green" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the value of the green channel of the Colour.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">value of the green channel of the colour</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">int</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="colourettu.Colour.hex">
+<code class="descname">hex</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/colourettu/_colour.html#Colour.hex"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#colourettu.Colour.hex" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the HTML-style hex code for the Colour.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the colour as a HTML-sytle hex string</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">str</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="colourettu.Colour.luminance">
+<code class="descname">luminance</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/colourettu/_colour.html#Colour.luminance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#colourettu.Colour.luminance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calls the <a class="reference internal" href="function-luminance.html#colourettu.luminance" title="colourettu.luminance"><code class="xref py py-func docutils literal"><span class="pre">luminance()</span></code></a> on the colour defined.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="colourettu.Colour.normalized_rgb">
+<code class="descname">normalized_rgb</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/colourettu/_colour.html#Colour.normalized_rgb"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#colourettu.Colour.normalized_rgb" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a tuples of the normalized values of the red, green, and blue
+channels of the Colour.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><dl class="docutils">
+<dt>the rgb values of the colour (with values normalized between</dt>
+<dd>0.0 and 1.0)</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">tuple</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>Uses the formula:</p>
+<p class="last">\[ r_{norm} = \begin{cases}
+\frac{r_{255}}{12.92}\ \qquad &amp;\text{if $r_{255}$ $\le$ 0.03928}
+\\
+\left(\frac{r_{255} + 0.055}{1.055}\right)^{2.4}
+\quad &amp;\text{otherwise}
+\end{cases} \]</p>
+</div>
+<p><a class="reference external" href="http://www.w3.org/TR/2008/REC-WCAG20-20081211/#relativeluminancedef">Source</a></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="colourettu.Colour.red">
+<code class="descname">red</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/colourettu/_colour.html#Colour.red"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#colourettu.Colour.red" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the value of the red channel of the Colour.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">value of the red channel of the colour</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">int</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="colourettu.Colour.rgb">
+<code class="descname">rgb</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/colourettu/_colour.html#Colour.rgb"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#colourettu.Colour.rgb" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a tuples of the values of the red, green, and blue channels of
+the Colour.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the rgb values of the colour (with values between 0 and 255)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">tuple</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 </dd></dl>
 
 </div>
@@ -147,12 +282,12 @@ tuple of the Red, Green, and Blue values (as integers, if
   <div class="sphinxprev">
     <h4>Previous page</h4>
     <p class="topless"><a href="index.html"
-                          title="Previous page">&larr; Colourettu version 1.1 documentation</a></p>
+                          title="Previous page">&larr; Colourettu version 2.0 documentation</a></p>
   </div>
   <div class="sphinxnext">
     <h4>Next page</h4>
     <p class="topless"><a href="class-palette.html"
-                          title="Next page">&rarr; <em>palette</em> class</a></p>
+                          title="Next page">&rarr; <em>Palette</em> class</a></p>
   </div>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
@@ -164,18 +299,32 @@ tuple of the Red, Green, and Blue values (as integers, if
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
       </div>
+    
+    
+        <div class="sidebar-toggle-group no-js">
+            
+            <button class="sidebar-toggle" id="sidebar-hide" title="Hide the sidebar menu">
+                 «
+                <span class="show-for-small">hide menu</span>
+                
+            </button>
+            <button class="sidebar-toggle" id="sidebar-show" title="Show the sidebar menu">
+                
+                <span class="show-for-small">menu</span>
+                <span class="hide-for-small">sidebar</span>
+                 »
+            </button>
+        </div>
+    
       <div class="clearer"></div>
     </div>
     <div class="relbar-bottom">
@@ -187,19 +336,19 @@ tuple of the Red, Green, and Blue values (as integers, if
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="class-palette.html" title="palette class"
+          <a href="class-palette.html" title="Palette class"
              >next</a> &nbsp; &nbsp;</li>
         <li class="right" >
-          <a href="index.html" title="Colourettu version 1.1 documentation"
+          <a href="index.html" title="Colourettu version 2.0 documentation"
              >previous</a> &nbsp; &nbsp;</li>
-    <li><a href="index.html">Colourettu 1.1.0 documentation</a> &raquo;</li>
+    <li><a href="index.html">Colourettu 2.0.0 documentation</a> &#187;</li>
  
       </ul>
     </div>
     </div>
 
     <div class="footer" role="contentinfo">
-        &copy; Copyright 2014-15, William Minchin.
+        &#169; Copyright 2014-16 William Minchin.
     </div><script type="text/javascript">
     if(ga_enabled){
         document.write("<div class=\"footer\">This page uses <a href=\"http://analytics.google.com\">Google Analytics</a> to collect statistics. ");

@@ -8,7 +8,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>luminance function &#8212; Colourettu 2.0.0 documentation</title>
+    <title>Table Of Contents &#8212; Colourettu 2.0.0 documentation</title>
     
     <link rel="stylesheet" href="_static/cloud.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -32,9 +32,8 @@
     <link rel="shortcut icon" href="_static/favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="top" title="Colourettu 2.0.0 documentation" href="contents.html" />
-    <link rel="next" title="Requirements" href="requirements.html" />
-    <link rel="prev" title="contrast function" href="function-contrast.html" /> 
+    <link rel="top" title="Colourettu 2.0.0 documentation" href="#" />
+    <link rel="next" title="Colourettu version 2.0 documentation" href="index.html" /> 
         <meta name="viewport" content="width=device-width, initial-scale=1"><script type="text/javascript">
 var ga_enabled = !$.cookie('disable-ga');
 if(ga_enabled){
@@ -61,11 +60,8 @@ if(ga_enabled){
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="requirements.html" title="Requirements"
+          <a href="index.html" title="Colourettu version 2.0 documentation"
              accesskey="N">next</a> &nbsp; &nbsp;</li>
-        <li class="right" >
-          <a href="function-contrast.html" title="contrast function"
-             accesskey="P">previous</a> &nbsp; &nbsp;</li>
     <li><a href="index.html">Colourettu 2.0.0 documentation</a> &#187;</li>
  
       </ul>
@@ -78,43 +74,35 @@ if(ga_enabled){
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="luminance-function">
-<h1><em>luminance</em> function<a class="headerlink" href="#luminance-function" title="Permalink to this headline">¶</a></h1>
-<dl class="function">
-<dt id="colourettu.luminance">
-<code class="descclassname">colourettu.</code><code class="descname">luminance</code><span class="sig-paren">(</span><em>mycolour</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/colourettu/_colour.html#luminance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#colourettu.luminance" title="Permalink to this definition">¶</a></dt>
-<dd><p>Determine (relative) luminance of a colour.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>mycolour</strong> (<a class="reference internal" href="class-colour.html#colourettu.Colour" title="colourettu.Colour"><em>colourettu.Colour</em></a>) &#8211; a colour</td>
-</tr>
-</tbody>
-</table>
-<p>Luminance is a measure of how &#8216;bright&#8217; a colour is. Values are
-normalized so that the Luminance of White is 1 and the Luminance of
-Black is 0. That is to say:</p>
-<div class="code pycon highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">colourettu</span><span class="o">.</span><span class="n">luminance</span><span class="p">(</span><span class="s2">&quot;#FFF&quot;</span><span class="p">)</span>    <span class="c1"># white</span>
-<span class="go">0.9999999999999999</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">colourettu</span><span class="o">.</span><span class="n">luminance</span><span class="p">(</span><span class="s2">&quot;#000&quot;</span><span class="p">)</span>    <span class="c1"># black</span>
-<span class="go">0.0</span>
-</pre></div>
+  <div class="section" id="table-of-contents">
+<h1>Table Of Contents<a class="headerlink" href="#table-of-contents" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Front Page</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="index.html#note-on-spelling">Note on Spelling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#links">Links</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#license">License</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="class-colour.html"><em>Colour</em> class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="class-palette.html"><em>Palette</em> class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="function-blend.html"><em>blend</em> function</a></li>
+<li class="toctree-l1"><a class="reference internal" href="function-contrast.html"><em>contrast</em> function</a></li>
+<li class="toctree-l1"><a class="reference internal" href="function-luminance.html"><em>luminance</em> function</a></li>
+<li class="toctree-l1"><a class="reference internal" href="requirements.html">Requirements</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="requirements.html#testing">Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="requirements.html#documentation-generation">Documentation Generation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="upgrades.html">Upgrading</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="upgrades.html#id1">1.0 -&gt; 2.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="upgrades.html#id2">0.1.1 -&gt; 1.0</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+</ul>
 </div>
-<p><code class="docutils literal"><span class="pre">luminance()</span></code> can also be called on an already existing colour:</p>
-<div class="code pycon highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">c3</span><span class="o">.</span><span class="n">luminance</span><span class="p">()</span>
-<span class="go">0.2641668488934239</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">colourettu</span><span class="o">.</span><span class="n">luminance</span><span class="p">(</span><span class="n">c4</span><span class="p">)</span>
-<span class="go">0.08007571268096524</span>
-</pre></div>
-</div>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p>Uses the formula:</p>
-<p class="last">\[ lum = \sqrt{0.299 r^2 + 0.587 g^2 + 0.114 b^2} \]</p>
-</div>
-</dd></dl>
-
 </div>
 
 
@@ -126,20 +114,15 @@ Black is 0. That is to say:</p>
         <p class="logo"><a href="index.html" title="index">
           <img class="logo" src="_static/colourettu-logo.png" alt="Logo"/>
         </a></p>
-  <div class="sphinxprev">
-    <h4>Previous page</h4>
-    <p class="topless"><a href="function-contrast.html"
-                          title="Previous page">&larr; <em>contrast</em> function</a></p>
-  </div>
   <div class="sphinxnext">
     <h4>Next page</h4>
-    <p class="topless"><a href="requirements.html"
-                          title="Next page">&rarr; Requirements</a></p>
+    <p class="topless"><a href="index.html"
+                          title="Next page">&rarr; Colourettu version 2.0 documentation</a></p>
   </div>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="_sources/function-luminance.txt"
+      <li><a href="_sources/contents.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
@@ -183,11 +166,8 @@ Black is 0. That is to say:</p>
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="requirements.html" title="Requirements"
+          <a href="index.html" title="Colourettu version 2.0 documentation"
              >next</a> &nbsp; &nbsp;</li>
-        <li class="right" >
-          <a href="function-contrast.html" title="contrast function"
-             >previous</a> &nbsp; &nbsp;</li>
     <li><a href="index.html">Colourettu 2.0.0 documentation</a> &#187;</li>
  
       </ul>

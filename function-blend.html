@@ -8,7 +8,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>luminance function &#8212; Colourettu 2.0.0 documentation</title>
+    <title>blend function &#8212; Colourettu 2.0.0 documentation</title>
     
     <link rel="stylesheet" href="_static/cloud.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -33,8 +33,8 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="top" title="Colourettu 2.0.0 documentation" href="contents.html" />
-    <link rel="next" title="Requirements" href="requirements.html" />
-    <link rel="prev" title="contrast function" href="function-contrast.html" /> 
+    <link rel="next" title="contrast function" href="function-contrast.html" />
+    <link rel="prev" title="Palette class" href="class-palette.html" /> 
         <meta name="viewport" content="width=device-width, initial-scale=1"><script type="text/javascript">
 var ga_enabled = !$.cookie('disable-ga');
 if(ga_enabled){
@@ -61,10 +61,10 @@ if(ga_enabled){
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="requirements.html" title="Requirements"
+          <a href="function-contrast.html" title="contrast function"
              accesskey="N">next</a> &nbsp; &nbsp;</li>
         <li class="right" >
-          <a href="function-contrast.html" title="contrast function"
+          <a href="class-palette.html" title="Palette class"
              accesskey="P">previous</a> &nbsp; &nbsp;</li>
     <li><a href="index.html">Colourettu 2.0.0 documentation</a> &#187;</li>
  
@@ -78,40 +78,38 @@ if(ga_enabled){
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="luminance-function">
-<h1><em>luminance</em> function<a class="headerlink" href="#luminance-function" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="blend-function">
+<h1><em>blend</em> function<a class="headerlink" href="#blend-function" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
-<dt id="colourettu.luminance">
-<code class="descclassname">colourettu.</code><code class="descname">luminance</code><span class="sig-paren">(</span><em>mycolour</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/colourettu/_colour.html#luminance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#colourettu.luminance" title="Permalink to this definition">¶</a></dt>
-<dd><p>Determine (relative) luminance of a colour.</p>
+<dt id="colourettu.blend">
+<code class="descclassname">colourettu.</code><code class="descname">blend</code><span class="sig-paren">(</span><em>colour1</em>, <em>colour2</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/colourettu/_colour.html#blend"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#colourettu.blend" title="Permalink to this definition">¶</a></dt>
+<dd><p>Takes two <a class="reference internal" href="class-colour.html#colourettu.Colour" title="colourettu.Colour"><code class="xref py py-class docutils literal"><span class="pre">Colour</span></code></a> s and returns the &#8216;average&#8217; Colour.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>mycolour</strong> (<a class="reference internal" href="class-colour.html#colourettu.Colour" title="colourettu.Colour"><em>colourettu.Colour</em></a>) &#8211; a colour</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>colour1</strong> (<a class="reference internal" href="class-colour.html#colourettu.Colour" title="colourettu.Colour"><em>colourettu.Colour</em></a>) &#8211; a colour</li>
+<li><strong>colour2</strong> (<a class="reference internal" href="class-colour.html#colourettu.Colour" title="colourettu.Colour"><em>colourettu.Colour</em></a>) &#8211; a second colour</li>
+</ul>
+</td>
 </tr>
 </tbody>
 </table>
-<p>Luminance is a measure of how &#8216;bright&#8217; a colour is. Values are
-normalized so that the Luminance of White is 1 and the Luminance of
-Black is 0. That is to say:</p>
-<div class="code pycon highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">colourettu</span><span class="o">.</span><span class="n">luminance</span><span class="p">(</span><span class="s2">&quot;#FFF&quot;</span><span class="p">)</span>    <span class="c1"># white</span>
-<span class="go">0.9999999999999999</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">colourettu</span><span class="o">.</span><span class="n">luminance</span><span class="p">(</span><span class="s2">&quot;#000&quot;</span><span class="p">)</span>    <span class="c1"># black</span>
-<span class="go">0.0</span>
-</pre></div>
-</div>
-<p><code class="docutils literal"><span class="pre">luminance()</span></code> can also be called on an already existing colour:</p>
-<div class="code pycon highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">c3</span><span class="o">.</span><span class="n">luminance</span><span class="p">()</span>
-<span class="go">0.2641668488934239</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">colourettu</span><span class="o">.</span><span class="n">luminance</span><span class="p">(</span><span class="n">c4</span><span class="p">)</span>
-<span class="go">0.08007571268096524</span>
-</pre></div>
-</div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p>Uses the formula:</p>
-<p class="last">\[ lum = \sqrt{0.299 r^2 + 0.587 g^2 + 0.114 b^2} \]</p>
+<p>\[ r_{blended} = \sqrt \frac{r_1^2 + r_2^2}{2} \]</p>
+<p>It is hown here for the red channel, but applied independantly to each
+of the red, green, and blue channels. The reason for doing it this way
+(rather than using a simple average) is that the brightness of the
+colours is stored in a logrythmic scale, rather than a linear one.</p>
+<p class="last">For a fuller explaination, Minute Physics has released a great
+<a class="reference external" href="https://youtu.be/LKnqECcg6Gw">YouTube video</a>.</p>
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="class-palette.html#colourettu.Palette.blend" title="colourettu.Palette.blend"><code class="xref py py-func docutils literal"><span class="pre">Palette.blend()</span></code></a></p>
 </div>
 </dd></dl>
 
@@ -128,18 +126,18 @@ Black is 0. That is to say:</p>
         </a></p>
   <div class="sphinxprev">
     <h4>Previous page</h4>
-    <p class="topless"><a href="function-contrast.html"
-                          title="Previous page">&larr; <em>contrast</em> function</a></p>
+    <p class="topless"><a href="class-palette.html"
+                          title="Previous page">&larr; <em>Palette</em> class</a></p>
   </div>
   <div class="sphinxnext">
     <h4>Next page</h4>
-    <p class="topless"><a href="requirements.html"
-                          title="Next page">&rarr; Requirements</a></p>
+    <p class="topless"><a href="function-contrast.html"
+                          title="Next page">&rarr; <em>contrast</em> function</a></p>
   </div>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="_sources/function-luminance.txt"
+      <li><a href="_sources/function-blend.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
@@ -183,10 +181,10 @@ Black is 0. That is to say:</p>
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="requirements.html" title="Requirements"
+          <a href="function-contrast.html" title="contrast function"
              >next</a> &nbsp; &nbsp;</li>
         <li class="right" >
-          <a href="function-contrast.html" title="contrast function"
+          <a href="class-palette.html" title="Palette class"
              >previous</a> &nbsp; &nbsp;</li>
     <li><a href="index.html">Colourettu 2.0.0 documentation</a> &#187;</li>
  

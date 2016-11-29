@@ -8,7 +8,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>contrast function &mdash; Colourettu 1.1.0 documentation</title>
+    <title>contrast function &#8212; Colourettu 2.0.0 documentation</title>
     
     <link rel="stylesheet" href="_static/cloud.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -17,7 +17,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '1.1.0',
+        VERSION:     '2.0.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -30,9 +30,11 @@
     <script type="text/javascript" src="_static/jquery.cookie.js"></script>
     <script type="text/javascript" src="_static/cloud.js"></script>
     <link rel="shortcut icon" href="_static/favicon.ico"/>
-    <link rel="top" title="Colourettu 1.1.0 documentation" href="index.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="top" title="Colourettu 2.0.0 documentation" href="contents.html" />
     <link rel="next" title="luminance function" href="function-luminance.html" />
-    <link rel="prev" title="palette class" href="class-palette.html" /> 
+    <link rel="prev" title="blend function" href="function-blend.html" /> 
         <meta name="viewport" content="width=device-width, initial-scale=1"><script type="text/javascript">
 var ga_enabled = !$.cookie('disable-ga');
 if(ga_enabled){
@@ -62,9 +64,9 @@ if(ga_enabled){
           <a href="function-luminance.html" title="luminance function"
              accesskey="N">next</a> &nbsp; &nbsp;</li>
         <li class="right" >
-          <a href="class-palette.html" title="palette class"
+          <a href="function-blend.html" title="blend function"
              accesskey="P">previous</a> &nbsp; &nbsp;</li>
-    <li><a href="index.html">Colourettu 1.1.0 documentation</a> &raquo;</li>
+    <li><a href="index.html">Colourettu 2.0.0 documentation</a> &#187;</li>
  
       </ul>
     </div>
@@ -80,15 +82,15 @@ if(ga_enabled){
 <h1><em>contrast</em> function<a class="headerlink" href="#contrast-function" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="colourettu.contrast">
-<code class="descclassname">colourettu.</code><code class="descname">contrast</code><span class="sig-paren">(</span><em>colour1</em>, <em>colour2</em><span class="sig-paren">)</span><a class="headerlink" href="#colourettu.contrast" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">colourettu.</code><code class="descname">contrast</code><span class="sig-paren">(</span><em>colour1</em>, <em>colour2</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/colourettu/_colour.html#contrast"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#colourettu.contrast" title="Permalink to this definition">¶</a></dt>
 <dd><p>Determines the contrast between two colours.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>colour1</strong> (<a class="reference internal" href="class-colour.html#colourettu.colour" title="colourettu.colour"><em>colourettu.colour</em></a>) &#8211; a colour</li>
-<li><strong>colour2</strong> (<a class="reference internal" href="class-colour.html#colourettu.colour" title="colourettu.colour"><em>colourettu.colour</em></a>) &#8211; a second colour</li>
+<li><strong>colour1</strong> (<a class="reference internal" href="class-colour.html#colourettu.Colour" title="colourettu.Colour"><em>colourettu.Colour</em></a>) &#8211; a colour</li>
+<li><strong>colour2</strong> (<a class="reference internal" href="class-colour.html#colourettu.Colour" title="colourettu.Colour"><em>colourettu.Colour</em></a>) &#8211; a second colour</li>
 </ul>
 </td>
 </tr>
@@ -98,9 +100,9 @@ if(ga_enabled){
 Values vary between 1:1 (a given colour on itself) and 21:1 (white on
 black).</p>
 <p>To compute contrast, two colours are required.</p>
-<div class="code python highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">colourettu</span><span class="o">.</span><span class="n">contrast</span><span class="p">(</span><span class="s">&quot;#FFF&quot;</span><span class="p">,</span> <span class="s">&quot;#FFF&quot;</span><span class="p">)</span> <span class="c"># white on white</span>
+<div class="code pycon highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">colourettu</span><span class="o">.</span><span class="n">contrast</span><span class="p">(</span><span class="s2">&quot;#FFF&quot;</span><span class="p">,</span> <span class="s2">&quot;#FFF&quot;</span><span class="p">)</span> <span class="c1"># white on white</span>
 <span class="go">1.0</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">colourettu</span><span class="o">.</span><span class="n">contrast</span><span class="p">(</span><span class="n">c1</span><span class="p">,</span> <span class="s">&quot;#000&quot;</span><span class="p">)</span> <span class="c"># black on white</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">colourettu</span><span class="o">.</span><span class="n">contrast</span><span class="p">(</span><span class="n">c1</span><span class="p">,</span> <span class="s2">&quot;#000&quot;</span><span class="p">)</span> <span class="c1"># black on white</span>
 <span class="go">20.999999999999996</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">colourettu</span><span class="o">.</span><span class="n">contrast</span><span class="p">(</span><span class="n">c4</span><span class="p">,</span> <span class="n">c5</span><span class="p">)</span>
 <span class="go">4.363552233203198</span>
@@ -108,7 +110,7 @@ black).</p>
 </div>
 <p><code class="docutils literal"><span class="pre">contrast</span></code> can also be called on an already existing colour, but a
 second colour needs to be provided:</p>
-<div class="code python highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">c4</span><span class="o">.</span><span class="n">contrast</span><span class="p">(</span><span class="n">c5</span><span class="p">)</span>
+<div class="code pycon highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">c4</span><span class="o">.</span><span class="n">contrast</span><span class="p">(</span><span class="n">c5</span><span class="p">)</span>
 <span class="go">4.363552233203198</span>
 </pre></div>
 </div>
@@ -129,7 +131,7 @@ would be equivalent to 20/80 vision. Generally, it is assumed that those
 with vision beyond this would access the web with the use of assistive
 technologies.</p>
 <p>If needed, these constants are stored in the library.</p>
-<div class="code python highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">colourettu</span><span class="o">.</span><span class="n">A_contrast</span>
+<div class="code pycon highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">colourettu</span><span class="o">.</span><span class="n">A_contrast</span>
 <span class="go">3.0</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">colourettu</span><span class="o">.</span><span class="n">AA_contrast</span>
 <span class="go">4.5</span>
@@ -156,8 +158,8 @@ any quantitative research to this effect.</p>
         </a></p>
   <div class="sphinxprev">
     <h4>Previous page</h4>
-    <p class="topless"><a href="class-palette.html"
-                          title="Previous page">&larr; <em>palette</em> class</a></p>
+    <p class="topless"><a href="function-blend.html"
+                          title="Previous page">&larr; <em>blend</em> function</a></p>
   </div>
   <div class="sphinxnext">
     <h4>Next page</h4>
@@ -174,18 +176,32 @@ any quantitative research to this effect.</p>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
       </div>
+    
+    
+        <div class="sidebar-toggle-group no-js">
+            
+            <button class="sidebar-toggle" id="sidebar-hide" title="Hide the sidebar menu">
+                 «
+                <span class="show-for-small">hide menu</span>
+                
+            </button>
+            <button class="sidebar-toggle" id="sidebar-show" title="Show the sidebar menu">
+                
+                <span class="show-for-small">menu</span>
+                <span class="hide-for-small">sidebar</span>
+                 »
+            </button>
+        </div>
+    
       <div class="clearer"></div>
     </div>
     <div class="relbar-bottom">
@@ -200,16 +216,16 @@ any quantitative research to this effect.</p>
           <a href="function-luminance.html" title="luminance function"
              >next</a> &nbsp; &nbsp;</li>
         <li class="right" >
-          <a href="class-palette.html" title="palette class"
+          <a href="function-blend.html" title="blend function"
              >previous</a> &nbsp; &nbsp;</li>
-    <li><a href="index.html">Colourettu 1.1.0 documentation</a> &raquo;</li>
+    <li><a href="index.html">Colourettu 2.0.0 documentation</a> &#187;</li>
  
       </ul>
     </div>
     </div>
 
     <div class="footer" role="contentinfo">
-        &copy; Copyright 2014-15, William Minchin.
+        &#169; Copyright 2014-16 William Minchin.
     </div><script type="text/javascript">
     if(ga_enabled){
         document.write("<div class=\"footer\">This page uses <a href=\"http://analytics.google.com\">Google Analytics</a> to collect statistics. ");

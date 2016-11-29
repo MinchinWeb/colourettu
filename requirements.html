@@ -8,7 +8,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Requirements &mdash; Colourettu 1.1.0 documentation</title>
+    <title>Requirements &#8212; Colourettu 2.0.0 documentation</title>
     
     <link rel="stylesheet" href="_static/cloud.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -17,7 +17,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '1.1.0',
+        VERSION:     '2.0.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -30,7 +30,9 @@
     <script type="text/javascript" src="_static/jquery.cookie.js"></script>
     <script type="text/javascript" src="_static/cloud.js"></script>
     <link rel="shortcut icon" href="_static/favicon.ico"/>
-    <link rel="top" title="Colourettu 1.1.0 documentation" href="index.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="top" title="Colourettu 2.0.0 documentation" href="contents.html" />
     <link rel="next" title="Upgrading" href="upgrades.html" />
     <link rel="prev" title="luminance function" href="function-luminance.html" /> 
         <meta name="viewport" content="width=device-width, initial-scale=1"><script type="text/javascript">
@@ -64,7 +66,7 @@ if(ga_enabled){
         <li class="right" >
           <a href="function-luminance.html" title="luminance function"
              accesskey="P">previous</a> &nbsp; &nbsp;</li>
-    <li><a href="index.html">Colourettu 1.1.0 documentation</a> &raquo;</li>
+    <li><a href="index.html">Colourettu 2.0.0 documentation</a> &#187;</li>
  
       </ul>
     </div>
@@ -79,18 +81,38 @@ if(ga_enabled){
   <div class="section" id="requirements">
 <h1>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h1>
 <p>The main <em>colourettu</em> module, has the following dependencies:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">Pillow</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Pillow</span><span class="o">==</span><span class="mf">3.4</span><span class="o">.</span><span class="mi">2</span>
 </pre></div>
 </div>
 <div class="section" id="testing">
 <h2>Testing<a class="headerlink" href="#testing" title="Permalink to this headline">¶</a></h2>
 <p>Testing <em>colourettu</em> requires:</p>
-<div class="highlight-python"><div class="highlight"><pre>green==1.9.4
-coverage
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">green</span><span class="o">==</span><span class="mf">2.5</span><span class="o">.</span><span class="mi">2</span>
+<span class="n">coverage</span><span class="o">==</span><span class="mf">4.2</span>
+<span class="n">isort</span><span class="o">==</span><span class="mf">4.2</span><span class="o">.</span><span class="mi">5</span>
+<span class="n">pydocstyle</span><span class="o">==</span><span class="mf">1.1</span><span class="o">.</span><span class="mi">1</span>
+<span class="n">pycodestyle</span><span class="o">==</span><span class="mf">2.2</span><span class="o">.</span><span class="mi">0</span>
+<span class="n">check</span><span class="o">-</span><span class="n">manifest</span><span class="o">==</span><span class="mf">0.34</span>
 </pre></div>
 </div>
-<p>Then run (from the base directory):</p>
-<div class="highlight-python"><div class="highlight"><pre>green test -vv
+<p>For unit test, then run (from the base directory):</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">green</span> <span class="n">colourettu</span><span class="o">.</span><span class="n">tests</span> <span class="o">-</span><span class="n">vv</span>
+</pre></div>
+</div>
+<p>For code-style test, then run (from the base directory):</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">isort</span> <span class="o">--</span><span class="n">recursive</span> <span class="n">colourettu</span> <span class="o">--</span><span class="n">verbose</span>
+<span class="n">pydocstyle</span> <span class="n">colourettu</span>
+<span class="n">pycodestyle</span> <span class="n">colourettu</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Code-style tests remain aspirational at this point, and so
+failures here are permitted.</p>
+</div>
+<p>Before packaging, check the manifest (<code class="docutils literal"><span class="pre">Manifest.in</span></code>) by running (from the
+base directory):</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">check</span><span class="o">-</span><span class="n">manifest</span> <span class="o">-</span><span class="n">v</span>
 </pre></div>
 </div>
 </div>
@@ -100,13 +122,14 @@ coverage
 <em>colourettu</em> itself must be installed (it is imported in
 the process of building the documentation).
 The following dependencies are also required:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">sphinx</span> <span class="o">&gt;=</span> <span class="mf">1.3</span>
-<span class="n">cloud_sptheme</span>
-<span class="n">releases</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">sphinx</span><span class="o">==</span><span class="mf">1.4</span><span class="o">.</span><span class="mi">9</span>
+<span class="n">cloud_sptheme</span><span class="o">==</span><span class="mf">1.8</span><span class="o">.</span><span class="mi">0</span>
+<span class="n">releases</span><span class="o">==</span><span class="mf">1.2</span><span class="o">.</span><span class="mi">1</span>
+<span class="n">babel</span><span class="o">==</span><span class="mf">2.3</span><span class="o">.</span><span class="mi">4</span>
 </pre></div>
 </div>
 <p>Then run (on Windows) (from the <code class="docutils literal"><span class="pre">docs</span></code> directory):</p>
-<div class="highlight-python"><div class="highlight"><pre>make html
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">html</span>
 </pre></div>
 </div>
 </div>
@@ -120,8 +143,8 @@ The following dependencies are also required:</p>
         <div class="sphinxsidebarwrapper">
         <p class="logo"><a href="index.html" title="index">
           <img class="logo" src="_static/colourettu-logo.png" alt="Logo"/>
-        </a></p><div class="sphinxlocaltoc">
-    <h3><a href="index.html">Page contents</a></h3>
+        </a></p><div class="sphinx-toc sphinxlocaltoc">
+    <h3><a href="contents.html">Page contents</a></h3>
     <ul>
 <li><a class="reference internal" href="#">Requirements</a><ul>
 <li><a class="reference internal" href="#testing">Testing</a></li>
@@ -151,18 +174,32 @@ The following dependencies are also required:</p>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
       </div>
+    
+    
+        <div class="sidebar-toggle-group no-js">
+            
+            <button class="sidebar-toggle" id="sidebar-hide" title="Hide the sidebar menu">
+                 «
+                <span class="show-for-small">hide menu</span>
+                
+            </button>
+            <button class="sidebar-toggle" id="sidebar-show" title="Show the sidebar menu">
+                
+                <span class="show-for-small">menu</span>
+                <span class="hide-for-small">sidebar</span>
+                 »
+            </button>
+        </div>
+    
       <div class="clearer"></div>
     </div>
     <div class="relbar-bottom">
@@ -179,14 +216,14 @@ The following dependencies are also required:</p>
         <li class="right" >
           <a href="function-luminance.html" title="luminance function"
              >previous</a> &nbsp; &nbsp;</li>
-    <li><a href="index.html">Colourettu 1.1.0 documentation</a> &raquo;</li>
+    <li><a href="index.html">Colourettu 2.0.0 documentation</a> &#187;</li>
  
       </ul>
     </div>
     </div>
 
     <div class="footer" role="contentinfo">
-        &copy; Copyright 2014-15, William Minchin.
+        &#169; Copyright 2014-16 William Minchin.
     </div><script type="text/javascript">
     if(ga_enabled){
         document.write("<div class=\"footer\">This page uses <a href=\"http://analytics.google.com\">Google Analytics</a> to collect statistics. ");

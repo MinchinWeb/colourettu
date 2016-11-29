@@ -8,7 +8,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>palette class &mdash; Colourettu 1.1.0 documentation</title>
+    <title>Palette class &#8212; Colourettu 2.0.0 documentation</title>
     
     <link rel="stylesheet" href="_static/cloud.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -17,7 +17,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '1.1.0',
+        VERSION:     '2.0.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -30,9 +30,11 @@
     <script type="text/javascript" src="_static/jquery.cookie.js"></script>
     <script type="text/javascript" src="_static/cloud.js"></script>
     <link rel="shortcut icon" href="_static/favicon.ico"/>
-    <link rel="top" title="Colourettu 1.1.0 documentation" href="index.html" />
-    <link rel="next" title="contrast function" href="function-contrast.html" />
-    <link rel="prev" title="colour class" href="class-colour.html" /> 
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="top" title="Colourettu 2.0.0 documentation" href="contents.html" />
+    <link rel="next" title="blend function" href="function-blend.html" />
+    <link rel="prev" title="Colour class" href="class-colour.html" /> 
         <meta name="viewport" content="width=device-width, initial-scale=1"><script type="text/javascript">
 var ga_enabled = !$.cookie('disable-ga');
 if(ga_enabled){
@@ -59,12 +61,12 @@ if(ga_enabled){
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="function-contrast.html" title="contrast function"
+          <a href="function-blend.html" title="blend function"
              accesskey="N">next</a> &nbsp; &nbsp;</li>
         <li class="right" >
-          <a href="class-colour.html" title="colour class"
+          <a href="class-colour.html" title="Colour class"
              accesskey="P">previous</a> &nbsp; &nbsp;</li>
-    <li><a href="index.html">Colourettu 1.1.0 documentation</a> &raquo;</li>
+    <li><a href="index.html">Colourettu 2.0.0 documentation</a> &#187;</li>
  
       </ul>
     </div>
@@ -77,20 +79,20 @@ if(ga_enabled){
           <div class="body" role="main">
             
   <div class="section" id="palette-class">
-<h1><em>palette</em> class<a class="headerlink" href="#palette-class" title="Permalink to this headline">¶</a></h1>
+<h1><em>Palette</em> class<a class="headerlink" href="#palette-class" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
-<dt id="colourettu.palette">
-<em class="property">class </em><code class="descclassname">colourettu.</code><code class="descname">palette</code><span class="sig-paren">(</span><em>start_colour=&lt;colourettu.colour #FFFFFF&gt;</em>, <em>end_colour=&lt;colourettu.colour #000000&gt;</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/colourettu/_palette.html#palette"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#colourettu.palette" title="Permalink to this definition">¶</a></dt>
-<dd><p>Class for creating a palette of colours. A palette here is a list of
-colours.</p>
+<dt id="colourettu.Palette">
+<em class="property">class </em><code class="descclassname">colourettu.</code><code class="descname">Palette</code><span class="sig-paren">(</span><em>start_colour=&lt;colourettu.Colour #FFFFFF&gt;</em>, <em>end_colour=&lt;colourettu.Colour #000000&gt;</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/colourettu/_palette.html#Palette"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#colourettu.Palette" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class for creating a palette of colours.</p>
+<p>A palette here is a list of colours.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>start_colour</strong> (<a class="reference internal" href="class-colour.html#colourettu.colour" title="colourettu.colour"><em>colourettu.colour</em></a>) &#8211; the colour you want your palette to
+<li><strong>start_colour</strong> (<a class="reference internal" href="class-colour.html#colourettu.Colour" title="colourettu.Colour"><em>colourettu.Colour</em></a>) &#8211; the colour you want your palette to
 start with.</li>
-<li><strong>end_colour</strong> (<a class="reference internal" href="class-colour.html#colourettu.colour" title="colourettu.colour"><em>colourettu.colour</em></a>) &#8211; the colour you want your palette to
+<li><strong>end_colour</strong> (<a class="reference internal" href="class-colour.html#colourettu.Colour" title="colourettu.Colour"><em>colourettu.Colour</em></a>) &#8211; the colour you want your palette to
 end with.</li>
 </ul>
 </td>
@@ -100,21 +102,119 @@ end with.</li>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">If a <em>string</em>, <em>tuple</em>, or <em>list</em> is provided for <cite>start_colour</cite> or
-<cite>end_colour</cite>, a conversion to a <a class="reference internal" href="class-colour.html#colourettu.colour" title="colourettu.colour"><code class="xref py py-class docutils literal"><span class="pre">colourettu.colour</span></code></a> object will be
-attempted.</p>
+<cite>end_colour</cite>, a conversion to a <a class="reference internal" href="class-colour.html#colourettu.Colour" title="colourettu.Colour"><code class="xref py py-class docutils literal"><span class="pre">colourettu.Colour</span></code></a> object
+will be attempted.</p>
 </div>
-<div class="code python highlight-python"><div class="highlight"><pre><span class="n">p1</span> <span class="o">=</span> <span class="n">colourettu</span><span class="o">.</span><span class="n">palette</span><span class="p">()</span>
-<span class="n">p1</span><span class="o">.</span><span class="n">to_image</span><span class="p">(</span><span class="s">&#39;p1.png&#39;</span><span class="p">,</span> <span class="mi">60</span><span class="p">)</span>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">colourettu</span> <span class="k">import</span> <span class="n">Palette</span>
+
+<span class="n">p1</span> <span class="o">=</span> <span class="n">Palette</span><span class="p">()</span>
+<span class="n">p1</span><span class="o">.</span><span class="n">to_image</span><span class="p">(</span><span class="s1">&#39;p1.png&#39;</span><span class="p">,</span> <span class="mi">60</span><span class="p">)</span>
 </pre></div>
 </div>
 <img alt="_images/p1.png" src="_images/p1.png" />
-<div class="code python highlight-python"><div class="highlight"><pre><span class="n">all_colours</span> <span class="o">=</span> <span class="p">[</span><span class="n">c1</span><span class="p">,</span> <span class="n">c2</span><span class="p">,</span> <span class="n">c3</span><span class="p">,</span> <span class="n">c4</span><span class="p">,</span> <span class="n">c5</span><span class="p">,</span> <span class="n">c6</span><span class="p">]</span>
-<span class="n">p2</span> <span class="o">=</span> <span class="n">colourettu</span><span class="o">.</span><span class="n">palette</span><span class="p">()</span>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="n">all_colours</span> <span class="o">=</span> <span class="p">[</span><span class="n">c1</span><span class="p">,</span> <span class="n">c2</span><span class="p">,</span> <span class="n">c3</span><span class="p">,</span> <span class="n">c4</span><span class="p">,</span> <span class="n">c5</span><span class="p">,</span> <span class="n">c6</span><span class="p">]</span>
+<span class="n">p2</span> <span class="o">=</span> <span class="n">Palette</span><span class="p">()</span>
 <span class="n">p2</span><span class="o">.</span><span class="n">from_list</span><span class="p">(</span><span class="n">all_colours</span><span class="p">)</span>
-<span class="n">p2</span><span class="o">.</span><span class="n">to_image</span><span class="p">(</span><span class="s">&#39;p2.png&#39;</span><span class="p">,</span> <span class="n">max_width</span><span class="o">=</span><span class="mi">360</span><span class="p">,</span> <span class="n">vertical</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="n">p2</span><span class="o">.</span><span class="n">to_image</span><span class="p">(</span><span class="s1">&#39;p2.png&#39;</span><span class="p">,</span> <span class="n">max_width</span><span class="o">=</span><span class="mi">360</span><span class="p">,</span> <span class="n">vertical</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 <img alt="_images/p2.png" src="_images/p2.png" />
+<dl class="method">
+<dt id="colourettu.Palette.blend">
+<code class="descname">blend</code><span class="sig-paren">(</span><em>cycles=1</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/colourettu/_palette.html#Palette.blend"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#colourettu.Palette.blend" title="Permalink to this definition">¶</a></dt>
+<dd><p>Explands the existing Palette by inserting the blending colour
+between all Colours already in the Palette.</p>
+<p>Changes the Palette in-place.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>cycles</strong> (<em>int</em>) &#8211; number of <em>blend</em> cycles to apply. (Default is 1)</td>
+</tr>
+</tbody>
+</table>
+<p>Example usage:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">p1</span><span class="o">.</span><span class="n">blend</span><span class="p">()</span>
+<span class="n">p1</span><span class="o">.</span><span class="n">to_image</span><span class="p">(</span><span class="s1">&#39;p1_blended.png&#39;</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="n">vertical</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="_images/p1_blended.png" src="_images/p1_blended.png" />
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">p2</span><span class="o">.</span><span class="n">blend</span><span class="p">()</span>
+<span class="n">p2</span><span class="o">.</span><span class="n">to_image</span><span class="p">(</span><span class="s1">&#39;p2_blended.png&#39;</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="n">vertical</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="_images/p2_blended.png" src="_images/p2_blended.png" />
+<p>The <em>blend</em> functionallity can be applied several times in a sequence
+by use of the <em>cycles</em> parameter. This may be useful to quickly get a
+longer series of intermediate colours.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">p3</span> <span class="o">=</span> <span class="n">Palette</span><span class="p">(</span><span class="n">Colour</span><span class="p">(</span><span class="s1">&#39;#fff&#39;</span><span class="p">),</span> <span class="n">Colour</span><span class="p">(</span><span class="s1">&#39;#7e1e9c&#39;</span><span class="p">))</span>
+<span class="n">p3</span><span class="o">.</span><span class="n">blend</span><span class="p">(</span><span class="n">cycles</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">p3</span><span class="o">.</span><span class="n">to_image</span><span class="p">(</span><span class="s1">&#39;p3.png&#39;</span><span class="p">,</span> <span class="n">max_width</span><span class="o">=</span><span class="mi">360</span><span class="p">,</span> <span class="n">vertical</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="_images/p3.png" src="_images/p3.png" />
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="function-blend.html#colourettu.blend" title="colourettu.blend"><code class="xref py py-func docutils literal"><span class="pre">colourettu.blend()</span></code></a></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="colourettu.Palette.from_list">
+<code class="descname">from_list</code><span class="sig-paren">(</span><em>list_of_colours</em>, <em>normalized_rgb=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/colourettu/_palette.html#Palette.from_list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#colourettu.Palette.from_list" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given an interable (usually a list or a tuple) containing
+<a class="reference internal" href="class-colour.html#colourettu.Colour" title="colourettu.Colour"><code class="xref py py-class docutils literal"><span class="pre">Colour</span></code></a> s,
+this then becomes the Colours contained by the Palette.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>list_of_colours</strong> (<em>list, tuple, or other interable</em>) &#8211; a collection of
+<a class="reference internal" href="class-colour.html#colourettu.Colour" title="colourettu.Colour"><code class="xref py py-class docutils literal"><span class="pre">Colour</span></code></a> s to be loaded into the palette. If these
+are <a class="reference internal" href="class-colour.html#colourettu.Colour" title="colourettu.Colour"><code class="xref py py-class docutils literal"><span class="pre">colourettu.Colour</span></code></a> &#8216;s, they will be loaded
+directly. Otherwise, an attempt to convert each item to a
+<a class="reference internal" href="class-colour.html#colourettu.Colour" title="colourettu.Colour"><code class="xref py py-class docutils literal"><span class="pre">colourettu.Colour</span></code></a> will take place.</li>
+<li><strong>normalized_rgb</strong> (<em>bool</em>) &#8211; assuming the list is to be converted to
+<a class="reference internal" href="class-colour.html#colourettu.Colour" title="colourettu.Colour"><code class="xref py py-class docutils literal"><span class="pre">colourettu.Colour</span></code></a> s, this parameter is passed on
+as part of
+that conversion process.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="colourettu.Palette.to_image">
+<code class="descname">to_image</code><span class="sig-paren">(</span><em>filename='palette.png'</em>, <em>band_width=1</em>, <em>length=60</em>, <em>max_width=0</em>, <em>vertical=True</em>, <em>alpha_channel=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/colourettu/_palette.html#Palette.to_image"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#colourettu.Palette.to_image" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates an image from the palette.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>filename</strong> (<em>Optional[string]</em>) &#8211; filename of saved file. Defaults to
+<code class="docutils literal"><span class="pre">palette.png</span></code> in the current working directory.</li>
+<li><strong>band_width</strong> (<em>optional[int]</em>) &#8211; how wide each colour band should be.
+Defaults to 1 pixel.</li>
+<li><strong>length</strong> (<em>Optional[int]</em>) &#8211; the length of the overall image in pixels.
+This is the dimension orthogonal to <code class="docutils literal"><span class="pre">band_width</span></code>. Defaults
+to 60 pixels.</li>
+<li><strong>max_width</strong> (<em>Optional[int]</em>) &#8211; if <code class="docutils literal"><span class="pre">band_width</span></code> is not set and this is,
+this determines how wide the whole image should be.</li>
+<li><strong>vertical</strong> (<em>Optional[bool]</em>) &#8211; if the image runs vertical (<code class="docutils literal"><span class="pre">True</span></code>,
+default) or horizontal (<code class="docutils literal"><span class="pre">False</span></code>).</li>
+<li><strong>alpha_channel</strong> (<em>Optional[bool]</em>) &#8211; if <code class="docutils literal"><span class="pre">True</span></code>, the created image will
+have an Alpha channel. Defaults to <code class="docutils literal"><span class="pre">False</span></code>.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 </dd></dl>
 
 </div>
@@ -131,12 +231,12 @@ attempted.</p>
   <div class="sphinxprev">
     <h4>Previous page</h4>
     <p class="topless"><a href="class-colour.html"
-                          title="Previous page">&larr; <em>colour</em> class</a></p>
+                          title="Previous page">&larr; <em>Colour</em> class</a></p>
   </div>
   <div class="sphinxnext">
     <h4>Next page</h4>
-    <p class="topless"><a href="function-contrast.html"
-                          title="Next page">&rarr; <em>contrast</em> function</a></p>
+    <p class="topless"><a href="function-blend.html"
+                          title="Next page">&rarr; <em>blend</em> function</a></p>
   </div>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
@@ -148,18 +248,32 @@ attempted.</p>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
       </div>
+    
+    
+        <div class="sidebar-toggle-group no-js">
+            
+            <button class="sidebar-toggle" id="sidebar-hide" title="Hide the sidebar menu">
+                 «
+                <span class="show-for-small">hide menu</span>
+                
+            </button>
+            <button class="sidebar-toggle" id="sidebar-show" title="Show the sidebar menu">
+                
+                <span class="show-for-small">menu</span>
+                <span class="hide-for-small">sidebar</span>
+                 »
+            </button>
+        </div>
+    
       <div class="clearer"></div>
     </div>
     <div class="relbar-bottom">
@@ -171,19 +285,19 @@ attempted.</p>
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="function-contrast.html" title="contrast function"
+          <a href="function-blend.html" title="blend function"
              >next</a> &nbsp; &nbsp;</li>
         <li class="right" >
-          <a href="class-colour.html" title="colour class"
+          <a href="class-colour.html" title="Colour class"
              >previous</a> &nbsp; &nbsp;</li>
-    <li><a href="index.html">Colourettu 1.1.0 documentation</a> &raquo;</li>
+    <li><a href="index.html">Colourettu 2.0.0 documentation</a> &#187;</li>
  
       </ul>
     </div>
     </div>
 
     <div class="footer" role="contentinfo">
-        &copy; Copyright 2014-15, William Minchin.
+        &#169; Copyright 2014-16 William Minchin.
     </div><script type="text/javascript">
     if(ga_enabled){
         document.write("<div class=\"footer\">This page uses <a href=\"http://analytics.google.com\">Google Analytics</a> to collect statistics. ");

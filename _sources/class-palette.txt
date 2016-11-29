@@ -1,6 +1,7 @@
-*palette* class
+*Palette* class
 ===============
 
 .. currentmodule:: colourettu
 
-.. autoclass:: palette
+.. autoclass:: Palette
+    :members:

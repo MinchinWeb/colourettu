@@ -8,7 +8,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>colourettu._palette &mdash; Colourettu 1.1.0 documentation</title>
+    <title>colourettu._palette &#8212; Colourettu 2.0.0 documentation</title>
     
     <link rel="stylesheet" href="../../_static/cloud.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -17,7 +17,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
-        VERSION:     '1.1.0',
+        VERSION:     '2.0.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -30,7 +30,9 @@
     <script type="text/javascript" src="../../_static/jquery.cookie.js"></script>
     <script type="text/javascript" src="../../_static/cloud.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
-    <link rel="top" title="Colourettu 1.1.0 documentation" href="../../index.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="top" title="Colourettu 2.0.0 documentation" href="../../contents.html" />
     <link rel="up" title="Module code" href="../index.html" /> 
         <meta name="viewport" content="width=device-width, initial-scale=1"><script type="text/javascript">
 var ga_enabled = !$.cookie('disable-ga');
@@ -57,9 +59,9 @@ if(ga_enabled){
         <li class="right" style="margin-right: 10px">
           <a href="../../genindex.html" title="General Index"
              accesskey="I">index</a></li>
-    <li><a href="../../index.html">Colourettu 1.1.0 documentation</a> &raquo;</li>
+    <li><a href="../../index.html">Colourettu 2.0.0 documentation</a> &#187;</li>
 
-          <li class="nav-item nav-item-1"><a href="../index.html" accesskey="U">Module code</a> &raquo;</li> 
+          <li class="nav-item nav-item-1"><a href="../index.html" accesskey="U">Module code</a> &#187;</li> 
       </ul>
     </div>
     </div>
@@ -71,33 +73,37 @@ if(ga_enabled){
           <div class="body" role="main">
             
   <h1>Source code for colourettu._palette</h1><div class="highlight"><pre>
-<span class="sd">&quot;&quot;&quot;This is part of colourettu. See http://minchin.ca/colourettu/ &quot;&quot;&quot;</span>
+<span></span><span class="c1"># This is part of colourettu. See http://minchin.ca/colourettu/</span>
 
-<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">absolute_import</span>
-<span class="kn">from</span> <span class="nn">._colour</span> <span class="kn">import</span> <span class="n">colour</span>
-<span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">absolute_import</span>
+
+<span class="kn">from</span> <span class="nn">PIL</span> <span class="k">import</span> <span class="n">Image</span>
+
+<span class="kn">from</span> <span class="nn">._colour</span> <span class="k">import</span> <span class="n">Colour</span><span class="p">,</span> <span class="n">blend</span>
 
 
-<div class="viewcode-block" id="palette"><a class="viewcode-back" href="../../class-palette.html#colourettu.palette">[docs]</a><span class="k">class</span> <span class="nc">palette</span><span class="p">:</span>
+<div class="viewcode-block" id="Palette"><a class="viewcode-back" href="../../class-palette.html#colourettu.Palette">[docs]</a><span class="k">class</span> <span class="nc">Palette</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Class for creating a palette of colours.</span>
 
-    <span class="sd">&quot;&quot;&quot;Class for creating a palette of colours. A palette here is a list of</span>
-<span class="sd">    colours.</span>
+<span class="sd">    A palette here is a list of colours.</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        start_colour (colourettu.colour): the colour you want your palette to</span>
+<span class="sd">        start_colour (colourettu.Colour): the colour you want your palette to</span>
 <span class="sd">            start with.</span>
-<span class="sd">        end_colour (colourettu.colour): the colour you want your palette to</span>
+<span class="sd">        end_colour (colourettu.Colour): the colour you want your palette to</span>
 <span class="sd">            end with.</span>
 
 <span class="sd">    .. note::</span>
 
 <span class="sd">        If a *string*, *tuple*, or *list* is provided for `start_colour` or</span>
-<span class="sd">        `end_colour`, a conversion to a :py:class:`colourettu.colour` object will be</span>
-<span class="sd">        attempted.</span>
+<span class="sd">        `end_colour`, a conversion to a :py:class:`colourettu.Colour` object</span>
+<span class="sd">        will be attempted.</span>
 
 <span class="sd">    .. code:: python</span>
 
-<span class="sd">        p1 = colourettu.palette()</span>
+<span class="sd">        from colourettu import Palette</span>
+
+<span class="sd">        p1 = Palette()</span>
 <span class="sd">        p1.to_image(&#39;p1.png&#39;, 60)</span>
 
 <span class="sd">    .. image:: p1.png</span>
@@ -105,63 +111,68 @@ if(ga_enabled){
 <span class="sd">    .. code:: python</span>
 
 <span class="sd">        all_colours = [c1, c2, c3, c4, c5, c6]</span>
-<span class="sd">        p2 = colourettu.palette()</span>
+<span class="sd">        p2 = Palette()</span>
 <span class="sd">        p2.from_list(all_colours)</span>
 <span class="sd">        p2.to_image(&#39;p2.png&#39;, max_width=360, vertical=False)</span>
 
 <span class="sd">    .. image:: p2.png</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="sd">&quot;&quot;&quot;Convert these code examples to an external file, so we can auto-generate the .png</span>
-<span class="sd">    files!</span>
 
-<span class="sd">    see http://sphinx-doc.org/markup/code.html#includes</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># TODO: Convert these code examples to an external file, so we can</span>
+    <span class="c1"># auto-generate the .png files!</span>
+    <span class="c1">#</span>
+    <span class="c1"># see http://sphinx-doc.org/markup/code.html#includes</span>
 
-    <span class="n">_start</span> <span class="o">=</span> <span class="bp">None</span>
-    <span class="n">_end</span> <span class="o">=</span> <span class="bp">None</span>
+    <span class="n">_start</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">_end</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="n">_colours</span> <span class="o">=</span> <span class="p">[]</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">start_colour</span><span class="o">=</span><span class="n">colour</span><span class="p">(</span><span class="s">&quot;#FFF&quot;</span><span class="p">),</span> <span class="n">end_colour</span><span class="o">=</span><span class="n">colour</span><span class="p">(</span><span class="s">&quot;#000&quot;</span><span class="p">)):</span>
-        <span class="c"># testing to see if the type is colourettu.colour throws an error. This is an ugly hack</span>
-        <span class="n">colour_for_type</span> <span class="o">=</span> <span class="n">colour</span><span class="p">()</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">start_colour</span><span class="o">=</span><span class="n">Colour</span><span class="p">(</span><span class="s2">&quot;#FFF&quot;</span><span class="p">),</span> <span class="n">end_colour</span><span class="o">=</span><span class="n">Colour</span><span class="p">(</span><span class="s2">&quot;#000&quot;</span><span class="p">)):</span>
+        <span class="c1"># testing to see if the type is colourettu.colour throws an error.</span>
+        <span class="c1"># This is an ugly hack.</span>
+        <span class="c1"># TODO: Fix this!</span>
+        <span class="n">colour_for_type</span> <span class="o">=</span> <span class="n">Colour</span><span class="p">()</span>
         <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">start_colour</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">type</span><span class="p">(</span><span class="n">colour_for_type</span><span class="p">):</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_start</span> <span class="o">=</span> <span class="n">start_colour</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">try</span><span class="p">:</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">_start</span> <span class="o">=</span> <span class="n">colour</span><span class="p">(</span><span class="n">start_colour</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_start</span> <span class="o">=</span> <span class="n">Colour</span><span class="p">(</span><span class="n">start_colour</span><span class="p">)</span>
             <span class="k">except</span><span class="p">:</span>
-                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&quot;Invalid start_colour given.&quot;</span><span class="p">)</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Invalid start_colour given.&quot;</span><span class="p">)</span>
         <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">end_colour</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">type</span><span class="p">(</span><span class="n">colour_for_type</span><span class="p">):</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_end</span> <span class="o">=</span> <span class="n">end_colour</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">try</span><span class="p">:</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">_end</span> <span class="o">=</span> <span class="n">colour</span><span class="p">(</span><span class="n">end_colour</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_end</span> <span class="o">=</span> <span class="n">Colour</span><span class="p">(</span><span class="n">end_colour</span><span class="p">)</span>
             <span class="k">except</span><span class="p">:</span>
-                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&quot;Invalid end_colour given.&quot;</span><span class="p">)</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Invalid end_colour given.&quot;</span><span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">_colours</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_start</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_end</span><span class="p">]</span>
 
     <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span><span class="p">(</span><span class="s">&#39;&lt;colourettu.palette {} to {}, {} colours&gt;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_start</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_end</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_colours</span><span class="p">)))</span>
+        <span class="k">return</span><span class="p">(</span><span class="s1">&#39;&lt;colourettu.Palette </span><span class="si">{}</span><span class="s1"> to </span><span class="si">{}</span><span class="s1">, </span><span class="si">{}</span><span class="s1"> colours&gt;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+               <span class="bp">self</span><span class="o">.</span><span class="n">_start</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_end</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_colours</span><span class="p">)))</span>
 
     <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span><span class="p">(</span><span class="s">&#39;{}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">c</span><span class="o">.</span><span class="n">hex</span><span class="p">()</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_colours</span><span class="p">])))</span>
+        <span class="k">return</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">c</span><span class="o">.</span><span class="n">hex</span><span class="p">()</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_colours</span><span class="p">])))</span>
 
     <span class="k">def</span> <span class="nf">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_colours</span><span class="p">))</span>
 
     <span class="k">def</span> <span class="nf">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        - adding two `colourettu.palette`s will concatenate the two together</span>
-<span class="sd">        - if two `colourettu.palette`s are added, and the last colour of the</span>
+<span class="sd">        Combine two Palettes.</span>
+
+<span class="sd">        - adding two `colourettu.Palette`s will concatenate the two together</span>
+<span class="sd">        - if two `colourettu.Palette`s are added, and the last colour of the</span>
 <span class="sd">        first palette is the same as the first colour of the second palette,</span>
 <span class="sd">        that colour will only appear once in the new palette</span>
-<span class="sd">        - `colourettu.palette`s and `colourettu.colour`s can be added to</span>
-<span class="sd">        create new `colourettu.palette`s</span>
+<span class="sd">        - `colourettu.Palette`s and `colourettu.Colour`s can be added to</span>
+<span class="sd">        create new `colourettu.Palette`s</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">colour_for_type</span> <span class="o">=</span> <span class="n">colour</span><span class="p">()</span>
-        <span class="n">palette_for_type</span> <span class="o">=</span> <span class="n">palette</span><span class="p">()</span>
+        <span class="n">colour_for_type</span> <span class="o">=</span> <span class="n">Colour</span><span class="p">()</span>
+        <span class="n">palette_for_type</span> <span class="o">=</span> <span class="n">Palette</span><span class="p">()</span>
         <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">other</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">type</span><span class="p">(</span><span class="n">colour_for_type</span><span class="p">):</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_colours</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_end</span> <span class="o">=</span> <span class="n">other</span>
@@ -174,32 +185,37 @@ if(ga_enabled){
             <span class="bp">self</span><span class="o">.</span><span class="n">_end</span> <span class="o">=</span> <span class="n">other</span><span class="o">.</span><span class="n">_end</span>
             <span class="k">return</span> <span class="bp">self</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s">&#39;unsupported opperand type(s) for +: {} and {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">),</span> <span class="nb">type</span><span class="p">(</span><span class="n">other</span><span class="p">)))</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;unsupported opperand type(s) for +: </span><span class="si">{}</span><span class="s1"> and&#39;</span>
+                            <span class="s1">&#39;</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">),</span> <span class="nb">type</span><span class="p">(</span><span class="n">other</span><span class="p">)))</span>
 
     <span class="k">def</span> <span class="nf">__radd__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
-        <span class="c"># used for `colour + palette`</span>
-        <span class="n">colour_for_type</span> <span class="o">=</span> <span class="n">colour</span><span class="p">()</span>
+        <span class="c1"># used for `Colour + Palette`</span>
+        <span class="n">colour_for_type</span> <span class="o">=</span> <span class="n">Colour</span><span class="p">()</span>
         <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">other</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">type</span><span class="p">(</span><span class="n">colour_for_type</span><span class="p">):</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_colours</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">other</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_start</span> <span class="o">=</span> <span class="n">other</span>
             <span class="k">return</span> <span class="bp">self</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s">&#39;unsupported opperand type(s) for +: {} and {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">),</span> <span class="nb">type</span><span class="p">(</span><span class="n">other</span><span class="p">)))</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;unsupported opperand type(s) for +: </span><span class="si">{}</span><span class="s1"> and&#39;</span>
+                            <span class="s1">&#39;</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">),</span> <span class="nb">type</span><span class="p">(</span><span class="n">other</span><span class="p">)))</span>
 
-    <span class="c"># TO-DO     def __init__(self)   #this allows :  for colour in palette:</span>
+    <span class="c1"># TO-DO     def __init__(self)   #this allows :  for colour in palette:</span>
 
-    <span class="k">def</span> <span class="nf">from_list</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">list_of_colours</span><span class="p">,</span> <span class="n">normalized_rgb</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Given an interable (usually a list or a tuple) containing colours,</span>
-<span class="sd">        this then becomes the colours contained by the palette.</span>
+<div class="viewcode-block" id="Palette.from_list"><a class="viewcode-back" href="../../class-palette.html#colourettu.Palette.from_list">[docs]</a>    <span class="k">def</span> <span class="nf">from_list</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">list_of_colours</span><span class="p">,</span> <span class="n">normalized_rgb</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Given an interable (usually a list or a tuple) containing</span>
+<span class="sd">        :py:class:`Colour` s,</span>
+<span class="sd">        this then becomes the Colours contained by the Palette.</span>
 
 <span class="sd">        Args:</span>
 <span class="sd">            list_of_colours(list, tuple, or other interable): a collection of</span>
-<span class="sd">                colours to be loaded into the palette. If these are</span>
-<span class="sd">                colourettu.colour&#39;s, they will be loaded directly. Otherwise,</span>
-<span class="sd">                an attempt to convert each item to a colourettu.colour will</span>
-<span class="sd">                take place.</span>
+<span class="sd">                :py:class:`Colour` s to be loaded into the palette. If these</span>
+<span class="sd">                are :py:class:`colourettu.Colour` &#39;s, they will be loaded</span>
+<span class="sd">                directly. Otherwise, an attempt to convert each item to a</span>
+<span class="sd">                :py:class:`colourettu.Colour` will take place.</span>
 <span class="sd">            normalized_rgb(bool): assuming the list is to be converted to</span>
-<span class="sd">                colourettu.colour&#39;s, this parameter is passed on as part of</span>
+<span class="sd">                :py:class:`colourettu.Colour` s, this parameter is passed on</span>
+<span class="sd">                as part of</span>
 <span class="sd">                that conversion process.</span>
 
 <span class="sd">        .. note:</span>
@@ -207,21 +223,22 @@ if(ga_enabled){
 <span class="sd">            This will overwrite the colours already defined by the palette.</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">colour_for_type</span> <span class="o">=</span> <span class="n">colour</span><span class="p">()</span>
+        <span class="n">colour_for_type</span> <span class="o">=</span> <span class="n">Colour</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_colours</span> <span class="o">=</span> <span class="p">[]</span>
 
         <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">list_of_colours</span><span class="p">:</span>
             <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">type</span><span class="p">(</span><span class="n">colour_for_type</span><span class="p">):</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">_colours</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
             <span class="k">else</span><span class="p">:</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">_colours</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">colour</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">normalized_rgb</span><span class="p">))</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_colours</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Colour</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">normalized_rgb</span><span class="p">))</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">_start</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_colours</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_end</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_colours</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_end</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_colours</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span></div>
 
-    <span class="k">def</span> <span class="nf">to_image</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s">&#39;palette.png&#39;</span><span class="p">,</span> <span class="n">band_width</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span>
-                 <span class="n">max_width</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vertical</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">alpha_channel</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Creates an image from the palette.</span>
+<div class="viewcode-block" id="Palette.to_image"><a class="viewcode-back" href="../../class-palette.html#colourettu.Palette.to_image">[docs]</a>    <span class="k">def</span> <span class="nf">to_image</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s1">&#39;palette.png&#39;</span><span class="p">,</span> <span class="n">band_width</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span>
+                 <span class="n">max_width</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vertical</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha_channel</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Creates an image from the palette.</span>
 
 <span class="sd">        Args:</span>
 <span class="sd">            filename(Optional[string]): filename of saved file. Defaults to</span>
@@ -238,18 +255,20 @@ if(ga_enabled){
 <span class="sd">            alpha_channel(Optional[bool]): if ``True``, the created image will</span>
 <span class="sd">                have an Alpha channel. Defaults to ``False``.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="c"># max_width is approximate</span>
-        <span class="c"># generate output pictures for documentation automatically</span>
+        <span class="c1"># max_width is approximate</span>
+        <span class="c1"># generate output pictures for documentation automatically</span>
 
         <span class="k">if</span> <span class="n">max_width</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
-            <span class="n">max_width</span> <span class="o">=</span> <span class="n">band_width</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_colours</span><span class="p">)</span>
+            <span class="k">pass</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">band_width</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">max_width</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_colours</span><span class="p">))</span>
 
+        <span class="n">image_width</span> <span class="o">=</span> <span class="n">band_width</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_colours</span><span class="p">)</span>
+
         <span class="k">if</span> <span class="n">alpha_channel</span><span class="p">:</span>
-            <span class="n">my_image</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s">&#39;RGBA&#39;</span><span class="p">,</span> <span class="p">(</span><span class="n">max_width</span><span class="p">,</span> <span class="n">length</span><span class="p">))</span>
+            <span class="n">my_image</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s1">&#39;RGBA&#39;</span><span class="p">,</span> <span class="p">(</span><span class="n">image_width</span><span class="p">,</span> <span class="n">length</span><span class="p">))</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="n">my_image</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s">&#39;RGB&#39;</span><span class="p">,</span> <span class="p">(</span><span class="n">max_width</span><span class="p">,</span> <span class="n">length</span><span class="p">))</span>
+            <span class="n">my_image</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s1">&#39;RGB&#39;</span><span class="p">,</span> <span class="p">(</span><span class="n">image_width</span><span class="p">,</span> <span class="n">length</span><span class="p">))</span>
         <span class="n">image_loaded</span> <span class="o">=</span> <span class="n">my_image</span><span class="o">.</span><span class="n">load</span><span class="p">()</span>
 
         <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>
@@ -263,6 +282,57 @@ if(ga_enabled){
             <span class="n">my_image</span> <span class="o">=</span> <span class="n">my_image</span><span class="o">.</span><span class="n">rotate</span><span class="p">(</span><span class="mi">270</span><span class="p">)</span>
 
         <span class="n">my_image</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Palette.blend"><a class="viewcode-back" href="../../class-palette.html#colourettu.Palette.blend">[docs]</a>    <span class="k">def</span> <span class="nf">blend</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cycles</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Explands the existing Palette by inserting the blending colour</span>
+<span class="sd">        between all Colours already in the Palette.</span>
+
+<span class="sd">        Changes the Palette in-place.</span>
+
+<span class="sd">        args:</span>
+<span class="sd">            cycles(int): number of *blend* cycles to apply. (Default is 1)</span>
+
+<span class="sd">        Example usage:</span>
+
+<span class="sd">        .. code-block:: python</span>
+
+<span class="sd">            p1.blend()</span>
+<span class="sd">            p1.to_image(&#39;p1_blended.png&#39;, 60, vertical=False)</span>
+
+<span class="sd">        .. image:: p1_blended.png</span>
+
+<span class="sd">        .. code-block:: python</span>
+
+<span class="sd">            p2.blend()</span>
+<span class="sd">            p2.to_image(&#39;p2_blended.png&#39;, 60, vertical=False)</span>
+
+<span class="sd">        .. image:: p2_blended.png</span>
+
+<span class="sd">        The *blend* functionallity can be applied several times in a sequence</span>
+<span class="sd">        by use of the *cycles* parameter. This may be useful to quickly get a</span>
+<span class="sd">        longer series of intermediate colours.</span>
+
+<span class="sd">        .. code-block:: python</span>
+
+<span class="sd">            p3 = Palette(Colour(&#39;#fff&#39;), Colour(&#39;#7e1e9c&#39;))</span>
+<span class="sd">            p3.blend(cycles=5)</span>
+<span class="sd">            p3.to_image(&#39;p3.png&#39;, max_width=360, vertical=False)</span>
+
+<span class="sd">        .. image:: p3.png</span>
+
+<span class="sd">        .. seealso:: :py:func:`colourettu.blend`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">cycles</span><span class="p">)):</span>
+            <span class="n">new_colours</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_colours</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">i</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="n">c2</span> <span class="o">=</span> <span class="n">blend</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_colours</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+                    <span class="n">new_colours</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">c2</span><span class="p">)</span>
+                <span class="n">new_colours</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">_colours</span> <span class="o">=</span> <span class="n">new_colours</span></div></div>
 </pre></div>
 
           </div>
@@ -276,18 +346,32 @@ if(ga_enabled){
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="../../search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
       </div>
+    
+    
+        <div class="sidebar-toggle-group no-js">
+            
+            <button class="sidebar-toggle" id="sidebar-hide" title="Hide the sidebar menu">
+                 «
+                <span class="show-for-small">hide menu</span>
+                
+            </button>
+            <button class="sidebar-toggle" id="sidebar-show" title="Show the sidebar menu">
+                
+                <span class="show-for-small">menu</span>
+                <span class="hide-for-small">sidebar</span>
+                 »
+            </button>
+        </div>
+    
       <div class="clearer"></div>
     </div>
     <div class="relbar-bottom">
@@ -298,15 +382,15 @@ if(ga_enabled){
         <li class="right" style="margin-right: 10px">
           <a href="../../genindex.html" title="General Index"
              >index</a></li>
-    <li><a href="../../index.html">Colourettu 1.1.0 documentation</a> &raquo;</li>
+    <li><a href="../../index.html">Colourettu 2.0.0 documentation</a> &#187;</li>
 
-          <li class="nav-item nav-item-1"><a href="../index.html" >Module code</a> &raquo;</li> 
+          <li class="nav-item nav-item-1"><a href="../index.html" >Module code</a> &#187;</li> 
       </ul>
     </div>
     </div>
 
     <div class="footer" role="contentinfo">
-        &copy; Copyright 2014-15, William Minchin.
+        &#169; Copyright 2014-16 William Minchin.
     </div><script type="text/javascript">
     if(ga_enabled){
         document.write("<div class=\"footer\">This page uses <a href=\"http://analytics.google.com\">Google Analytics</a> to collect statistics. ");

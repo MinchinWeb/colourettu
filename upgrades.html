@@ -8,7 +8,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Upgrading &mdash; Colourettu 1.1.0 documentation</title>
+    <title>Upgrading &#8212; Colourettu 2.0.0 documentation</title>
     
     <link rel="stylesheet" href="_static/cloud.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -17,7 +17,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '1.1.0',
+        VERSION:     '2.0.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -30,7 +30,9 @@
     <script type="text/javascript" src="_static/jquery.cookie.js"></script>
     <script type="text/javascript" src="_static/cloud.js"></script>
     <link rel="shortcut icon" href="_static/favicon.ico"/>
-    <link rel="top" title="Colourettu 1.1.0 documentation" href="index.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="top" title="Colourettu 2.0.0 documentation" href="contents.html" />
     <link rel="next" title="Changelog" href="changelog.html" />
     <link rel="prev" title="Requirements" href="requirements.html" /> 
         <meta name="viewport" content="width=device-width, initial-scale=1"><script type="text/javascript">
@@ -64,7 +66,7 @@ if(ga_enabled){
         <li class="right" >
           <a href="requirements.html" title="Requirements"
              accesskey="P">previous</a> &nbsp; &nbsp;</li>
-    <li><a href="index.html">Colourettu 1.1.0 documentation</a> &raquo;</li>
+    <li><a href="index.html">Colourettu 2.0.0 documentation</a> &#187;</li>
  
       </ul>
     </div>
@@ -80,11 +82,20 @@ if(ga_enabled){
 <h1>Upgrading<a class="headerlink" href="#upgrading" title="Permalink to this headline">¶</a></h1>
 <p>This page is to give hints on upgrading between version of colourettu.</p>
 <div class="section" id="id1">
-<h2>0.1.1 -&gt; 1.0<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<h2>1.0 -&gt; 2.0<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>In version 2.0.0, the <em>Colour</em> and <em>Palette</em> classes were renamed to the
+CapWords-style, to better match PEP8. The suggested work-around, if needed is:</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">colourettu</span> <span class="k">import</span> <span class="n">Colour</span> <span class="k">as</span> <span class="n">colour</span>
+<span class="kn">from</span> <span class="nn">colourettu</span> <span class="k">import</span> <span class="n">Palette</span> <span class="k">as</span> <span class="n">palette</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id2">
+<h2>0.1.1 -&gt; 1.0<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <p>In version 0.1.1, you could access the <em>colour</em> class by using the American
 spelling. In version 1.0, this has been removed. If the extra <em>u</em> is
-causing problems, the suggested work-around is:</p>
-<div class="code python highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">colourettu</span> <span class="kn">import</span> <span class="n">colour</span> <span class="k">as</span> <span class="n">color</span>
+causing problems, the suggested work-around, if needed is:</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">colourettu</span> <span class="k">import</span> <span class="n">colour</span> <span class="k">as</span> <span class="n">color</span>
 </pre></div>
 </div>
 </div>
@@ -98,11 +109,12 @@ causing problems, the suggested work-around is:</p>
         <div class="sphinxsidebarwrapper">
         <p class="logo"><a href="index.html" title="index">
           <img class="logo" src="_static/colourettu-logo.png" alt="Logo"/>
-        </a></p><div class="sphinxlocaltoc">
-    <h3><a href="index.html">Page contents</a></h3>
+        </a></p><div class="sphinx-toc sphinxlocaltoc">
+    <h3><a href="contents.html">Page contents</a></h3>
     <ul>
 <li><a class="reference internal" href="#">Upgrading</a><ul>
-<li><a class="reference internal" href="#id1">0.1.1 -&gt; 1.0</a></li>
+<li><a class="reference internal" href="#id1">1.0 -&gt; 2.0</a></li>
+<li><a class="reference internal" href="#id2">0.1.1 -&gt; 1.0</a></li>
 </ul>
 </li>
 </ul>
@@ -128,18 +140,32 @@ causing problems, the suggested work-around is:</p>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
       </div>
+    
+    
+        <div class="sidebar-toggle-group no-js">
+            
+            <button class="sidebar-toggle" id="sidebar-hide" title="Hide the sidebar menu">
+                 «
+                <span class="show-for-small">hide menu</span>
+                
+            </button>
+            <button class="sidebar-toggle" id="sidebar-show" title="Show the sidebar menu">
+                
+                <span class="show-for-small">menu</span>
+                <span class="hide-for-small">sidebar</span>
+                 »
+            </button>
+        </div>
+    
       <div class="clearer"></div>
     </div>
     <div class="relbar-bottom">
@@ -156,14 +182,14 @@ causing problems, the suggested work-around is:</p>
         <li class="right" >
           <a href="requirements.html" title="Requirements"
              >previous</a> &nbsp; &nbsp;</li>
-    <li><a href="index.html">Colourettu 1.1.0 documentation</a> &raquo;</li>
+    <li><a href="index.html">Colourettu 2.0.0 documentation</a> &#187;</li>
  
       </ul>
     </div>
     </div>
 
     <div class="footer" role="contentinfo">
-        &copy; Copyright 2014-15, William Minchin.
+        &#169; Copyright 2014-16 William Minchin.
     </div><script type="text/javascript">
     if(ga_enabled){
         document.write("<div class=\"footer\">This page uses <a href=\"http://analytics.google.com\">Google Analytics</a> to collect statistics. ");

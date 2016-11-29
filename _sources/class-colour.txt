@@ -1,6 +1,7 @@
-*colour* class
+*Colour* class
 ==============
 
 .. currentmodule:: colourettu
 
-.. autoclass:: colour
+.. autoclass:: Colour
+    :members:

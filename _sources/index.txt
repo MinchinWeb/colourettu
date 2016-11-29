@@ -13,25 +13,14 @@ To install colourettu, the easiest way is to use `pip`::
 
     pip install colourettu
 
+Find what to read more using the Documentation
+:doc:`Table of Contents </contents>` (or use the 'next' button).
+
 Note on Spelling
 ----------------
 
 I have used the Canadian/British spelling of *colour* through this and
 the code.
-
-Contents
---------
-
-.. toctree::
-   :maxdepth: 2
-   :glob:
-
-   class-*
-   function-*
-   requirements
-   upgrades
-   changelog
-   license
 
 Links
 -----
@@ -44,10 +33,7 @@ Links
 .. image:: https://img.shields.io/pypi/v/colourettu.svg?style=flat
     :target: https://pypi.python.org/pypi/colourettu/
 
-.. image:: https://img.shields.io/pypi/dm/colourettu/badge.svg?style=flat
-    :target: https://pypi.python.org/pypi/colourettu/
-
-.. image:: https://api.travis-ci.org/MinchinWeb/colourettu.svg
+.. image:: https://api.travis-ci.org/MinchinWeb/colourettu.svg?branch=master
     :target: http://travis-ci.org/MinchinWeb/colourettu
 
 .. image:: https://coveralls.io/repos/MinchinWeb/colourettu/badge.svg?branch=master&service=github
@@ -61,10 +47,12 @@ License
 
 *Colourettu* is licensed under the MIT license. :doc:`Read full license </license>`.
 
-Indices and tables
-------------------
 
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+
+..  Indices and tables
+    ------------------
+
+    * :ref:`genindex`
+    * :ref:`modindex`
+    * :ref:`search`
 
