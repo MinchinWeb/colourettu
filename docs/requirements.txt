@@ -1,4 +1,4 @@
-sphinx==1.4.9
+sphinx==1.5.1
 cloud_sptheme==1.8.0
 releases==1.2.1
 babel==2.3.4
