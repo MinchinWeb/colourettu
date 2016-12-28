@@ -54,3 +54,7 @@ The following dependencies are also required:
 Then run (on Windows) (from the ``docs`` directory)::
 
     make dirhtml
+
+To upload the documention, then run (still from the ``docs`` directory)::
+
+    ghp-import -p _build/dirhtml
