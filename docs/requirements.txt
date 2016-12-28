@@ -2,3 +2,4 @@ sphinx==1.4.9
 cloud_sptheme==1.8.0
 releases==1.2.1
 babel==2.3.4
+PSphinxTheme==2.0.5

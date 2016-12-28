@@ -43,7 +43,10 @@ extensions = [
     'sphinx.ext.githubpages',  # produces .nojekyll file
     'releases',
     'cloud_sptheme.ext.index_styling',
-    # 'cloud_sptheme.ext.relbar_toc',
+    # only works for html builder (not the dirhtml one)
+    #'cloud_sptheme.ext.relbar_toc',
+    # v2.0.5 will not install cleanly in Windows due to a error in `setup.py`
+    'PSphinxTheme.ext.relbar_links',
 ]
 
 releases_github_path = 'minchinweb/colourettu'
@@ -121,6 +124,10 @@ pygments_style = 'sphinx'
 # If true, keep warnings as "system message" paragraphs in the built documents.
 #keep_warnings = False
 
+# extension: relbar_links
+relbar_links_doc = [
+   ('toc', 'contents'),
+]
 
 # -- Options for HTML output ----------------------------------------------
 
@@ -134,9 +141,11 @@ html_theme = 'cloud'
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
 # documentation.
-#html_theme_options = {}
-html_theme_options = {"roottarget": index_doc,
-                      "googleanalytics_id": "UA-384291-3"}
+html_theme_options = {}
+html_theme_options.update(
+        googleanalytics_id="UA-384291-3",
+        roottarget=index_doc,
+    )
 
 # Add any paths that contain custom themes here, relative to this directory.
 #html_theme_path = []

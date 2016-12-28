@@ -43,6 +43,14 @@ The following dependencies are also required:
 .. include:: requirements.txt
    :literal:
 
+.. note:: Version 2.0.5 of PSphinxTheme is the latest version available,
+          but it does not cleanly install on Windows. A `pull request
+          <https://github.com/peter1000/PSphinxTheme/pull/4>`_ has been
+          submitted to fix this. A similiar fix for `python_lconf_lexer
+          <https://github.com/LCONF/python_lconf_lexer/pull/1>`_, on which
+          the theme depends is also needed and a similiar pull request has
+          been submitted.
+
 Then run (on Windows) (from the ``docs`` directory)::
 
-    make html
+    make dirhtml
