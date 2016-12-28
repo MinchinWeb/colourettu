@@ -1,6 +1,7 @@
 include *.py
 include *.txt
 include *.rst
+include *.yml
 include LICENSE
 include test
 recursive-include colourettu *.txt
