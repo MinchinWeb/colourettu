@@ -6,7 +6,8 @@ python:
   - 3.3
   - 3.4
   - 3.5
-  - "3.6-dev"
+  - 3.6
+  - "3.7-dev"
   - "nightly"
   - "pypy"
   - "pypy3"
@@ -19,6 +20,7 @@ matrix:
   allow_failures:
     - python: 2.7
     - python: "pypy"
+    - python: "pypy3"
     - python: "nightly"
     - env: STYLE_TESTS=true
   fast_finish: true
