@@ -1,4 +1,4 @@
-green==2.5.3
+green==2.6.3
 coverage==4.3.4
 isort==4.2.5
 pydocstyle==1.1.1
