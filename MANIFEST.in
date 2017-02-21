@@ -1,16 +1,17 @@
+include *.in
 include *.py
-include *.txt
 include *.rst
+include *.txt
 include *.yml
 include LICENSE
 include test
+recursive-include colourettu *.in
 recursive-include colourettu *.txt
 recursive-include docs *.bat
 recursive-include docs *.ico
+recursive-include docs *.in
 recursive-include docs *.png
-recursive-include docs *.txt
-recursive-include docs *.rst
 recursive-include docs *.py
-recursive-include test *.py
-recursive-include test *.txt
+recursive-include docs *.rst
+recursive-include docs *.txt
 prune docs/_build
