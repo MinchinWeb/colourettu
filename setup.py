@@ -51,6 +51,7 @@ EXTRA_REQUIRES = {
         'wheel',
         'setuptools >=18.0',
         'twine',
+        'pip-tools',
     ],
     'docs': [
         'sphinx >= 1.4',  # theme requires at least 1.4
