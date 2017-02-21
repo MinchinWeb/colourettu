@@ -9,3 +9,4 @@ requirements:
       updates: security
 
 branch_prefix: pyup/
+schedule: "every month"
