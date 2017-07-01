@@ -13,7 +13,7 @@ pkginfo==1.4.1            # via twine
 requests-toolbelt==0.8.0  # via twine
 requests==2.18.1          # via requests-toolbelt, twine
 six==1.10.0               # via pip-tools
-twine==1.8.1
+twine==1.9.1
 wheel==0.29.0
 
 # The following packages are considered to be unsafe in a requirements file:
