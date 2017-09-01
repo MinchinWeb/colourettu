@@ -11,7 +11,7 @@ first==2.0.1              # via pip-tools
 pip-tools==1.9.0
 pkginfo==1.4.1            # via twine
 requests-toolbelt==0.8.0  # via twine
-requests==2.13.0          # via requests-toolbelt, twine
+requests==2.18.4          # via requests-toolbelt, twine
 six==1.10.0               # via pip-tools
 twine==1.8.1
 wheel==0.29.0
