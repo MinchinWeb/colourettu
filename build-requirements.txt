@@ -12,7 +12,7 @@ pip-tools==1.10.1
 pkginfo==1.4.1            # via twine
 requests-toolbelt==0.8.0  # via twine
 requests==2.18.4          # via requests-toolbelt, twine
-six==1.10.0               # via pip-tools
+six==1.11.0               # via pip-tools
 twine==1.8.1
 wheel==0.29.0
 
