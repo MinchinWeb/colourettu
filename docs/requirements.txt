@@ -11,7 +11,7 @@ colorama==0.4.1           # via sphinx
 docutils==0.14          # via sphinx
 ghp-import==0.5.5
 imagesize==1.1.0          # via sphinx
-jinja2==2.9.5             # via sphinx
+jinja2==2.10.1             # via sphinx
 markupsafe==0.23          # via jinja2
 pygments==2.2.0           # via sphinx
 pytz==2016.10             # via babel
