@@ -19,6 +19,6 @@ releases==1.6.1
 semantic-version==2.8.2   # via releases
 six==1.12.0               # via sphinx
 snowballstemmer==2.0.0    # via sphinx
-sphinx==1.4.9
+sphinx==2.2.1
 
 PSphinxTheme >= 2.0.5  # installation of current PyPI package breaks on Windows
