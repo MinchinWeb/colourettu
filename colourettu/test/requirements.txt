@@ -8,7 +8,7 @@ appdirs==1.4.3            # via setuptools
 check-manifest==0.40
 colorama==0.4.1           # via green
 coverage==4.5.4
-green==2.6.3
+green==3.0.0
 isort==4.2.5
 packaging==16.8           # via setuptools
 pycodestyle==2.3.1
