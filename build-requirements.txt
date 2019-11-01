@@ -7,7 +7,7 @@
 args==0.1.0               # via clint
 click==7.0                # via pip-tools
 clint==0.5.1              # via twine
-first==2.0.1              # via pip-tools
+first==2.0.2              # via pip-tools
 pip-tools==1.8.0
 pkginfo==1.4.1            # via twine
 requests-toolbelt==0.7.1  # via twine
