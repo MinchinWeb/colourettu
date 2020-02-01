@@ -4,7 +4,7 @@
 #
 #    pip-compile --output-file requirements.txt requirements.in
 #
-alabaster==0.7.9          # via sphinx
+alabaster==0.7.12          # via sphinx
 babel==2.3.4
 cloud_sptheme==1.8.0
 colorama==0.4.3           # via sphinx
