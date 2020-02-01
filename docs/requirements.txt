@@ -18,7 +18,7 @@ pytz==2019.3             # via babel
 releases==1.6.3
 semantic-version==2.8.4   # via releases
 six==1.14.0               # via sphinx
-snowballstemmer==1.2.1    # via sphinx
+snowballstemmer==2.0.0    # via sphinx
 sphinx==1.4.9
 
 PSphinxTheme >= 2.0.5  # installation of current PyPI package breaks on Windows
