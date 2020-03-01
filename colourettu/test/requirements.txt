@@ -16,7 +16,7 @@ pydocstyle==5.0.2
 pyparsing==2.4.6         # via packaging
 python-termstyle==0.1.10  # via green
 six==1.14.0               # via packaging, setuptools
-unidecode==0.4.20         # via green
+unidecode==1.1.1         # via green
 
 # The following packages are considered to be unsafe in a requirements file:
 # setuptools                # via python-termstyle
