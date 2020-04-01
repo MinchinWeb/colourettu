@@ -5,7 +5,7 @@
 #    pip-compile --output-file build-requirements.txt build-requirements.in
 #
 args==0.1.0               # via clint
-click==6.7                # via pip-tools
+click==7.1.1                # via pip-tools
 clint==0.5.1              # via twine
 first==2.0.1              # via pip-tools
 pip-tools==1.8.0
