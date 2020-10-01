@@ -13,7 +13,7 @@ isort==5.5.4
 packaging==20.4           # via setuptools
 pycodestyle==2.6.0
 pydocstyle==5.1.1
-pyparsing==2.1.10         # via packaging
+pyparsing==2.4.7         # via packaging
 python-termstyle==0.1.10  # via green
 six==1.15.0               # via packaging, setuptools
 unidecode==0.4.20         # via green
