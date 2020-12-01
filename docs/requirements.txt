@@ -16,7 +16,7 @@ markupsafe==1.1.1          # via jinja2
 pygments==2.7.2           # via sphinx
 pytz==2020.4             # via babel
 releases==1.6.3
-semantic-version==2.6.0   # via releases
+semantic-version==2.8.5   # via releases
 six==1.15.0               # via sphinx
 snowballstemmer==1.2.1    # via sphinx
 sphinx==1.4.9
