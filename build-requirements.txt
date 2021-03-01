@@ -14,7 +14,7 @@ requests-toolbelt==0.9.1  # via twine
 requests==2.25.1          # via requests-toolbelt, twine
 six==1.15.0               # via pip-tools
 twine==3.3.0
-wheel==0.29.0
+wheel==0.36.2
 
 # The following packages are considered to be unsafe in a requirements file:
 # pip
