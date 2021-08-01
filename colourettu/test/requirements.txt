@@ -7,7 +7,7 @@
 appdirs==1.4.4            # via setuptools
 check-manifest==0.46
 colorama==0.4.4           # via green
-coverage==4.3.4
+coverage==5.5
 green==2.6.3
 isort==4.2.5
 packaging==16.8           # via setuptools
