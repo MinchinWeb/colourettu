@@ -121,7 +121,7 @@ class Test_Palette_with_Images(unittest.TestCase):
     def tearDown(self):
         try:
             os.remove('palette.png')
-        except:
+        except OSError:
             pass
 
     def test_to_image(self):

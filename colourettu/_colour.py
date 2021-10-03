@@ -275,7 +275,7 @@ def luminance(my_colour):
     else:
         try:
             my_colour_2 = Colour(my_colour)
-        except:
+        except (TypeError, ValueError):
             raise TypeError("Must supply a colourettu.Colour")
 
     (r1, g1, b1) = my_colour_2.normalized_rgb()
@@ -357,7 +357,7 @@ def contrast(colour_1, colour_2):
     else:
         try:
             my_colour_1 = Colour(colour_1)
-        except:
+        except (TypeError, ValueError):
             raise TypeError("colour_1 must be a colourettu.colour")
 
     if type(colour_2) is type(colour_for_type):
@@ -365,7 +365,7 @@ def contrast(colour_1, colour_2):
     else:
         try:
             my_colour_2 = Colour(colour_2)
-        except:
+        except (TypeError, ValueError):
             raise TypeError("colour_2 must be a colourettu.colour")
 
     lum1 = my_colour_1.luminance()
