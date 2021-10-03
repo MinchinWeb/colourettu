@@ -10,6 +10,10 @@ babel==2.3.4
     # via
     #   -r .\.requirements\docs.in
     #   sphinx
+certifi==2021.5.30
+    # via requests
+charset-normalizer==2.0.6
+    # via requests
 cloud-sptheme==1.8.0
     # via -r .\.requirements\docs.in
 colorama==0.3.7
@@ -18,17 +22,25 @@ docutils==0.13.1
     # via sphinx
 ghp-import==0.5.4
     # via -r .\.requirements\docs.in
+idna==3.2
+    # via requests
 imagesize==0.7.1
     # via sphinx
-jinja2==2.9.5
-    # via sphinx
-markupsafe==0.23
+jinja2==3.0.1
+    # via
+    #   -r .\.requirements\docs.in
+    #   sphinx
+markupsafe==2.0.1
     # via jinja2
-pygments==2.2.0
-    # via sphinx
+pygments==2.10.0
+    # via
+    #   -r .\.requirements\docs.in
+    #   sphinx
 pytz==2016.10
     # via babel
 releases==1.3.0
+    # via -r .\.requirements\docs.in
+requests==2.26.0
     # via -r .\.requirements\docs.in
 semantic-version==2.6.0
     # via releases
@@ -41,3 +53,5 @@ sphinx==1.4.9
     #   -r .\.requirements\docs.in
     #   cloud-sptheme
     #   releases
+urllib3==1.26.7
+    # via requests

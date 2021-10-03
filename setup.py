@@ -65,7 +65,7 @@ LICENSE      = find_meta(*META_PATH, meta_key='license')
 PACKAGES     = setuptools.find_packages()
 
 INSTALL_REQUIRES = [
-    'Pillow'
+    'pillow >= 8.3.2'
 ]
 
 EXTRA_REQUIRES = {
