@@ -4,3 +4,4 @@ isort
 pydocstyle
 pycodestyle
 check-manifest
+black

@@ -22,7 +22,7 @@ __url__ = "http://minchin.ca/colourettu/"
 __author__ = "William Minchin"
 __email__ = "w_minchin@hotmail.com"
 __license__ = "MIT License"
-__copyright_years__ = '2014-16'
+__copyright_years__ = "2014-16"
 __copyright__ = "Copyright (c) {} {}".format(__copyright_years__, __author__)
 
 """

@@ -69,16 +69,19 @@ class Colour:
 
     def __init__(self, my_colour="#FFF", normalized_rgb=False):
         if type(normalized_rgb) is not bool:
-            raise TypeError('normalized_rgb must be either True or False')
+            raise TypeError("normalized_rgb must be either True or False")
 
         if type(my_colour) is str:
             if my_colour.startswith("#"):
                 my_hex = my_colour[1:]
                 if len(my_hex) % 3 != 0:
                     raise ValueError("Invalid Hex Colour")
-                thirds = int(len(my_hex)/3)
-                r, g, b = my_hex[0:thirds], my_hex[thirds:2*thirds], \
-                    my_hex[2*thirds:3*thirds]
+                thirds = int(len(my_hex) / 3)
+                r, g, b = (
+                    my_hex[0:thirds],
+                    my_hex[thirds : 2 * thirds],
+                    my_hex[2 * thirds : 3 * thirds],
+                )
                 if len(r) == 1:
                     r = r + r
                 if len(g) == 1:
@@ -93,40 +96,51 @@ class Colour:
         elif type(my_colour) in (list, tuple):
             if len(my_colour) == 3:
                 if not normalized_rgb:
-                    if((type(my_colour[0]) is int)
-                            and (type(my_colour[1]) is int)
-                            and (type(my_colour[2]) is int)):
+                    if (
+                        (type(my_colour[0]) is int)
+                        and (type(my_colour[1]) is int)
+                        and (type(my_colour[2]) is int)
+                    ):
                         self._r, self._g, self._b = my_colour
                     else:
-                        raise TypeError('Tuple and Lists must be three'
-                                        'integers if normalized_rgb=False.')
+                        raise TypeError(
+                            "Tuple and Lists must be three"
+                            "integers if normalized_rgb=False."
+                        )
                 else:
-                    if ((type(my_colour[0]) in (float, int)) and
-                            (type(my_colour[1]) in (float, int)) and
-                            (type(my_colour[2]) in (float, int))):
-                        if((0 <= my_colour[0] <= 1) and
-                           (0 <= my_colour[1] <= 1) and
-                           (0 <= my_colour[2] <= 1)):
-                            self._r = int(my_colour[0]*255)
-                            self._g = int(my_colour[1]*255)
-                            self._b = int(my_colour[2]*255)
+                    if (
+                        (type(my_colour[0]) in (float, int))
+                        and (type(my_colour[1]) in (float, int))
+                        and (type(my_colour[2]) in (float, int))
+                    ):
+                        if (
+                            (0 <= my_colour[0] <= 1)
+                            and (0 <= my_colour[1] <= 1)
+                            and (0 <= my_colour[2] <= 1)
+                        ):
+                            self._r = int(my_colour[0] * 255)
+                            self._g = int(my_colour[1] * 255)
+                            self._b = int(my_colour[2] * 255)
                         else:
-                            raise ValueError('Normalized RGB values must be'
-                                             'between 0 and 1.')
+                            raise ValueError(
+                                "Normalized RGB values must be" "between 0 and 1."
+                            )
                     else:
-                        raise TypeError('Tuples and Lists must be three'
-                                        'floating point numbers if'
-                                        'normalized_rgb=True')
+                        raise TypeError(
+                            "Tuples and Lists must be three"
+                            "floating point numbers if"
+                            "normalized_rgb=True"
+                        )
             else:
-                raise ValueError('Tuples and Lists must be three items long.')
+                raise ValueError("Tuples and Lists must be three items long.")
         else:
-            raise TypeError('Must supply a string, a list, or a tuple')
+            raise TypeError("Must supply a string, a list, or a tuple")
 
     def __repr__(self):
-        return('<colourettu.Colour {}>'.format(self.hex()))
+        return "<colourettu.Colour {}>".format(self.hex())
 
     def __str__(self):
-        return('{}'.format(self.hex()))
+        return "{}".format(self.hex())
 
     def __eq__(self, other):
         """
@@ -135,9 +149,11 @@ class Colour:
         Colours are considered equal if the values of the R, G, and B channels
         match.
         """
-        return ((self._r is other.red())
-                and (self._g is other.green())
-                and (self._b is other.blue()))
+        return (
+            (self._r is other.red())
+            and (self._g is other.green())
+            and (self._b is other.blue())
+        )
 
     def hex(self):
         """
@@ -183,7 +199,7 @@ class Colour:
         Returns:
             tuple: the rgb values of the colour (with values between 0 and 255)
         """
-        return(self._r, self._g, self._b)
+        return (self._r, self._g, self._b)
 
     def normalized_rgb(self):
         r"""
@@ -280,9 +296,9 @@ def luminance(my_colour):
 
     (r1, g1, b1) = my_colour_2.normalized_rgb()
 
-    return math.sqrt(0.299*math.pow(r1, 2) +
-                     0.587*math.pow(g1, 2) +
-                     0.114*math.pow(b1, 2))
+    return math.sqrt(
+        0.299 * math.pow(r1, 2) + 0.587 * math.pow(g1, 2) + 0.114 * math.pow(b1, 2)
+    )
 
 
 def contrast(colour_1, colour_2):
@@ -408,16 +424,16 @@ def blend(colour_1, colour_2):
     gamma = 2.0
 
     # start by normalizing values
-    r_1 = colour_1.red()/255.
-    g_1 = colour_1.green()/255.
-    b_1 = colour_1.blue()/255.
-    r_2 = colour_2.red()/255.
-    g_2 = colour_2.green()/255.
-    b_2 = colour_2.blue()/255.
+    r_1 = colour_1.red() / 255.0
+    g_1 = colour_1.green() / 255.0
+    b_1 = colour_1.blue() / 255.0
+    r_2 = colour_2.red() / 255.0
+    g_2 = colour_2.green() / 255.0
+    b_2 = colour_2.blue() / 255.0
 
-    r_m = math.pow(((math.pow(r_1, gamma) + math.pow(r_2, gamma)) / 2), 1/gamma)
-    g_m = math.pow(((math.pow(g_1, gamma) + math.pow(g_2, gamma)) / 2), 1/gamma)
-    b_m = math.pow(((math.pow(b_1, gamma) + math.pow(b_2, gamma)) / 2), 1/gamma)
+    r_m = math.pow(((math.pow(r_1, gamma) + math.pow(r_2, gamma)) / 2), 1 / gamma)
+    g_m = math.pow(((math.pow(g_1, gamma) + math.pow(g_2, gamma)) / 2), 1 / gamma)
+    b_m = math.pow(((math.pow(b_1, gamma) + math.pow(b_2, gamma)) / 2), 1 / gamma)
 
     c_m = Colour([r_m, g_m, b_m], normalized_rgb=True)
 

@@ -76,14 +76,15 @@ class Palette:
         self._colours = [self._start, self._end]
 
     def __repr__(self):
-        return('<colourettu.Palette {} to {}, {} colours>'.format(
-               self._start, self._end, len(self._colours)))
+        return "<colourettu.Palette {} to {}, {} colours>".format(
+            self._start, self._end, len(self._colours)
+        )
 
     def __str__(self):
-        return('{}'.format(", ".join([c.hex() for c in self._colours])))
+        return "{}".format(", ".join([c.hex() for c in self._colours]))
 
     def __len__(self):
-        return(len(self._colours))
+        return len(self._colours)
 
     def __add__(self, other):
         """
@@ -103,15 +104,17 @@ class Palette:
             self._end = other
             return self
         elif type(other) is type(palette_for_type):
-            if (self._end == other._start):
+            if self._end == other._start:
                 self._colours.extend(other._colours[1:])
             else:
                 self._colours.extend(other._colours)
             self._end = other._end
             return self
         else:
-            raise TypeError('unsupported operand type(s) for +: {} and'
-                            '{}'.format(type(self), type(other)))
+            raise TypeError(
+                "unsupported operand type(s) for +: {} and"
+                "{}".format(type(self), type(other))
+            )
 
     def __radd__(self, other):
         # used for `Colour + Palette`
@@ -121,8 +124,10 @@ class Palette:
             self._start = other
             return self
         else:
-            raise TypeError('unsupported operand type(s) for +: {} and'
-                            '{}'.format(type(self), type(other)))
+            raise TypeError(
+                "unsupported operand type(s) for +: {} and"
+                "{}".format(type(self), type(other))
+            )
 
     # TO-DO     def __init__(self)   #this allows :  for colour in palette:
 
@@ -160,8 +165,15 @@ class Palette:
         self._start = self._colours[0]
         self._end = self._colours[-1]
 
-    def to_image(self, filename='palette.png', band_width=1, length=60,
-                 max_width=0, vertical=True, alpha_channel=False):
+    def to_image(
+        self,
+        filename="palette.png",
+        band_width=1,
+        length=60,
+        max_width=0,
+        vertical=True,
+        alpha_channel=False,
+    ):
         """
         Creates an image from the palette.
 
@@ -186,14 +198,14 @@ class Palette:
         if max_width < 1:
             pass
         else:
-            band_width = int(max_width/len(self._colours))
+            band_width = int(max_width / len(self._colours))
 
         image_width = band_width * len(self._colours)
 
         if alpha_channel:
-            my_image = Image.new('RGBA', (image_width, length))
+            my_image = Image.new("RGBA", (image_width, length))
         else:
-            my_image = Image.new('RGB', (image_width, length))
+            my_image = Image.new("RGB", (image_width, length))
         image_loaded = my_image.load()
 
         x = 0
@@ -253,7 +265,7 @@ class Palette:
             new_colours = []
             for i, c in enumerate(self._colours):
                 if i != 0:
-                    c2 = blend(c, self._colours[i-1])
+                    c2 = blend(c, self._colours[i - 1])
                     new_colours.append(c2)
                 new_colours.append(c)
 

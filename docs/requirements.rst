@@ -21,6 +21,7 @@ For unit test, then run (from the base directory)::
 For code-style test, then run (from the base directory)::
 
     isort colourettu setup.py tasks.py --verbose
+    black colourettu
     pydocstyle colourettu
     pycodestyle colourettu
 
