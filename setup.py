@@ -25,6 +25,29 @@ def find_meta(*meta_file_parts, meta_key):
     raise RuntimeError("Unable to find __{}__ string.".format(meta_key))
 
 
+def read_requirements(*parts):
+    """
+    Given a requirements.txt (or similar style file), returns a list of
+    requirements.
+    Assumes anything after a single '#' on a line is a comment, and ignores
+    empty lines.
+    """
+    requirements = []
+    for line in read(*parts).splitlines():
+        new_line = re.sub('(\s*)?#.*$',  # the space immediately before the
+                                         # hash mark, the hash mark, and
+                                         # anything that follows it
+                          '',  # replace with a blank string
+                          line)
+        new_line = re.sub('(\s*)?-r.*$',  # we also can't reference other
+                                          # requirement files
+                          '',  # replace with a blank string
+                          line)
+        if new_line:  # i.e. we have a non-zero-length string
+            requirements.append(new_line)
+    return requirements
+
+
 ##############################################################################
 #                          PACKAGE METADATA                                  #
 ##############################################################################
@@ -46,28 +69,9 @@ INSTALL_REQUIRES = [
 ]
 
 EXTRA_REQUIRES = {
-    'build': [
-        'pip',
-        'wheel',
-        'setuptools >=18.0',
-        'twine',
-        'pip-tools',
-    ],
-    'docs': [
-        'sphinx >= 1.4',  # theme requires at least 1.4
-        'cloud_sptheme >=1.8',
-        'releases',
-        'Babel >=1.3,!=2.0',  # 2.0 breaks on Windows
-
-    ],
-    'test': [
-        'green >=1.9.4',  # v2 works
-        'coverage',
-        'isort',
-        'pydocstyle',
-        'pycodestyle',
-        'check-manifest'
-    ],
+    'build': read_requirements('.requirements/build.in'),
+    'docs': read_requirements('.requirements/docs.in'),
+    'test': read_requirements('.requirements/test.in'),
 }
 
 # full list of Classifiers at

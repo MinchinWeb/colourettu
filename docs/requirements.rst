@@ -3,7 +3,7 @@ Requirements
 
 The main *colourettu* module, has the following dependencies:
 
-.. include:: ../requirements.txt
+.. include:: ../.requirements/base.in
    :literal:
 
 Testing
@@ -11,7 +11,7 @@ Testing
 
 Testing *colourettu* requires:
 
-.. include:: ../colourettu/test/requirements.txt
+.. include:: ../.requirements/test.in
    :literal:
 
 For unit test, then run (from the base directory)::
@@ -40,7 +40,7 @@ To generation the documentation (this) for *colourettu*,
 the process of building the documentation).
 The following dependencies are also required:
 
-.. include:: requirements.txt
+.. include:: ../.requirements/docs.in
    :literal:
 
 .. note:: Version 2.0.5 of PSphinxTheme is the latest version available,

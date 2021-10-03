@@ -14,4 +14,6 @@ recursive-include docs *.png
 recursive-include docs *.py
 recursive-include docs *.rst
 recursive-include docs *.txt
+recursive-include .requirements *.in
+recursive-include .requirements *.txt
 prune docs/_build
