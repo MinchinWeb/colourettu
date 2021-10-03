@@ -3,3 +3,4 @@ wheel
 setuptools
 twine
 pip-tools
+minchin.releaser

@@ -3,6 +3,9 @@ Changelog
 
 .. currentmodule:: colourettu
 
+- :support:`-` upgrade to `minchin.releaser
+  <https://github.com/MinchinWeb/minchin.releaser>` package. Colourettu was
+  previously using an early vendorized version of this.
 - :release:`2.0.0 <2016-11-28>`
 - :feature:`6` add *blend* functionality as both standalone functionaility as
   :py:func:`blend()` and as a method of the Palette class as
