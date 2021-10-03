@@ -20,7 +20,7 @@ For unit test, then run (from the base directory)::
 
 For code-style test, then run (from the base directory)::
 
-    isort --recursive colourettu --verbose
+    isort colourettu setup.py tasks.py --verbose
     pydocstyle colourettu
     pycodestyle colourettu
 

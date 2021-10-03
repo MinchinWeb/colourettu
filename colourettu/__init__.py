@@ -11,7 +11,6 @@ of colours.
 
 from __future__ import absolute_import
 
-
 # METADATA
 
 __title__ = "Colourettu"
@@ -43,4 +42,3 @@ __version__ = "2.0.0"
 
 from ._colour import *
 from ._palette import *
-
