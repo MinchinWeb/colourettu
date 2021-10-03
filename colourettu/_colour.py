@@ -8,7 +8,7 @@ class Colour:
     Base class for dealing with colours.
 
     Args:
-        mycolour (str, list, or tuple):  string of hex representation of colour
+        my_colour (str, list, or tuple):  string of hex representation of colour
             you are creating, or
             a 3 item list or tuple of the red, green, and blue channels of
             the colour you are creating. Default is "#FFF" (white).
@@ -67,18 +67,18 @@ class Colour:
 
     _r = _g = _b = None
 
-    def __init__(self, mycolour="#FFF", normalized_rgb=False):
+    def __init__(self, my_colour="#FFF", normalized_rgb=False):
         if type(normalized_rgb) is not bool:
             raise TypeError('normalized_rgb must be either True or False')
 
-        if type(mycolour) is str:
-            if mycolour.startswith("#"):
-                myhex = mycolour[1:]
-                if len(myhex) % 3 != 0:
+        if type(my_colour) is str:
+            if my_colour.startswith("#"):
+                my_hex = my_colour[1:]
+                if len(my_hex) % 3 != 0:
                     raise ValueError("Invalid Hex Colour")
-                thirds = int(len(myhex)/3)
-                r, g, b = myhex[0:thirds], myhex[thirds:2*thirds], \
-                    myhex[2*thirds:3*thirds]
+                thirds = int(len(my_hex)/3)
+                r, g, b = my_hex[0:thirds], my_hex[thirds:2*thirds], \
+                    my_hex[2*thirds:3*thirds]
                 if len(r) == 1:
                     r = r + r
                 if len(g) == 1:
@@ -90,26 +90,26 @@ class Colour:
                 self._b = int(b, 16)
             else:
                 raise ValueError("Strings must start with '#'")
-        elif type(mycolour) in (list, tuple):
-            if len(mycolour) == 3:
+        elif type(my_colour) in (list, tuple):
+            if len(my_colour) == 3:
                 if not normalized_rgb:
-                    if((type(mycolour[0]) is int)
-                            and (type(mycolour[1]) is int)
-                            and (type(mycolour[2]) is int)):
-                        self._r, self._g, self._b = mycolour
+                    if((type(my_colour[0]) is int)
+                            and (type(my_colour[1]) is int)
+                            and (type(my_colour[2]) is int)):
+                        self._r, self._g, self._b = my_colour
                     else:
                         raise TypeError('Tuple and Lists must be three'
                                         'integers if normalized_rgb=False.')
                 else:
-                    if ((type(mycolour[0]) in (float, int)) and
-                            (type(mycolour[1]) in (float, int)) and
-                            (type(mycolour[2]) in (float, int))):
-                        if((0 <= mycolour[0] <= 1) and
-                           (0 <= mycolour[1] <= 1) and
-                           (0 <= mycolour[2] <= 1)):
-                            self._r = int(mycolour[0]*255)
-                            self._g = int(mycolour[1]*255)
-                            self._b = int(mycolour[2]*255)
+                    if ((type(my_colour[0]) in (float, int)) and
+                            (type(my_colour[1]) in (float, int)) and
+                            (type(my_colour[2]) in (float, int))):
+                        if((0 <= my_colour[0] <= 1) and
+                           (0 <= my_colour[1] <= 1) and
+                           (0 <= my_colour[2] <= 1)):
+                            self._r = int(my_colour[0]*255)
+                            self._g = int(my_colour[1]*255)
+                            self._b = int(my_colour[2]*255)
                         else:
                             raise ValueError('Normalized RGB values must be'
                                              'between 0 and 1.')
@@ -231,16 +231,16 @@ class Colour:
         """Calls the :py:func:`luminance` on the colour defined."""
         return luminance(self)
 
-    def contrast(self, myothercolour):
+    def contrast(self, my_other_colour):
         """Calls the :py:func:`contrast` on the colour defined."""
-        return contrast(self, myothercolour)
+        return contrast(self, my_other_colour)
 
 
-def luminance(mycolour):
+def luminance(my_colour):
     r"""Determine (relative) luminance of a colour.
 
     Args:
-        mycolour(colourettu.Colour): a colour
+        my_colour(colourettu.Colour): a colour
 
     Luminance is a measure of how 'bright' a colour is. Values are
     normalized so that the Luminance of White is 1 and the Luminance of
@@ -270,27 +270,27 @@ def luminance(mycolour):
     """
 
     colour_for_type = Colour()
-    if type(mycolour) is type(colour_for_type):
-        mycolour2 = mycolour
+    if type(my_colour) is type(colour_for_type):
+        my_colour_2 = my_colour
     else:
         try:
-            mycolour2 = Colour(mycolour)
+            my_colour_2 = Colour(my_colour)
         except:
             raise TypeError("Must supply a colourettu.Colour")
 
-    (r1, g1, b1) = mycolour2.normalized_rgb()
+    (r1, g1, b1) = my_colour_2.normalized_rgb()
 
     return math.sqrt(0.299*math.pow(r1, 2) +
                      0.587*math.pow(g1, 2) +
                      0.114*math.pow(b1, 2))
 
 
-def contrast(colour1, colour2):
+def contrast(colour_1, colour_2):
     r"""Determines the contrast between two colours.
 
     Args:
-        colour1 (colourettu.Colour): a colour
-        colour2 (colourettu.Colour): a second colour
+        colour_1 (colourettu.Colour): a colour
+        colour_2 (colourettu.Colour): a second colour
 
     Contrast the difference in (perceived) brightness between colours.
     Values vary between 1:1 (a given colour on itself) and 21:1 (white on
@@ -352,37 +352,37 @@ def contrast(colour1, colour2):
     """
 
     colour_for_type = Colour()
-    if type(colour1) is type(colour_for_type):
-        mycolour1 = colour1
+    if type(colour_1) is type(colour_for_type):
+        my_colour_1 = colour_1
     else:
         try:
-            mycolour1 = Colour(colour1)
+            my_colour_1 = Colour(colour_1)
         except:
-            raise TypeError("colour1 must be a colourettu.colour")
+            raise TypeError("colour_1 must be a colourettu.colour")
 
-    if type(colour2) is type(colour_for_type):
-        mycolour2 = colour2
+    if type(colour_2) is type(colour_for_type):
+        my_colour_2 = colour_2
     else:
         try:
-            mycolour2 = Colour(colour2)
+            my_colour_2 = Colour(colour_2)
         except:
-            raise TypeError("colour2 must be a colourettu.colour")
+            raise TypeError("colour_2 must be a colourettu.colour")
 
-    lum1 = mycolour1.luminance()
-    lum2 = mycolour2.luminance()
+    lum1 = my_colour_1.luminance()
+    lum2 = my_colour_2.luminance()
 
-    minlum = min(lum1, lum2)
-    maxlum = max(lum1, lum2)
+    min_lum = min(lum1, lum2)
+    max_lum = max(lum1, lum2)
 
-    return (maxlum + 0.05) / (minlum + 0.05)
+    return (max_lum + 0.05) / (min_lum + 0.05)
 
 
-def blend(colour1, colour2):
+def blend(colour_1, colour_2):
     r"""Takes two :py:class:`Colour` s and returns the 'average' Colour.
 
     Args:
-        colour1 (colourettu.Colour): a colour
-        colour2 (colourettu.Colour): a second colour
+        colour_1 (colourettu.Colour): a colour
+        colour_2 (colourettu.Colour): a second colour
 
     .. note::
 
@@ -408,12 +408,12 @@ def blend(colour1, colour2):
     gamma = 2.0
 
     # start by normalizing values
-    r_1 = colour1.red()/255.
-    g_1 = colour1.green()/255.
-    b_1 = colour1.blue()/255.
-    r_2 = colour2.red()/255.
-    g_2 = colour2.green()/255.
-    b_2 = colour2.blue()/255.
+    r_1 = colour_1.red()/255.
+    g_1 = colour_1.green()/255.
+    b_1 = colour_1.blue()/255.
+    r_2 = colour_2.red()/255.
+    g_2 = colour_2.green()/255.
+    b_2 = colour_2.blue()/255.
 
     r_m = math.pow(((math.pow(r_1, gamma) + math.pow(r_2, gamma)) / 2), 1/gamma)
     g_m = math.pow(((math.pow(g_1, gamma) + math.pow(g_2, gamma)) / 2), 1/gamma)
