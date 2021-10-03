@@ -391,12 +391,12 @@ def blend(colour_1, colour_2):
         \\[ r_{blended} = \\sqrt \\frac{r_1^2 + r_2^2}{2} \\]
 
 
-        It is hown here for the red channel, but applied independantly to each
+        It is shown here for the red channel, but applied independently to each
         of the red, green, and blue channels. The reason for doing it this way
         (rather than using a simple average) is that the brightness of the
-        colours is stored in a logrythmic scale, rather than a linear one.
+        colours is stored in a logarithmic scale, rather than a linear one.
 
-        For a fuller explaination, Minute Physics has released a great
+        For a fuller explanation, Minute Physics has released a great
         `YouTube video <https://youtu.be/LKnqECcg6Gw>`_.
 
     .. seealso:: :py:func:`Palette.blend`

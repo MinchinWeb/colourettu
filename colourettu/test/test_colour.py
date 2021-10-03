@@ -185,7 +185,7 @@ class Test_Colour(unittest.TestCase):
         colour1 = colourettu.Colour('#FFF')
         self.assertEqual(colour1.normalized_rgb(), (1, 1, 1))
 
-    def test_rgb_nomralized_black(self):
+    def test_rgb_normalized_black(self):
         '''Get normalize rgb tuple of black'''
         colour1 = colourettu.Colour('#000')
         self.assertEqual(colour1.normalized_rgb(), (0, 0, 0))

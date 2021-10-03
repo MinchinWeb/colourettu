@@ -110,7 +110,7 @@ class Palette:
             self._end = other._end
             return self
         else:
-            raise TypeError('unsupported opperand type(s) for +: {} and'
+            raise TypeError('unsupported operand type(s) for +: {} and'
                             '{}'.format(type(self), type(other)))
 
     def __radd__(self, other):
@@ -121,7 +121,7 @@ class Palette:
             self._start = other
             return self
         else:
-            raise TypeError('unsupported opperand type(s) for +: {} and'
+            raise TypeError('unsupported operand type(s) for +: {} and'
                             '{}'.format(type(self), type(other)))
 
     # TO-DO     def __init__(self)   #this allows :  for colour in palette:
@@ -234,7 +234,7 @@ class Palette:
 
         .. image:: p2_blended.png
 
-        The *blend* functionallity can be applied several times in a sequence
+        The *blend* functionality can be applied several times in a sequence
         by use of the *cycles* parameter. This may be useful to quickly get a
         longer series of intermediate colours.
 

@@ -140,11 +140,11 @@ def build_distribution():
         exit(colorama.Fore.RED + 'Something broke tyring to package your code...')
 
 
-def other_dependancies(server, environment):
+def other_dependencies(server, environment):
     """
     Installs things that need to be in place before installing the main package
     """
-    print('  ** Other Dependancides, based on server', server, '**')
+    print('  ** Other Dependencies, based on server', server, '**')
     server = server.lower()
     # Pillow is not on TestPyPI
     if server is "local":
@@ -182,7 +182,7 @@ def check_local_install(version, ext, server="local"):
     if server == "local":
         subprocess.call([environment + '\\Scripts\\pip.exe', 'install', str(the_file), '--no-cache'], shell=True)
     else:
-        other_dependancies(server, environment)
+        other_dependencies(server, environment)
         print("  **Install from server**")
         subprocess.call([environment + '\\Scripts\\pip.exe', 'install', '-i', server_url(server), module_name() + "==" + str(version), '--no-cache'], shell=True)
     print("  **Test version of install package**")
