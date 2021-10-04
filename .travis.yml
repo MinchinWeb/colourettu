@@ -1,14 +1,12 @@
 sudo: false  # run on new infrastructure
 language: python
 python:
-  - 2.7
-  - 3.3
-  - 3.4
-  - 3.5
   - 3.6
-  - "3.7-dev"
+  - 3.7
+  - 3.8
+  - 3.9
+  - "3.10-dev"
   - "nightly"
-  - "pypy"
   - "pypy3"
 env:
   - UNIT_TESTS=true
@@ -17,8 +15,6 @@ env:
   - DOC_BUILD=true
 matrix:
   allow_failures:
-    - python: 2.7
-    - python: "pypy"
     - python: "pypy3"
     - python: "nightly"
     - env: STYLE_TESTS=true
@@ -28,11 +24,11 @@ matrix:
     - env: CHECK_MANIFEST=true
     - env: DOC_BUILD=true
   include:
-    - python: 3.5
+    - python: 3.9
       env: STYLE_TESTS=true
-    - python: 3.5
+    - python: 3.9
       env: CHECK_MANIFEST=true
-    - python: 3.5
+    - python: 3.9
       env: DOC_BUILD=true
 # Cache Dependencies
 cache: pip
@@ -54,19 +50,19 @@ before_install:
 install:
   - pip install --upgrade pip
   - if [ "$UNIT_TESTS" = "true" ]; then
-      pip install -r requirements.txt;
-      pip install -r colourettu/test/requirements.txt;
+      pip install -r .requirements/base.txt;
+      pip install -r .requirements/test.txt;
       pip install coveralls;
     fi
   - if [ "$STYLE_TESTS" = "true" ]; then
-      pip install -r colourettu/test/requirements.txt;
+      pip install -r .requirements/test.txt;
     fi
   - if [ "$CHECK_MANIFEST" = "true" ]; then
-      pip install -r colourettu/test/requirements.txt;
+      pip install -r .requirements/test.txt;
     fi
   - if [ "$DOC_BUILD" = "true" ]; then
       pip install .;
-      pip install -r docs/requirements.txt;
+      pip install -r .requirements/docs.txt;
     fi
 before_script:
   - if [ "$UNIT_TESTS" = "true" ]; then
@@ -74,6 +70,7 @@ before_script:
     fi
   - if [ "$STYLE_TESTS" = "true" ]; then
       isort --version;
+      black --version
       pydocstyle --version;
       pycodestyle --version;
     fi
@@ -83,10 +80,13 @@ before_script:
 # command to run tests
 script:
   - if [ "$UNIT_TESTS" = "true" ]; then
-      green colourettu.test -vvr;
+      green colourettu -vvr;
     fi
   - if [ "$STYLE_TESTS" = "true" ]; then
-      isort --recursive colourettu --verbose;
+      isort colourettu setup.py tasks.py --verbose;
+    fi
+  - if [ "$STYLE_TESTS" = "true" ]; then
+      black colourettu setup.py tasks.py --verbose --check;
     fi
   - if [ "$STYLE_TESTS" = "true" ]; then
       pydocstyle colourettu;
@@ -95,7 +95,7 @@ script:
       pycodestyle colourettu;
     fi
   - if [ "$CHECK_MANIFEST" = "true" ]; then
-      check-manifest -v;
+      check-manifest --verbose;
     fi
   - if [ "$DOC_BUILD" = "true" ]; then
       sphinx-build -b html -d docs/_build/doctrees docs docs/_build/html;
