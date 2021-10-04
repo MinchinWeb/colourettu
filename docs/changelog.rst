@@ -3,12 +3,25 @@ Changelog
 
 .. currentmodule:: colourettu
 
-- :support:`-` upgrade to `minchin.releaser
-  <https://github.com/MinchinWeb/minchin.releaser>` package. Colourettu was
+- :bug:`148` proofread documentation
 - :support:`148` drop official support for Python < 3.7, including
   dropping support for Python 2. I haven't changed anything in the codebase
   that I expect will break these earlier versions, but I'm no longer testing
   against them.
+- :support:`148` updated Travis-CI configuration (although it looks like it may
+  no longer be working...). No more Python 2.7, support for 3.9!
+- :support:`148` switch to personal fork of `PSphinxTheme
+  <https://github.com/MinchinWeb/PSphinxTheme/tree/colourettu>`_ and `lconf lexer
+  <https://github.com/MinchinWeb/python_lconf_lexer>`_ (i.e. basically the
+  documentation theme) as to provide versions that can be installed with
+  current versions of *pip*. Specifically, these private version provide
+  PEP440-style version numbers.
+- :support:`148` black-ify codebase
+- :support:`148` update *isort* to v5
+- :support:`148` update minimum versions of several dependicies to remove
+  support for version with known security issues.
+- :support:`148` upgrade to `minchin.releaser
+  <https://github.com/MinchinWeb/minchin.releaser>`_ package. Colourettu was
   previously using an early vendorized version of this.
 - :release:`2.0.0 <2016-11-28>`
 - :feature:`6` add *blend* functionality as both standalone functionaility as

@@ -9,7 +9,6 @@ recursive-include colourettu *.in
 recursive-include colourettu *.txt
 recursive-include docs *.bat
 recursive-include docs *.ico
-recursive-include docs *.in
 recursive-include docs *.png
 recursive-include docs *.py
 recursive-include docs *.rst
