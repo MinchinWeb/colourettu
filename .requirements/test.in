@@ -1,6 +1,6 @@
 green >=1.9.4  # v2 works
 coverage
-isort
+isort >= 5
 pydocstyle
 pycodestyle
 check-manifest

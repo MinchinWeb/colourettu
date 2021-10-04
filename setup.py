@@ -34,21 +34,18 @@ def read_requirements(*parts):
     """
     requirements = []
     for line in read(*parts).splitlines():
-        new_line = re.sub(
-            "(\s*)?#.*$",  # the space immediately before the
-            # hash mark, the hash mark, and
-            # anything that follows it
+        line_2 = re.sub(
+            "(\s*)?#(?!egg=).*$",  # the space immediately before the hash mark, the hash mark, and anything that follows it, but not "#egg=" fragments
             "",  # replace with a blank string
             line,
         )
-        new_line = re.sub(
-            "(\s*)?-r.*$",  # we also can't reference other
-            # requirement files
+        line_3 = re.sub(
+            "(\s*)?-r.*$",  # we also can't reference other requirement files
             "",  # replace with a blank string
-            line,
+            line_2,
         )
-        if new_line:  # i.e. we have a non-zero-length string
-            requirements.append(new_line)
+        if line_3:  # i.e. we have a non-zero-length string
+            requirements.append(line_3)
     return requirements
 
 
@@ -120,7 +117,6 @@ all_requires = []
 for k, v in EXTRA_REQUIRES.items():
     all_requires.extend(v)
 EXTRA_REQUIRES["all"] = all_requires
-
 
 setuptools.setup(
     name=NAME,
