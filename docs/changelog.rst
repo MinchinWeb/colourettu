@@ -5,6 +5,10 @@ Changelog
 
 - :support:`-` upgrade to `minchin.releaser
   <https://github.com/MinchinWeb/minchin.releaser>` package. Colourettu was
+- :support:`148` drop official support for Python < 3.7, including
+  dropping support for Python 2. I haven't changed anything in the codebase
+  that I expect will break these earlier versions, but I'm no longer testing
+  against them.
   previously using an early vendorized version of this.
 - :release:`2.0.0 <2016-11-28>`
 - :feature:`6` add *blend* functionality as both standalone functionaility as
