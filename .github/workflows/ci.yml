@@ -46,6 +46,7 @@ jobs:
           key: ${{ runner.os }}-pip-${{ hashFiles('**/*-requirements.txt') }}
           restore-keys: |
             ${{ runner.os }}-pip-
+      # pip cache -- end
 
       - name: "Install Dependencies"
         run: |
@@ -62,10 +63,11 @@ jobs:
         run: green colourettu.test -vv --run-coverage --termcolor
 
       - name: "Coverage"
-        uses: coverallsapp/github-action@master
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          path-to-lcov: .coverage
+        run: |
+          pip install coveralls
+          coveralls --verbose
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         continue-on-error: true
 
   style-tests:
