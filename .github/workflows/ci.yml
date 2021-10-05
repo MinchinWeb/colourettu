@@ -38,7 +38,9 @@ jobs:
         run: green colourettu.test -vvr
 
       - name: "Coverage"
-        run: coveralls
+        uses: coverallsapp/github-action@master
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
 
   style-tests:
     name: "Style Tests"
