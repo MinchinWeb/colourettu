@@ -2,18 +2,35 @@ name: CI
 
 on:
   push:
-    branches: ["master"]
+    branches:
+      - "master"
   pull_request:
-    branches: ["master"]
+    branches:
+      - "*"
   workflow_dispatch:
 
 jobs:
   unit-tests:
-    name: "Python ${{ matrix.python-version }}"
-    runs-on: "ubuntu-latest"
+    name: "Python ${{ matrix.python-version }} on {{ matrix.os }}"
     strategy:
       matrix:
-        python-version: ["3.6", "3.7", "3.8", "3.9", "3.10.0-alpha - 3.10", "pypy3"]
+        python-version: ["3.6", "3.7", "3.8", "3.9"]
+        # os: [ubuntu-latest]
+        experimental: [false]
+        include:
+          - python: 3.9
+            os: windows-latest
+          - python: 3.9
+            os: macos-latest
+          - python: "3.10.0-alpha - 3.10"
+            experimental: true
+            continue-on-error: true
+          - python: "pypy3"
+            experimental: true
+            continue-on-error: true
+
+    runs-on: "ubuntu-latest"
+    # continue-on-error: ${{ matrix.experimental }}
 
     steps:
       - uses: "actions/checkout@v2"
@@ -163,3 +180,5 @@ jobs:
 
       - name: "Build Docs"
         run: sphinx-build -b html -d docs/_build/doctrees docs docs/_build/html
+
+
