@@ -10,3 +10,4 @@ python-lconf-lexer @ git+https://github.com/MinchinWeb/python_lconf_lexer.git@co
 Pygments >= 2.7.4
 Jinja2 >= 2.11.3
 requests >= 2.20.0
+six  # needed by releases

@@ -57,6 +57,8 @@ requests==2.26.0
     #   sphinx
 semantic-version==2.6.0
     # via releases
+six==1.16.0
+    # via -r .\.requirements\docs.in
 snowballstemmer==1.2.1
     # via sphinx
 sphinx==4.2.0
