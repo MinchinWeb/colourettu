@@ -85,8 +85,8 @@ jobs:
       - name: "Install Dependencies"
         run: |
           python -m pip install pip setuptools wheel --upgrade
-          pip install -r requirements.txt
-          pip install -r colourettu/test/requirements.txt
+          pip install -r .requirements/base.txt
+          pip install -r .requirements/test.txt
 
       - name: "Version Check"
         run: |
@@ -121,8 +121,8 @@ jobs:
       - name: "Install Dependencies"
         run: |
           python -m pip install pip setuptools wheel --upgrade
-          pip install -r requirements.txt
-          pip install -r colourettu/test/requirements.txt
+          pip install -r .requirements/base.txt
+          pip install -r .requirements/test.txt
 
       - name: "Version Check"
         run: |
@@ -159,8 +159,8 @@ jobs:
       - name: "Install Dependencies"
         run: |
           python -m pip install pip setuptools wheel --upgrade
-          pip install -r requirements.txt
-          pip install -r colourettu/test/requirements.txt
+          pip install -r .requirements/base.txt
+          pip install -r .requirements/test.txt
 
       - name: "Version Check"
         run: |
@@ -188,7 +188,7 @@ jobs:
         run: |
           python -m pip install pip setuptools wheel --upgrade
           pip install .
-          pip install -r docs/requirements.txt
+          pip install -r .requirements/docs.txt
 
       - name: "Version Check"
         run: |
