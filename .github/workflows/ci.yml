@@ -71,9 +71,11 @@ jobs:
         run: isort colourettu --verbose
 
       - name: "Doc Style"
+        continue-on-error: true
         run: pydocstyle colourettu
 
       - name: "Code Style"
+        continue-on-error: true
         run: pycodestyle colourettu
 
   manifest-tests:
