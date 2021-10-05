@@ -52,7 +52,6 @@ jobs:
           python -m pip install pip setuptools wheel --upgrade
           pip install -r requirements.txt
           pip install -r colourettu/test/requirements.txt
-          pip install coveralls
 
       - name: "Version Check"
         run: |
@@ -60,12 +59,14 @@ jobs:
           green --version
 
       - name: "Unit Tests on Python ${{ matrix.python-version }}"
-        run: green colourettu.test -vvr
+        run: green colourettu.test -vv --run-coverage --termcolor
 
       - name: "Coverage"
         uses: coverallsapp/github-action@master
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
+          path-to-lcov: .coverage
+        continue-on-error: true
 
   style-tests:
     name: "Style Tests"
