@@ -1,0 +1,133 @@
+name: CI
+
+on:
+  push:
+    branches: ["master"]
+  pull_request:
+    branches: ["master"]
+  workflow_dispatch:
+
+jobs:
+  unit-tests:
+    name: "Python ${{ matrix.python-version }}"
+    runs-on: "ubuntu-latest"
+    strategy:
+      matrix:
+        python-version: ["3.6", "3.7", "3.8", "3.9", "3.10", "pypy3"]
+
+    steps:
+      - uses: "actions/checkout@v2"
+
+      - uses: "actions/setup-python@v2"
+        with:
+          python-version: "${{ matrix.python-version }}"
+
+      - name: "Install dependencies"
+        run: |
+          python -m pip install pip --upgrade
+          pip install -r requirements.txt
+          pip install -r colourettu/test/requirements.txt
+          pip install coveralls
+
+      - name: "Version Check"
+        run: |
+          python -VV
+          green --version
+
+      - name: "Unit Tests on Python ${{ matrix.python-version }}"
+        run: green colourettu.test -vvr
+
+      - name: "Coverage"
+        run: coveralls
+
+  style-tests:
+    name: "Style Tests"
+    runs-on: "ubuntu-latest"
+    strategy:
+      matrix:
+        python-version: ["3.9"]
+
+    steps:
+      - uses: "actions/checkout@v2"
+
+      - uses: "actions/setup-python@v2"
+        with:
+          python-version: "${{ matrix.python-version }}"
+
+      - name: "Install dependencies"
+        run: |
+          python -m pip install pip --upgrade
+          pip install -r requirements.txt
+          pip install -r colourettu/test/requirements.txt
+
+      - name: "Version Check"
+        run: |
+          python -VV
+          isort --version
+          pydocstyle --version
+          pycodestyle --version
+
+      - name: "Isort"
+        run: isort colourettu --verbose
+
+      - name: "Doc Style"
+        run: pydocstyle colourettu
+
+      - name: "Code Style"
+        run: pycodestyle colourettu
+
+  manifest-tests:
+    name: "Check Manifest"
+    runs-on: "ubuntu-latest"
+    strategy:
+      matrix:
+        python-version: ["3.9"]
+
+    steps:
+      - uses: "actions/checkout@v2"
+
+      - uses: "actions/setup-python@v2"
+        with:
+          python-version: "${{ matrix.python-version }}"
+
+      - name: "Install dependencies"
+        run: |
+          python -m pip install pip --upgrade
+          pip install -r requirements.txt
+          pip install -r colourettu/test/requirements.txt
+
+      - name: "Version Check"
+        run: |
+          python -VV
+          check-manifest --version
+
+      - name: "Check Manifest"
+        run: check-manifest -v
+
+  build-docs:
+    name: "Build Sphinx Documentation"
+    runs-on: "ubuntu-latest"
+    strategy:
+      matrix:
+        python-version: ["3.9"]
+
+    steps:
+      - uses: "actions/checkout@v2"
+
+      - uses: "actions/setup-python@v2"
+        with:
+          python-version: "${{ matrix.python-version }}"
+
+      - name: "Install dependencies"
+        run: |
+          python -m pip install pip --upgrade
+          pip install .
+          pip install -r docs/requirements.txt
+
+      - name: "Version Check"
+        run: |
+          python -VV
+          sphinx-build --version
+
+      - name: "Build Docs"
+        run: sphinx-build -b html -d docs/_build/doctrees docs docs/_build/html
