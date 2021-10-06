@@ -48,8 +48,8 @@ The following dependencies are also required:
 
 Then run (on Windows) (from the ``docs`` directory)::
 
-    make dirhtml
+    make html
 
 To upload the documention, then run (still from the ``docs`` directory)::
 
-    ghp-import -p _build/dirhtml
+    ghp-import -p _build/html

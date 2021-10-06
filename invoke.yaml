@@ -6,7 +6,7 @@ releaser:
   docs: docs
   version: colourettu/__init__.py
   test_command: green colourettu --no-skip-report
-  doc_command: sphinx-build -b dirhtml -d docs/_build/doctrees docs docs/_build/dirhtml --color
+  doc_command: sphinx-build -b html -d docs/_build/doctrees docs docs/_build/html --color
   version_bump: none
   extra_packages:
     test:
