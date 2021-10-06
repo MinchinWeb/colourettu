@@ -214,14 +214,15 @@ class Colour:
 
             Uses the formula:
 
-            \\[ r_{norm} = \\begin{cases}
-            \\frac{r_{255}}{12.92}\\ \\qquad &\\text{if $r_{255}$ $\\le$ 0.03928}
-            \\\\
-            \\left(\\frac{r_{255} + 0.055}{1.055}\\right)^{2.4}
-            \\quad &\\text{otherwise}
-            \\end{cases} \\]
+            .. math::
+                r_{norm} = \begin{cases}
+                \frac{r_{255}}{12.92}\ \qquad &\text{if $r_{255}$ $\le$ 0.03928}
+                \\
+                \left(\frac{r_{255} + 0.055}{1.055}\right)^{2.4}
+                \quad &\text{otherwise}
+                \end{cases}
 
-        `Source <http://www.w3.org/TR/2008/REC-WCAG20-20081211/#relativeluminancedef>`_
+            `Source <http://www.w3.org/TR/2008/REC-WCAG20-20081211/#relativeluminancedef>`_
         """
 
         r1 = self._r / 255
@@ -282,7 +283,9 @@ def luminance(my_colour):
 
         Uses the formula:
 
-        \\[ lum = \\sqrt{0.299 r^2 + 0.587 g^2 + 0.114 b^2} \\]
+        .. math::
+
+            lum = \sqrt{0.299 r^2 + 0.587 g^2 + 0.114 b^2}
     """
 
     colour_for_type = Colour()
@@ -335,7 +338,9 @@ def contrast(colour_1, colour_2):
 
         Uses the formula:
 
-        \\[ contrast = \\frac{lum_1 + 0.05}{lum_2 + 0.05} \\]
+        .. math::
+
+            contrast = \frac{lum_1 + 0.05}{lum_2 + 0.05}
 
     **Use of Contrast**
 
@@ -404,7 +409,9 @@ def blend(colour_1, colour_2):
 
         Uses the formula:
 
-        \\[ r_{blended} = \\sqrt \\frac{r_1^2 + r_2^2}{2} \\]
+        .. math::
+
+            r_{blended} = \sqrt \frac{r_1^2 + r_2^2}{2}
 
 
         It is shown here for the red channel, but applied independently to each

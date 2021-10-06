@@ -3,6 +3,8 @@ Changelog
 
 .. currentmodule:: colourettu
 
+- :bug:`-` Documentation: fix formula rendering for Sphinx 4.2
+
 - :release:`2.1.0 <2021-10-05>`
 - :feature:`148` various updates to ensure that the package is still installable
   (and hackable) on current versions of Python
