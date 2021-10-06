@@ -1,38 +1,42 @@
 
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
+<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Requirements &#8212; Colourettu 2.1.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/cloud.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noticia+Text:400,i,b,bi|Open+Sans:400,i,b,bi|Roboto+Mono:400,i,b,bi&amp;display=swap" type="text/css" />
     
-    <title>Requirements &#8212; Colourettu 2.0.0 documentation</title>
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+
     
-    <link rel="stylesheet" href="_static/cloud.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noticia+Text|Open+Sans|Droid+Sans+Mono" type="text/css" />
     
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
-        VERSION:     '2.0.0',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/javascript" src="_static/jquery.cookie.js"></script>
-    <script type="text/javascript" src="_static/cloud.js"></script>
+     
+        <script src="_static/jquery.cookie.js"></script>
+    
+
+    
+     
+        <script src="_static/cloud.base.js"></script>
+    
+
+    
+     
+        <script src="_static/cloud.js"></script>
+    
+
     <link rel="shortcut icon" href="_static/favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="top" title="Colourettu 2.0.0 documentation" href="contents.html" />
     <link rel="next" title="Upgrading" href="upgrades.html" />
     <link rel="prev" title="luminance function" href="function-luminance.html" /> 
         <meta name="viewport" content="width=device-width, initial-scale=1"><script type="text/javascript">
@@ -50,8 +54,7 @@ if(ga_enabled){
   })();
 }
 </script>
-  </head>
-  <body role="document">
+  </head><body>
     <div class="relbar-top">
         
     <div class="related" role="navigation" aria-label="related navigation">
@@ -61,13 +64,17 @@ if(ga_enabled){
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
+          <a href="contents.html" title="Table Of Contents"
+             accesskey="C">toc</a> &nbsp; &nbsp;</li>
+        <li class="right" >
           <a href="upgrades.html" title="Upgrading"
              accesskey="N">next</a> &nbsp; &nbsp;</li>
         <li class="right" >
           <a href="function-luminance.html" title="luminance function"
              accesskey="P">previous</a> &nbsp; &nbsp;</li>
-    <li><a href="index.html">Colourettu 2.0.0 documentation</a> &#187;</li>
- 
+    <li><a href="index.html">Colourettu 2.1.1 documentation</a> &#187;</li>
+
+        <li class="nav-item nav-item-this"><a href="">Requirements</a></li> 
       </ul>
     </div>
     </div>
@@ -78,64 +85,80 @@ if(ga_enabled){
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="requirements">
+  <section id="requirements">
 <h1>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h1>
 <p>The main <em>colourettu</em> module, has the following dependencies:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Pillow</span><span class="o">==</span><span class="mf">3.4</span><span class="o">.</span><span class="mi">2</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="s2">&quot;pillow &gt;= 8.3.2&quot;</span><span class="p">,</span>
 </pre></div>
 </div>
-<div class="section" id="testing">
+<section id="testing">
 <h2>Testing<a class="headerlink" href="#testing" title="Permalink to this headline">¶</a></h2>
 <p>Testing <em>colourettu</em> requires:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">green</span><span class="o">==</span><span class="mf">2.5</span><span class="o">.</span><span class="mi">2</span>
-<span class="n">coverage</span><span class="o">==</span><span class="mf">4.2</span>
-<span class="n">isort</span><span class="o">==</span><span class="mf">4.2</span><span class="o">.</span><span class="mi">5</span>
-<span class="n">pydocstyle</span><span class="o">==</span><span class="mf">1.1</span><span class="o">.</span><span class="mi">1</span>
-<span class="n">pycodestyle</span><span class="o">==</span><span class="mf">2.2</span><span class="o">.</span><span class="mi">0</span>
-<span class="n">check</span><span class="o">-</span><span class="n">manifest</span><span class="o">==</span><span class="mf">0.34</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">green</span> <span class="o">&gt;=</span><span class="mf">1.9.4</span>  <span class="c1"># v2 works</span>
+<span class="n">coverage</span>
+<span class="n">isort</span> <span class="o">&gt;=</span> <span class="mi">5</span>
+<span class="n">pydocstyle</span>
+<span class="n">pycodestyle</span>
+<span class="n">check</span><span class="o">-</span><span class="n">manifest</span>
+<span class="n">black</span>
 </pre></div>
 </div>
 <p>For unit test, then run (from the base directory):</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">green</span> <span class="n">colourettu</span><span class="o">.</span><span class="n">tests</span> <span class="o">-</span><span class="n">vv</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">green</span> <span class="n">colourettu</span><span class="o">.</span><span class="n">tests</span> <span class="o">-</span><span class="n">vv</span>
 </pre></div>
 </div>
 <p>For code-style test, then run (from the base directory):</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">isort</span> <span class="o">--</span><span class="n">recursive</span> <span class="n">colourettu</span> <span class="o">--</span><span class="n">verbose</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">isort</span> <span class="n">colourettu</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">tasks</span><span class="o">.</span><span class="n">py</span> <span class="o">--</span><span class="n">verbose</span>
+<span class="n">black</span> <span class="n">colourettu</span>
 <span class="n">pydocstyle</span> <span class="n">colourettu</span>
 <span class="n">pycodestyle</span> <span class="n">colourettu</span>
 </pre></div>
 </div>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Code-style tests remain aspirational at this point, and so
+<p class="admonition-title">Note</p>
+<p>Code-style tests remain aspirational at this point, and so
 failures here are permitted.</p>
 </div>
-<p>Before packaging, check the manifest (<code class="docutils literal"><span class="pre">Manifest.in</span></code>) by running (from the
+<p>Before packaging, check the manifest (<code class="docutils literal notranslate"><span class="pre">Manifest.in</span></code>) by running (from the
 base directory):</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">check</span><span class="o">-</span><span class="n">manifest</span> <span class="o">-</span><span class="n">v</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">check</span><span class="o">-</span><span class="n">manifest</span> <span class="o">-</span><span class="n">v</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="documentation-generation">
+</section>
+<section id="documentation-generation">
 <h2>Documentation Generation<a class="headerlink" href="#documentation-generation" title="Permalink to this headline">¶</a></h2>
 <p>To generation the documentation (this) for <em>colourettu</em>,
 <em>colourettu</em> itself must be installed (it is imported in
 the process of building the documentation).
 The following dependencies are also required:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">sphinx</span><span class="o">==</span><span class="mf">1.4</span><span class="o">.</span><span class="mi">9</span>
-<span class="n">cloud_sptheme</span><span class="o">==</span><span class="mf">1.8</span><span class="o">.</span><span class="mi">0</span>
-<span class="n">releases</span><span class="o">==</span><span class="mf">1.2</span><span class="o">.</span><span class="mi">1</span>
-<span class="n">babel</span><span class="o">==</span><span class="mf">2.3</span><span class="o">.</span><span class="mi">4</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sphinx</span> <span class="o">&gt;=</span> <span class="mf">4.2</span>
+<span class="n">cloud_sptheme</span> <span class="o">&gt;=</span> <span class="mf">1.8.0</span>
+<span class="n">releases</span>
+<span class="n">Babel</span> <span class="o">&gt;=</span><span class="mf">1.3</span><span class="p">,</span><span class="o">!=</span><span class="mf">2.0</span>
+<span class="n">ghp</span><span class="o">-</span><span class="kn">import</span> <span class="o">==</span> <span class="mf">0.5.4</span>
+<span class="n">PSphinxTheme</span> <span class="o">@</span> <span class="n">git</span><span class="o">+</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">MinchinWeb</span><span class="o">/</span><span class="n">PSphinxTheme</span><span class="o">.</span><span class="n">git</span><span class="nd">@colourettu</span><span class="c1">#egg=PSphinxTheme</span>
+<span class="n">python</span><span class="o">-</span><span class="n">lconf</span><span class="o">-</span><span class="n">lexer</span> <span class="o">@</span> <span class="n">git</span><span class="o">+</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">MinchinWeb</span><span class="o">/</span><span class="n">python_lconf_lexer</span><span class="o">.</span><span class="n">git</span><span class="nd">@colourettu</span><span class="c1">#egg=python-lconf-lexer</span>
+
+<span class="c1"># sub-dependencies, minimums for security reasons</span>
+<span class="n">Pygments</span> <span class="o">&gt;=</span> <span class="mf">2.7.4</span>
+<span class="n">Jinja2</span> <span class="o">&gt;=</span> <span class="mf">2.11.3</span>
+<span class="n">requests</span> <span class="o">&gt;=</span> <span class="mf">2.20.0</span>
+<span class="n">six</span>  <span class="c1"># needed by releases</span>
 </pre></div>
 </div>
-<p>Then run (on Windows) (from the <code class="docutils literal"><span class="pre">docs</span></code> directory):</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">html</span>
+<p>Then run (on Windows) (from the <code class="docutils literal notranslate"><span class="pre">docs</span></code> directory):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">html</span>
 </pre></div>
 </div>
+<p>To upload the documention, then run (still from the <code class="docutils literal notranslate"><span class="pre">docs</span></code> directory):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ghp</span><span class="o">-</span><span class="kn">import</span> <span class="o">-</span><span class="n">p</span> <span class="n">_build</span><span class="o">/</span><span class="n">html</span>
+</pre></div>
 </div>
-</div>
+</section>
+</section>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -167,20 +190,20 @@ The following dependencies are also required:</p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="_sources/requirements.txt"
+      <li><a href="_sources/requirements.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <div><input type="text" name="q" /></div>
-      <div><input type="submit" value="Go" /></div>
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
     </form>
+    </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
     
@@ -211,19 +234,23 @@ The following dependencies are also required:</p>
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
+          <a href="contents.html" title="Table Of Contents"
+             >toc</a> &nbsp; &nbsp;</li>
+        <li class="right" >
           <a href="upgrades.html" title="Upgrading"
              >next</a> &nbsp; &nbsp;</li>
         <li class="right" >
           <a href="function-luminance.html" title="luminance function"
              >previous</a> &nbsp; &nbsp;</li>
-    <li><a href="index.html">Colourettu 2.0.0 documentation</a> &#187;</li>
- 
+    <li><a href="index.html">Colourettu 2.1.1 documentation</a> &#187;</li>
+
+        <li class="nav-item nav-item-this"><a href="">Requirements</a></li> 
       </ul>
     </div>
     </div>
 
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2014-16 William Minchin.
+        &#169; Copyright 2014-17, 2021 William Minchin.
     </div><script type="text/javascript">
     if(ga_enabled){
         document.write("<div class=\"footer\">This page uses <a href=\"http://analytics.google.com\">Google Analytics</a> to collect statistics. ");

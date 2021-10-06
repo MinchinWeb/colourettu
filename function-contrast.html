@@ -1,38 +1,43 @@
 
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
+<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>contrast function &#8212; Colourettu 2.1.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/cloud.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noticia+Text:400,i,b,bi|Open+Sans:400,i,b,bi|Roboto+Mono:400,i,b,bi&amp;display=swap" type="text/css" />
     
-    <title>contrast function &#8212; Colourettu 2.0.0 documentation</title>
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
     
-    <link rel="stylesheet" href="_static/cloud.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noticia+Text|Open+Sans|Droid+Sans+Mono" type="text/css" />
     
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
-        VERSION:     '2.0.0',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/javascript" src="_static/jquery.cookie.js"></script>
-    <script type="text/javascript" src="_static/cloud.js"></script>
+     
+        <script src="_static/jquery.cookie.js"></script>
+    
+
+    
+     
+        <script src="_static/cloud.base.js"></script>
+    
+
+    
+     
+        <script src="_static/cloud.js"></script>
+    
+
     <link rel="shortcut icon" href="_static/favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="top" title="Colourettu 2.0.0 documentation" href="contents.html" />
     <link rel="next" title="luminance function" href="function-luminance.html" />
     <link rel="prev" title="blend function" href="function-blend.html" /> 
         <meta name="viewport" content="width=device-width, initial-scale=1"><script type="text/javascript">
@@ -50,8 +55,7 @@ if(ga_enabled){
   })();
 }
 </script>
-  </head>
-  <body role="document">
+  </head><body>
     <div class="relbar-top">
         
     <div class="related" role="navigation" aria-label="related navigation">
@@ -61,13 +65,17 @@ if(ga_enabled){
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
+          <a href="contents.html" title="Table Of Contents"
+             accesskey="C">toc</a> &nbsp; &nbsp;</li>
+        <li class="right" >
           <a href="function-luminance.html" title="luminance function"
              accesskey="N">next</a> &nbsp; &nbsp;</li>
         <li class="right" >
           <a href="function-blend.html" title="blend function"
              accesskey="P">previous</a> &nbsp; &nbsp;</li>
-    <li><a href="index.html">Colourettu 2.0.0 documentation</a> &#187;</li>
- 
+    <li><a href="index.html">Colourettu 2.1.1 documentation</a> &#187;</li>
+
+        <li class="nav-item nav-item-this"><a href=""><em>contrast</em> function</a></li> 
       </ul>
     </div>
     </div>
@@ -78,29 +86,25 @@ if(ga_enabled){
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="contrast-function">
+  <section id="contrast-function">
 <h1><em>contrast</em> function<a class="headerlink" href="#contrast-function" title="Permalink to this headline">¶</a></h1>
-<dl class="function">
-<dt id="colourettu.contrast">
-<code class="descclassname">colourettu.</code><code class="descname">contrast</code><span class="sig-paren">(</span><em>colour1</em>, <em>colour2</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/colourettu/_colour.html#contrast"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#colourettu.contrast" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="colourettu.contrast">
+<span class="sig-prename descclassname"><span class="pre">colourettu.</span></span><span class="sig-name descname"><span class="pre">contrast</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">colour_1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">colour_2</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/colourettu/_colour.html#contrast"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#colourettu.contrast" title="Permalink to this definition">¶</a></dt>
 <dd><p>Determines the contrast between two colours.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>colour1</strong> (<a class="reference internal" href="class-colour.html#colourettu.Colour" title="colourettu.Colour"><em>colourettu.Colour</em></a>) &#8211; a colour</li>
-<li><strong>colour2</strong> (<a class="reference internal" href="class-colour.html#colourettu.Colour" title="colourettu.Colour"><em>colourettu.Colour</em></a>) &#8211; a second colour</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>colour_1</strong> (<a class="reference internal" href="class-colour.html#colourettu.Colour" title="colourettu.Colour"><em>colourettu.Colour</em></a>) – a colour</p></li>
+<li><p><strong>colour_2</strong> (<a class="reference internal" href="class-colour.html#colourettu.Colour" title="colourettu.Colour"><em>colourettu.Colour</em></a>) – a second colour</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 <p>Contrast the difference in (perceived) brightness between colours.
 Values vary between 1:1 (a given colour on itself) and 21:1 (white on
 black).</p>
 <p>To compute contrast, two colours are required.</p>
-<div class="code pycon highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">colourettu</span><span class="o">.</span><span class="n">contrast</span><span class="p">(</span><span class="s2">&quot;#FFF&quot;</span><span class="p">,</span> <span class="s2">&quot;#FFF&quot;</span><span class="p">)</span> <span class="c1"># white on white</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">colourettu</span><span class="o">.</span><span class="n">contrast</span><span class="p">(</span><span class="s2">&quot;#FFF&quot;</span><span class="p">,</span> <span class="s2">&quot;#FFF&quot;</span><span class="p">)</span> <span class="c1"># white on white</span>
 <span class="go">1.0</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">colourettu</span><span class="o">.</span><span class="n">contrast</span><span class="p">(</span><span class="n">c1</span><span class="p">,</span> <span class="s2">&quot;#000&quot;</span><span class="p">)</span> <span class="c1"># black on white</span>
 <span class="go">20.999999999999996</span>
@@ -108,20 +112,21 @@ black).</p>
 <span class="go">4.363552233203198</span>
 </pre></div>
 </div>
-<p><code class="docutils literal"><span class="pre">contrast</span></code> can also be called on an already existing colour, but a
+<p><code class="docutils literal notranslate"><span class="pre">contrast</span></code> can also be called on an already existing colour, but a
 second colour needs to be provided:</p>
-<div class="code pycon highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">c4</span><span class="o">.</span><span class="n">contrast</span><span class="p">(</span><span class="n">c5</span><span class="p">)</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">c4</span><span class="o">.</span><span class="n">contrast</span><span class="p">(</span><span class="n">c5</span><span class="p">)</span>
 <span class="go">4.363552233203198</span>
 </pre></div>
 </div>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="admonition-title">Note</p>
 <p>Uses the formula:</p>
-<p class="last">\[ contrast = \frac{lum_1 + 0.05}{lum_2 + 0.05} \]</p>
+<div class="math notranslate nohighlight">
+\[contrast = \frac{lum_1 + 0.05}{lum_2 + 0.05}\]</div>
 </div>
 <p><strong>Use of Contrast</strong></p>
 <p>For Basic readability, the ANSI standard is a contrast of 3:1 between
-the text and it&#8217;s background. The W3C proposes this as a minimum
+the text and it’s background. The W3C proposes this as a minimum
 accessibility standard for regular text under 18pt and bold text under
 14pt. This is referred to as the <em>A</em> standard. The W3C defines a higher
 <em>AA</em> standard with a minimum contrast of 4.5:1. This is approximately
@@ -131,7 +136,7 @@ would be equivalent to 20/80 vision. Generally, it is assumed that those
 with vision beyond this would access the web with the use of assistive
 technologies.</p>
 <p>If needed, these constants are stored in the library.</p>
-<div class="code pycon highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">colourettu</span><span class="o">.</span><span class="n">A_contrast</span>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">colourettu</span><span class="o">.</span><span class="n">A_contrast</span>
 <span class="go">3.0</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">colourettu</span><span class="o">.</span><span class="n">AA_contrast</span>
 <span class="go">4.5</span>
@@ -139,15 +144,16 @@ technologies.</p>
 <span class="go">7.0</span>
 </pre></div>
 </div>
-<p>I&#8217;ve also found mention that if the contrast is <em>too</em> great, this can
+<p>I’ve also found mention that if the contrast is <em>too</em> great, this can
 also cause readability problems when reading longer passages. This is
 confirmed by personal experience, but I have been (yet) unable to find
 any quantitative research to this effect.</p>
 </dd></dl>
 
-</div>
+</section>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -169,20 +175,20 @@ any quantitative research to this effect.</p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="_sources/function-contrast.txt"
+      <li><a href="_sources/function-contrast.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <div><input type="text" name="q" /></div>
-      <div><input type="submit" value="Go" /></div>
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
     </form>
+    </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
     
@@ -213,19 +219,23 @@ any quantitative research to this effect.</p>
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
+          <a href="contents.html" title="Table Of Contents"
+             >toc</a> &nbsp; &nbsp;</li>
+        <li class="right" >
           <a href="function-luminance.html" title="luminance function"
              >next</a> &nbsp; &nbsp;</li>
         <li class="right" >
           <a href="function-blend.html" title="blend function"
              >previous</a> &nbsp; &nbsp;</li>
-    <li><a href="index.html">Colourettu 2.0.0 documentation</a> &#187;</li>
- 
+    <li><a href="index.html">Colourettu 2.1.1 documentation</a> &#187;</li>
+
+        <li class="nav-item nav-item-this"><a href=""><em>contrast</em> function</a></li> 
       </ul>
     </div>
     </div>
 
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2014-16 William Minchin.
+        &#169; Copyright 2014-17, 2021 William Minchin.
     </div><script type="text/javascript">
     if(ga_enabled){
         document.write("<div class=\"footer\">This page uses <a href=\"http://analytics.google.com\">Google Analytics</a> to collect statistics. ");

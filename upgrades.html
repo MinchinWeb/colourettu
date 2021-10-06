@@ -1,38 +1,42 @@
 
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
+<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Upgrading &#8212; Colourettu 2.1.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/cloud.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noticia+Text:400,i,b,bi|Open+Sans:400,i,b,bi|Roboto+Mono:400,i,b,bi&amp;display=swap" type="text/css" />
     
-    <title>Upgrading &#8212; Colourettu 2.0.0 documentation</title>
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+
     
-    <link rel="stylesheet" href="_static/cloud.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noticia+Text|Open+Sans|Droid+Sans+Mono" type="text/css" />
     
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
-        VERSION:     '2.0.0',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/javascript" src="_static/jquery.cookie.js"></script>
-    <script type="text/javascript" src="_static/cloud.js"></script>
+     
+        <script src="_static/jquery.cookie.js"></script>
+    
+
+    
+     
+        <script src="_static/cloud.base.js"></script>
+    
+
+    
+     
+        <script src="_static/cloud.js"></script>
+    
+
     <link rel="shortcut icon" href="_static/favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="top" title="Colourettu 2.0.0 documentation" href="contents.html" />
     <link rel="next" title="Changelog" href="changelog.html" />
     <link rel="prev" title="Requirements" href="requirements.html" /> 
         <meta name="viewport" content="width=device-width, initial-scale=1"><script type="text/javascript">
@@ -50,8 +54,7 @@ if(ga_enabled){
   })();
 }
 </script>
-  </head>
-  <body role="document">
+  </head><body>
     <div class="relbar-top">
         
     <div class="related" role="navigation" aria-label="related navigation">
@@ -61,13 +64,17 @@ if(ga_enabled){
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
+          <a href="contents.html" title="Table Of Contents"
+             accesskey="C">toc</a> &nbsp; &nbsp;</li>
+        <li class="right" >
           <a href="changelog.html" title="Changelog"
              accesskey="N">next</a> &nbsp; &nbsp;</li>
         <li class="right" >
           <a href="requirements.html" title="Requirements"
              accesskey="P">previous</a> &nbsp; &nbsp;</li>
-    <li><a href="index.html">Colourettu 2.0.0 documentation</a> &#187;</li>
- 
+    <li><a href="index.html">Colourettu 2.1.1 documentation</a> &#187;</li>
+
+        <li class="nav-item nav-item-this"><a href="">Upgrading</a></li> 
       </ul>
     </div>
     </div>
@@ -78,30 +85,31 @@ if(ga_enabled){
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="upgrading">
+  <section id="upgrading">
 <h1>Upgrading<a class="headerlink" href="#upgrading" title="Permalink to this headline">¶</a></h1>
 <p>This page is to give hints on upgrading between version of colourettu.</p>
-<div class="section" id="id1">
+<section id="id1">
 <h2>1.0 -&gt; 2.0<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <p>In version 2.0.0, the <em>Colour</em> and <em>Palette</em> classes were renamed to the
 CapWords-style, to better match PEP8. The suggested work-around, if needed is:</p>
-<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">colourettu</span> <span class="k">import</span> <span class="n">Colour</span> <span class="k">as</span> <span class="n">colour</span>
-<span class="kn">from</span> <span class="nn">colourettu</span> <span class="k">import</span> <span class="n">Palette</span> <span class="k">as</span> <span class="n">palette</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">colourettu</span> <span class="kn">import</span> <span class="n">Colour</span> <span class="k">as</span> <span class="n">colour</span>
+<span class="kn">from</span> <span class="nn">colourettu</span> <span class="kn">import</span> <span class="n">Palette</span> <span class="k">as</span> <span class="n">palette</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="id2">
+</section>
+<section id="id2">
 <h2>0.1.1 -&gt; 1.0<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <p>In version 0.1.1, you could access the <em>colour</em> class by using the American
 spelling. In version 1.0, this has been removed. If the extra <em>u</em> is
 causing problems, the suggested work-around, if needed is:</p>
-<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">colourettu</span> <span class="k">import</span> <span class="n">colour</span> <span class="k">as</span> <span class="n">color</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">colourettu</span> <span class="kn">import</span> <span class="n">colour</span> <span class="k">as</span> <span class="n">color</span>
 </pre></div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -133,20 +141,20 @@ causing problems, the suggested work-around, if needed is:</p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="_sources/upgrades.txt"
+      <li><a href="_sources/upgrades.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <div><input type="text" name="q" /></div>
-      <div><input type="submit" value="Go" /></div>
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
     </form>
+    </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
     
@@ -177,19 +185,23 @@ causing problems, the suggested work-around, if needed is:</p>
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
+          <a href="contents.html" title="Table Of Contents"
+             >toc</a> &nbsp; &nbsp;</li>
+        <li class="right" >
           <a href="changelog.html" title="Changelog"
              >next</a> &nbsp; &nbsp;</li>
         <li class="right" >
           <a href="requirements.html" title="Requirements"
              >previous</a> &nbsp; &nbsp;</li>
-    <li><a href="index.html">Colourettu 2.0.0 documentation</a> &#187;</li>
- 
+    <li><a href="index.html">Colourettu 2.1.1 documentation</a> &#187;</li>
+
+        <li class="nav-item nav-item-this"><a href="">Upgrading</a></li> 
       </ul>
     </div>
     </div>
 
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2014-16 William Minchin.
+        &#169; Copyright 2014-17, 2021 William Minchin.
     </div><script type="text/javascript">
     if(ga_enabled){
         document.write("<div class=\"footer\">This page uses <a href=\"http://analytics.google.com\">Google Analytics</a> to collect statistics. ");

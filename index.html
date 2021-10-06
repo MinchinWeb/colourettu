@@ -1,38 +1,42 @@
 
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
+<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Colourettu version 2.1 documentation &#8212; Colourettu 2.1.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/cloud.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noticia+Text:400,i,b,bi|Open+Sans:400,i,b,bi|Roboto+Mono:400,i,b,bi&amp;display=swap" type="text/css" />
     
-    <title>Colourettu version 2.0 documentation &#8212; Colourettu 2.0.0 documentation</title>
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+
     
-    <link rel="stylesheet" href="_static/cloud.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noticia+Text|Open+Sans|Droid+Sans+Mono" type="text/css" />
     
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
-        VERSION:     '2.0.0',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/javascript" src="_static/jquery.cookie.js"></script>
-    <script type="text/javascript" src="_static/cloud.js"></script>
+     
+        <script src="_static/jquery.cookie.js"></script>
+    
+
+    
+     
+        <script src="_static/cloud.base.js"></script>
+    
+
+    
+     
+        <script src="_static/cloud.js"></script>
+    
+
     <link rel="shortcut icon" href="_static/favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="top" title="Colourettu 2.0.0 documentation" href="contents.html" />
     <link rel="next" title="Colour class" href="class-colour.html" />
     <link rel="prev" title="Table Of Contents" href="contents.html" /> 
         <meta name="viewport" content="width=device-width, initial-scale=1"><script type="text/javascript">
@@ -50,8 +54,7 @@ if(ga_enabled){
   })();
 }
 </script>
-  </head>
-  <body role="document">
+  </head><body>
     <div class="relbar-top">
         
     <div class="related" role="navigation" aria-label="related navigation">
@@ -61,13 +64,17 @@ if(ga_enabled){
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
+          <a href="contents.html" title="Table Of Contents"
+             accesskey="C">toc</a> &nbsp; &nbsp;</li>
+        <li class="right" >
           <a href="class-colour.html" title="Colour class"
              accesskey="N">next</a> &nbsp; &nbsp;</li>
         <li class="right" >
           <a href="contents.html" title="Table Of Contents"
              accesskey="P">previous</a> &nbsp; &nbsp;</li>
-    <li><a href="#">Colourettu 2.0.0 documentation</a> &#187;</li>
- 
+    <li><a href="#">Colourettu 2.1.1 documentation</a> &#187;</li>
+
+        <li class="nav-item nav-item-this"><a href="">Colourettu version 2.1 documentation</a></li> 
       </ul>
     </div>
     </div>
@@ -78,44 +85,45 @@ if(ga_enabled){
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="colourettu-version-version-documentation">
-<h1>Colourettu version 2.0 documentation<a class="headerlink" href="#colourettu-version-version-documentation" title="Permalink to this headline">¶</a></h1>
+  <section id="colourettu-version-version-documentation">
+<h1>Colourettu version 2.1 documentation<a class="headerlink" href="#colourettu-version-version-documentation" title="Permalink to this headline">¶</a></h1>
 <img alt="_images/colourettu-logo-4x.png" class="align-center" src="_images/colourettu-logo-4x.png" />
 <p>Colourettu is a small collection of colour functions in Python.
 These can be used to determine the (relative) luminosity of a colour
 and the contrast between two colours. There is also the palette class
-for dealing with a &#8216;list&#8217; of colours.</p>
+for dealing with a ‘list’ of colours.</p>
 <p>To install colourettu, the easiest way is to use <cite>pip</cite>:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">colourettu</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">colourettu</span>
 </pre></div>
 </div>
 <p>Find what to read more using the Documentation
-<a class="reference internal" href="contents.html"><span class="doc">Table of Contents</span></a> (or use the &#8216;next&#8217; button).</p>
-<div class="section" id="note-on-spelling">
+<a class="reference internal" href="contents.html"><span class="doc">Table of Contents</span></a> (or use the ‘next’ button).</p>
+<section id="note-on-spelling">
 <h2>Note on Spelling<a class="headerlink" href="#note-on-spelling" title="Permalink to this headline">¶</a></h2>
 <p>I have used the Canadian/British spelling of <em>colour</em> through this and
 the code.</p>
-</div>
-<div class="section" id="links">
+</section>
+<section id="links">
 <h2>Links<a class="headerlink" href="#links" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>Code, on GitHub: <a class="reference external" href="http://www.github.com/minchinweb/colourettu/">http://www.github.com/minchinweb/colourettu/</a></li>
-<li>Report a Bug! <a class="reference external" href="https://github.com/minchinweb/colourettu/issues">https://github.com/minchinweb/colourettu/issues</a></li>
-<li>Documentation: <a class="reference external" href="http://minchin.ca/colourettu/">http://minchin.ca/colourettu/</a></li>
-<li>Listing on PyPI: <a class="reference external" href="https://pypi.python.org/pypi/colourettu">https://pypi.python.org/pypi/colourettu</a></li>
+<li><p>Code, on GitHub: <a class="reference external" href="http://www.github.com/minchinweb/colourettu/">http://www.github.com/minchinweb/colourettu/</a></p></li>
+<li><p>Report a Bug! <a class="reference external" href="https://github.com/minchinweb/colourettu/issues">https://github.com/minchinweb/colourettu/issues</a></p></li>
+<li><p>Documentation: <a class="reference external" href="http://minchin.ca/colourettu/">http://minchin.ca/colourettu/</a></p></li>
+<li><p>Listing on PyPI: <a class="reference external" href="https://pypi.python.org/pypi/colourettu">https://pypi.python.org/pypi/colourettu</a></p></li>
 </ul>
-<a class="reference external image-reference" href="https://pypi.python.org/pypi/colourettu/"><img alt="https://img.shields.io/pypi/v/colourettu.svg?style=flat" src="https://img.shields.io/pypi/v/colourettu.svg?style=flat" /></a>
-<a class="reference external image-reference" href="http://travis-ci.org/MinchinWeb/colourettu"><img alt="https://api.travis-ci.org/MinchinWeb/colourettu.svg?branch=master" src="https://api.travis-ci.org/MinchinWeb/colourettu.svg?branch=master" /></a>
+<a class="reference external image-reference" href="https://pypi.python.org/pypi/colourettu/"><img alt="PyPI version number" src="https://img.shields.io/pypi/v/colourettu.svg?style=flat" /></a>
+<a class="reference external image-reference" href="https://github.com/MinchinWeb/colourettu/actions/workflows/ci.yml"><img alt="GitHub Workflow Status" src="https://img.shields.io/github/workflow/status/MinchinWeb/colourettu/CI" /></a>
 <a class="reference external image-reference" href="https://coveralls.io/github/MinchinWeb/colourettu?branch=master"><img alt="https://coveralls.io/repos/MinchinWeb/colourettu/badge.svg?branch=master&amp;service=github" src="https://coveralls.io/repos/MinchinWeb/colourettu/badge.svg?branch=master&amp;service=github" /></a>
-<a class="reference external image-reference" href="https://github.com/MinchinWeb/colourettu/blob/master/LICENSE"><img alt="https://img.shields.io/pypi/l/colourettu.svg?style=flat" src="https://img.shields.io/pypi/l/colourettu.svg?style=flat" /></a>
-</div>
-<div class="section" id="license">
+<a class="reference external image-reference" href="License"><img alt="https://img.shields.io/pypi/l/colourettu.svg?style=flat&amp;color=green" src="https://img.shields.io/pypi/l/colourettu.svg?style=flat&amp;color=green" /></a>
+</section>
+<section id="license">
 <h2>License<a class="headerlink" href="#license" title="Permalink to this headline">¶</a></h2>
 <p><em>Colourettu</em> is licensed under the MIT license. <a class="reference internal" href="license.html"><span class="doc">Read full license</span></a>.</p>
-</div>
-</div>
+</section>
+</section>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -126,7 +134,7 @@ the code.</p>
         </a></p><div class="sphinx-toc sphinxlocaltoc">
     <h3><a href="contents.html">Page contents</a></h3>
     <ul>
-<li><a class="reference internal" href="#">Colourettu version 2.0 documentation</a><ul>
+<li><a class="reference internal" href="#">Colourettu version 2.1 documentation</a><ul>
 <li><a class="reference internal" href="#note-on-spelling">Note on Spelling</a></li>
 <li><a class="reference internal" href="#links">Links</a></li>
 <li><a class="reference internal" href="#license">License</a></li>
@@ -148,20 +156,20 @@ the code.</p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="_sources/index.txt"
+      <li><a href="_sources/index.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <div><input type="text" name="q" /></div>
-      <div><input type="submit" value="Go" /></div>
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
     </form>
+    </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
     
@@ -192,19 +200,23 @@ the code.</p>
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
+          <a href="contents.html" title="Table Of Contents"
+             >toc</a> &nbsp; &nbsp;</li>
+        <li class="right" >
           <a href="class-colour.html" title="Colour class"
              >next</a> &nbsp; &nbsp;</li>
         <li class="right" >
           <a href="contents.html" title="Table Of Contents"
              >previous</a> &nbsp; &nbsp;</li>
-    <li><a href="#">Colourettu 2.0.0 documentation</a> &#187;</li>
- 
+    <li><a href="#">Colourettu 2.1.1 documentation</a> &#187;</li>
+
+        <li class="nav-item nav-item-this"><a href="">Colourettu version 2.1 documentation</a></li> 
       </ul>
     </div>
     </div>
 
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2014-16 William Minchin.
+        &#169; Copyright 2014-17, 2021 William Minchin.
     </div><script type="text/javascript">
     if(ga_enabled){
         document.write("<div class=\"footer\">This page uses <a href=\"http://analytics.google.com\">Google Analytics</a> to collect statistics. ");

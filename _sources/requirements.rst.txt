@@ -3,7 +3,9 @@ Requirements
 
 The main *colourettu* module, has the following dependencies:
 
-.. include:: ../requirements.txt
+.. include:: ../setup.py
+   :start-line: 68
+   :end-line: 69
    :literal:
 
 Testing
@@ -11,7 +13,7 @@ Testing
 
 Testing *colourettu* requires:
 
-.. include:: ../colourettu/test/requirements.txt
+.. include:: ../.requirements/test.in
    :literal:
 
 For unit test, then run (from the base directory)::
@@ -20,7 +22,8 @@ For unit test, then run (from the base directory)::
 
 For code-style test, then run (from the base directory)::
 
-    isort --recursive colourettu --verbose
+    isort colourettu setup.py tasks.py --verbose
+    black colourettu
     pydocstyle colourettu
     pycodestyle colourettu
 
@@ -40,9 +43,13 @@ To generation the documentation (this) for *colourettu*,
 the process of building the documentation).
 The following dependencies are also required:
 
-.. include:: requirements.txt
+.. include:: ../.requirements/docs.in
    :literal:
 
 Then run (on Windows) (from the ``docs`` directory)::
 
     make html
+
+To upload the documention, then run (still from the ``docs`` directory)::
+
+    ghp-import -p _build/html
