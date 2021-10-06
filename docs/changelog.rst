@@ -3,6 +3,7 @@ Changelog
 
 .. currentmodule:: colourettu
 
+- :release:`2.1.1 <2021-10-05>`
 - :bug:`-` Documentation: fix formula rendering for Sphinx 4.2
 
 - :release:`2.1.0 <2021-10-05>`
