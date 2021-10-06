@@ -45,7 +45,6 @@ extensions = [
     'cloud_sptheme.ext.index_styling',
     # only works for html builder (not the dirhtml one)
     #'cloud_sptheme.ext.relbar_toc',
-    # v2.0.5 will not install cleanly in Windows due to a error in `setup.py`
     'PSphinxTheme.ext.relbar_links',
 ]
 

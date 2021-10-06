@@ -1,0 +1,9 @@
+# pip
+# wheel
+# setuptools
+# twine
+pip-tools >= 6.3.0
+minchin.releaser
+
+# sub-dependencies
+semantic-version < 2.7  # held back by releases 1.6.3

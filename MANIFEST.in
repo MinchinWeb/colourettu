@@ -8,9 +8,11 @@ recursive-include colourettu *.in
 recursive-include colourettu *.txt
 recursive-include docs *.bat
 recursive-include docs *.ico
-recursive-include docs *.in
 recursive-include docs *.png
 recursive-include docs *.py
 recursive-include docs *.rst
 recursive-include docs *.txt
+recursive-include docs *.gitkeep
+recursive-include .requirements *.in
+recursive-include .requirements *.txt
 prune docs/_build

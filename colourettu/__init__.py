@@ -11,6 +11,8 @@ of colours.
 
 from __future__ import absolute_import
 
+from ._colour import *
+from ._palette import *
 
 # METADATA
 
@@ -20,7 +22,7 @@ __url__ = "http://minchin.ca/colourettu/"
 __author__ = "William Minchin"
 __email__ = "w_minchin@hotmail.com"
 __license__ = "MIT License"
-__copyright_years__ = '2014-16'
+__copyright_years__ = "2014-17, 2021"
 __copyright__ = "Copyright (c) {} {}".format(__copyright_years__, __author__)
 
 """
@@ -38,9 +40,3 @@ Version 0.x should be considered a development version with an unstable API,
 and backwards compatibility is not guaranteed for minor versions.
 """
 __version__ = "2.0.0"
-
-# Package Implementation
-
-from ._colour import *
-from ._palette import *
-

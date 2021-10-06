@@ -1,11 +1,11 @@
 requirements:
-  - requirements.txt:
+  - .requirements/base.txt:
       updates: all
-  - build-requirements.txt:
+  - .requirements/build.txt:
       updates: security
-  - docs/requirements.txt:
+  - .requirements/docs.txt:
       updates: security
-  - colourettu/test/requirements.txt:
+  - .requirements/test.txt:
       updates: security
 
 branch_prefix: pyup/

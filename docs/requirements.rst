@@ -3,7 +3,9 @@ Requirements
 
 The main *colourettu* module, has the following dependencies:
 
-.. include:: ../requirements.txt
+.. include:: ../setup.py
+   :start-line: 68
+   :end-line: 69
    :literal:
 
 Testing
@@ -11,7 +13,7 @@ Testing
 
 Testing *colourettu* requires:
 
-.. include:: ../colourettu/test/requirements.txt
+.. include:: ../.requirements/test.in
    :literal:
 
 For unit test, then run (from the base directory)::
@@ -20,7 +22,8 @@ For unit test, then run (from the base directory)::
 
 For code-style test, then run (from the base directory)::
 
-    isort --recursive colourettu --verbose
+    isort colourettu setup.py tasks.py --verbose
+    black colourettu
     pydocstyle colourettu
     pycodestyle colourettu
 
@@ -40,16 +43,8 @@ To generation the documentation (this) for *colourettu*,
 the process of building the documentation).
 The following dependencies are also required:
 
-.. include:: requirements.txt
+.. include:: ../.requirements/docs.in
    :literal:
-
-.. note:: Version 2.0.5 of PSphinxTheme is the latest version available,
-          but it does not cleanly install on Windows. A `pull request
-          <https://github.com/peter1000/PSphinxTheme/pull/4>`_ has been
-          submitted to fix this. A similiar fix for `python_lconf_lexer
-          <https://github.com/LCONF/python_lconf_lexer/pull/1>`_, on which
-          the theme depends is also needed and a similiar pull request has
-          been submitted.
 
 Then run (on Windows) (from the ``docs`` directory)::
 
