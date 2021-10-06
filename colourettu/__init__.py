@@ -39,4 +39,4 @@ internal code changes that do not affect the API.
 Version 0.x should be considered a development version with an unstable API,
 and backwards compatibility is not guaranteed for minor versions.
 """
-__version__ = "2.0.0"
+__version__ = "2.1.0"

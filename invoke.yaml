@@ -1,0 +1,13 @@
+releaser:
+  module_name: colourettu
+  here: .
+  source: colourettu
+  test: colourettu/test
+  docs: docs
+  version: colourettu/__init__.py
+  test_command: green colourettu --no-skip-report
+  doc_command: sphinx-build -b dirhtml -d docs/_build/doctrees docs docs/_build/dirhtml --color
+  version_bump: none
+  extra_packages:
+    test:
+      - pillow

@@ -3,6 +3,7 @@ Changelog
 
 .. currentmodule:: colourettu
 
+- :release:`2.1.0 <2021-10-05>`
 - :feature:`148` various updates to ensure that the package is still installable
   (and hackable) on current versions of Python
 - :support:`149` swap from Travis-CI to GitHub Actions for Continuous
@@ -25,6 +26,7 @@ Changelog
 - :support:`7` upgrade to `minchin.releaser
   <https://github.com/MinchinWeb/minchin.releaser>`_ package. Colourettu was
   previously using an early vendorized version of this.
+
 - :release:`2.0.0 <2016-11-28>`
 - :feature:`6` add *blend* functionality as both standalone functionality as
   :py:func:`blend()` and as a method of the Palette class as

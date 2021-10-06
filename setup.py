@@ -120,6 +120,7 @@ setuptools.setup(
     author_email=AUTHOR_EMAIL,
     description=SHORT_DESC,
     long_description=LONG_DESC,
+    long_description_content_type="text/x-rst",
     packages=PACKAGES,
     package_data={"": ["readme.rst", "LICENSE"]},
     include_package_data=True,
