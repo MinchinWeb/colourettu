@@ -3,10 +3,12 @@ Changelog
 
 .. currentmodule:: colourettu
 
+- :feature:`148` various updates to ensure that the package is still installable
+  (and hackable) on current versions of Python
 - :support:`149` swap from Travis-CI to GitHub Actions for Continuous
   Integration
-- :bug:`148` proofread documentation
-- :support:`148` drop official support for Python < 3.7, including
+- :bug:`148 major` proofread documentation
+- :support:`148` drop official support for Python < 3.6, including
   dropping support for Python 2. I haven't changed anything in the codebase
   that I expect will break these earlier versions, but I'm no longer testing
   against them.
@@ -18,18 +20,18 @@ Changelog
   PEP440-style version numbers.
 - :support:`148` black-ify codebase
 - :support:`148` update *isort* to v5
-- :support:`148` update minimum versions of several dependicies to remove
+- :support:`147` update minimum versions of several dependencies to remove
   support for version with known security issues.
-- :support:`148` upgrade to `minchin.releaser
+- :support:`7` upgrade to `minchin.releaser
   <https://github.com/MinchinWeb/minchin.releaser>`_ package. Colourettu was
   previously using an early vendorized version of this.
 - :release:`2.0.0 <2016-11-28>`
-- :feature:`6` add *blend* functionality as both standalone functionaility as
+- :feature:`6` add *blend* functionality as both standalone functionality as
   :py:func:`blend()` and as a method of the Palette class as
   :py:func:`Palette.blend()`
 - :bug:`- major` :py:func:`Palette.to_image()` now treats ``max_width`` as a
   maximum width. This way there isn't a black bar on the bottom/left of the
-  image if the number of bands do not devide evenly into ``max_width``.
+  image if the number of bands do not divide evenly into ``max_width``.
 - :bug:`- major` [Breaking] Update :py:class:`Colour` and :py:class:`Palette`
   class naming to CapWords-style, to match PEP8.
 - :support:`40` update cloud theme to v1.8, and with it Sphinx to v1.4. Also
@@ -37,7 +39,7 @@ Changelog
 - :support:`-` ship tests such that the command ``green colourettu`` works
   from the command-line after ``colourettu`` has been installed on the system
 - :support:`-` ship tests as a subpackage of ``colourettu``
-- :support:`-` re-arragne and simplify internal package metadata and
+- :support:`-` re-arrange and simplify internal package metadata and
   corresponding changes in ``setup.py``
 - :support:`14` add code-style tests as another part of the Travis-CI
   test suite

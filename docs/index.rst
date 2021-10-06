@@ -32,15 +32,17 @@ Links
 
 .. image:: https://img.shields.io/pypi/v/colourettu.svg?style=flat
     :target: https://pypi.python.org/pypi/colourettu/
+    :alt: PyPI version number
 
-.. image:: https://api.travis-ci.org/MinchinWeb/colourettu.svg?branch=master
-    :target: http://travis-ci.org/MinchinWeb/colourettu
+.. image:: https://img.shields.io/github/workflow/status/MinchinWeb/colourettu/CI
+    :target: https://github.com/MinchinWeb/colourettu/actions/workflows/ci.yml
+    :alt: GitHub Workflow Status
 
 .. image:: https://coveralls.io/repos/MinchinWeb/colourettu/badge.svg?branch=master&service=github
     :target: https://coveralls.io/github/MinchinWeb/colourettu?branch=master
 
-.. image:: https://img.shields.io/pypi/l/colourettu.svg?style=flat
-    :target: https://github.com/MinchinWeb/colourettu/blob/master/LICENSE
+.. image:: https://img.shields.io/pypi/l/colourettu.svg?style=flat&color=green
+    :target: License
 
 License
 -------

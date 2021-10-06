@@ -5,21 +5,22 @@ Colourettu is a small collection of colour functions in Python. These can be use
 
 .. image:: https://img.shields.io/pypi/v/colourettu.svg?style=flat
     :target: https://pypi.python.org/pypi/colourettu/
+    :alt: PyPI version number
 
-.. monthly downloads -- https://img.shields.io/pypi/dm/colourettu.svg?style=flat
+.. image:: https://img.shields.io/pypi/dm/colourettu.svg?style=flat
+    :target: https://pypi.python.org/pypi/colourettu/
+    :alt: Download Count
 
-.. image:: https://api.travis-ci.org/MinchinWeb/colourettu.svg?branch=master
-    :target: http://travis-ci.org/MinchinWeb/colourettu
+.. image:: https://img.shields.io/github/workflow/status/MinchinWeb/colourettu/CI
+    :target: https://github.com/MinchinWeb/colourettu/actions/workflows/ci.yml
+    :alt: GitHub Workflow Status
 
 .. image:: https://coveralls.io/repos/MinchinWeb/colourettu/badge.svg?branch=master&service=github
     :target: https://coveralls.io/github/MinchinWeb/colourettu?branch=master
 
-.. image:: https://img.shields.io/pypi/l/colourettu.svg?style=flat
+.. image:: https://img.shields.io/pypi/l/colourettu.svg?style=flat&color=green
     :target: https://github.com/MinchinWeb/colourettu/blob/master/LICENSE
 
-.. https://landscape.io/github/USERNAME/PROJECT/master/landscape.png
-
-.. https://badge.waffle.io/USERNAME/PROJETC.png?label=ready&title=Ready
 
 Installation
 ------------
