@@ -16,7 +16,7 @@ colorama==0.4.4
     #   green
 coverage==6.1.1
     # via -r .\.requirements\test.in
-green==2.6.3
+green==3.3.0
     # via -r .\.requirements\test.in
 isort==5.9.3
     # via -r .\.requirements\test.in
