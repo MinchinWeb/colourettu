@@ -28,7 +28,7 @@ platformdirs==2.4.0
     # via black
 pycodestyle==2.8.0
     # via -r .\.requirements\test.in
-pydocstyle==1.1.1
+pydocstyle==6.1.1
     # via -r .\.requirements\test.in
 python-termstyle==0.1.10
     # via green
