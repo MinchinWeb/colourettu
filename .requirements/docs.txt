@@ -32,7 +32,7 @@ jinja2==3.0.1
     #   sphinx
 markupsafe==2.0.1
     # via jinja2
-packaging==21.0
+packaging==21.2
     # via sphinx
 psphinxtheme @ git+https://github.com/MinchinWeb/PSphinxTheme.git@colourettu
     # via -r .\.requirements\docs.in
