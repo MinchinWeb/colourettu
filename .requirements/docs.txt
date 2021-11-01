@@ -59,7 +59,7 @@ semantic-version==2.8.5
     # via releases
 six==1.16.0
     # via -r .\.requirements\docs.in
-snowballstemmer==1.2.1
+snowballstemmer==2.1.0
     # via sphinx
 sphinx==4.2.0
     # via
