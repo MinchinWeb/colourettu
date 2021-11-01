@@ -26,7 +26,7 @@ idna==3.3
     # via requests
 imagesize==1.2.0
     # via sphinx
-jinja2==3.0.1
+jinja2==3.0.2
     # via
     #   -r .\.requirements\docs.in
     #   sphinx
