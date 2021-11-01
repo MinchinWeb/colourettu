@@ -10,7 +10,7 @@ babel==2.3.4
     # via
     #   -r .\.requirements\docs.in
     #   sphinx
-certifi==2021.5.30
+certifi==2021.10.8
     # via requests
 charset-normalizer==2.0.6
     # via requests
