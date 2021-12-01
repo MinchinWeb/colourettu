@@ -24,7 +24,7 @@ ghp-import==2.0.2
     # via -r .\.requirements\docs.in
 idna==3.3
     # via requests
-imagesize==0.7.1
+imagesize==1.3.0
     # via sphinx
 jinja2==3.0.1
     # via
