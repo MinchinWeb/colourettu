@@ -41,7 +41,7 @@ pygments==2.10.0
     #   -r .\.requirements\docs.in
     #   python-lconf-lexer
     #   sphinx
-pyparsing==2.4.7
+pyparsing==3.0.6
     # via packaging
 python-lconf-lexer @ git+https://github.com/MinchinWeb/python_lconf_lexer.git@colourettu
     # via
