@@ -8,7 +8,7 @@ bleach==4.1.0
     # via
     #   minchin.releaser
     #   readme-renderer
-certifi==2021.5.30
+certifi==2021.10.8
     # via requests
 charset-normalizer==2.0.6
     # via requests
