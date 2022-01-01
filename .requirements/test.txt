@@ -34,7 +34,7 @@ python-termstyle==0.1.10
     # via green
 regex==2021.9.30
     # via black
-tomli==1.2.1
+tomli==2.0.0
     # via black
 typing-extensions==3.10.0.2
     # via black
