@@ -4,7 +4,7 @@
 #
 #    pip-compile --output-file='.\.requirements\test.txt' '.\.requirements\test.in'
 #
-black==21.9b0
+black==21.12b0
     # via -r .\.requirements\test.in
 check-manifest==0.35
     # via -r .\.requirements\test.in
