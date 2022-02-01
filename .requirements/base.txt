@@ -4,5 +4,5 @@
 #
 #    pip-compile --output-file='.\.requirements\base.txt'
 #
-pillow==8.3.2
+pillow==9.0.0
     # via colourettu (setup.py)
