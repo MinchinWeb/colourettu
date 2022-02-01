@@ -58,7 +58,7 @@ pywin32-ctypes==0.2.0
     # via keyring
 readme-renderer==32.0
     # via twine
-requests==2.26.0
+requests==2.27.1
     # via
     #   requests-toolbelt
     #   twine
