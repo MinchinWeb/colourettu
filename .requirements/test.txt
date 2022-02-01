@@ -38,7 +38,7 @@ tomli==2.0.0
     # via black
 typing-extensions==4.0.1
     # via black
-unidecode==0.4.20
+unidecode==1.3.2
     # via green
 
 # The following packages are considered to be unsafe in a requirements file:
