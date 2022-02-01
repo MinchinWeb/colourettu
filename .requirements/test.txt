@@ -36,7 +36,7 @@ regex==2021.9.30
     # via black
 tomli==2.0.0
     # via black
-typing-extensions==3.10.0.2
+typing-extensions==4.0.1
     # via black
 unidecode==0.4.20
     # via green
