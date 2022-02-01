@@ -24,7 +24,7 @@ docutils==0.18.1
     # via readme-renderer
 gitdb==4.0.9
     # via gitpython
-gitpython==3.1.24
+gitpython==3.1.26
     # via minchin.releaser
 idna==3.2
     # via requests
