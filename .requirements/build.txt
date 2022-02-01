@@ -28,7 +28,7 @@ gitpython==3.1.26
     # via minchin.releaser
 idna==3.3
     # via requests
-importlib-metadata==4.8.1
+importlib-metadata==4.10.1
     # via
     #   keyring
     #   twine
