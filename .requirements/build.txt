@@ -48,7 +48,7 @@ pip-tools==6.5.1
     # via -r .\.requirements\build.in
 pkginfo==1.8.2
     # via twine
-pygments==2.10.0
+pygments==2.11.2
     # via
     #   minchin.releaser
     #   readme-renderer
