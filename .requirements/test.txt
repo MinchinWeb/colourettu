@@ -8,7 +8,7 @@ black==21.9b0
     # via -r .\.requirements\test.in
 check-manifest==0.35
     # via -r .\.requirements\test.in
-click==8.0.1
+click==8.0.4
     # via black
 colorama==0.4.4
     # via
