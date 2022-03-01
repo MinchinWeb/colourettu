@@ -56,7 +56,7 @@ pyparsing==3.0.7
     # via packaging
 pywin32-ctypes==0.2.0
     # via keyring
-readme-renderer==30.0
+readme-renderer==32.0
     # via twine
 requests==2.26.0
     # via
