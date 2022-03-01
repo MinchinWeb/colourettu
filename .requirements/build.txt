@@ -80,7 +80,7 @@ tqdm==4.63.0
     # via twine
 twine==3.8.0
     # via minchin.releaser
-typing-extensions==3.10.0.2
+typing-extensions==4.1.1
     # via gitpython
 urllib3==1.26.7
     # via
