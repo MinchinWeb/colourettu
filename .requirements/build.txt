@@ -52,7 +52,7 @@ pygments==2.11.2
     # via
     #   minchin.releaser
     #   readme-renderer
-pyparsing==2.4.7
+pyparsing==3.0.7
     # via packaging
 pywin32-ctypes==0.2.0
     # via keyring
