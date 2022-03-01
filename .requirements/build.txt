@@ -72,7 +72,7 @@ semantic-version==2.9.0
     #   minchin.releaser
 six==1.16.0
     # via bleach
-smmap==4.0.0
+smmap==5.0.0
     # via gitdb
 tomli==1.2.1
     # via pep517
