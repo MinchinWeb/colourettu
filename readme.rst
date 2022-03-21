@@ -7,9 +7,16 @@ Colourettu is a small collection of colour functions in Python. These can be use
     :target: https://pypi.python.org/pypi/colourettu/
     :alt: PyPI version number
 
-.. image:: https://img.shields.io/pypi/dm/colourettu.svg?style=flat
+.. image:: https://img.shields.io/badge/-Changelog-success
+   :target: https://github.com/MinchinWeb/colourettu/blob/master/docs/changelog.rst
+   :alt: Changelog
+
+.. image:: https://img.shields.io/pypi/pyversions/colourettu?style=flat
     :target: https://pypi.python.org/pypi/colourettu/
-    :alt: Download Count
+    :alt: Supported Python versions
+
+.. image:: https://img.shields.io/pypi/l/colourettu.svg?style=flat&color=green
+    :target: https://github.com/MinchinWeb/colourettu/blob/master/LICENSE
 
 .. image:: https://img.shields.io/github/workflow/status/MinchinWeb/colourettu/CI
     :target: https://github.com/MinchinWeb/colourettu/actions/workflows/ci.yml
@@ -18,9 +25,9 @@ Colourettu is a small collection of colour functions in Python. These can be use
 .. image:: https://coveralls.io/repos/MinchinWeb/colourettu/badge.svg?branch=master&service=github
     :target: https://coveralls.io/github/MinchinWeb/colourettu?branch=master
 
-.. image:: https://img.shields.io/pypi/l/colourettu.svg?style=flat&color=green
-    :target: https://github.com/MinchinWeb/colourettu/blob/master/LICENSE
-
+.. image:: https://img.shields.io/pypi/dm/colourettu.svg?style=flat
+    :target: https://pypi.python.org/pypi/colourettu/
+    :alt: Download Count
 
 Installation
 ------------
