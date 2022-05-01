@@ -41,7 +41,7 @@ pycodestyle==2.8.0
     # via -r .\.requirements\test.in
 pydocstyle==6.1.1
     # via -r .\.requirements\test.in
-pyparsing==3.0.7
+pyparsing==3.0.8
     # via packaging
 snowballstemmer==2.2.0
     # via pydocstyle
