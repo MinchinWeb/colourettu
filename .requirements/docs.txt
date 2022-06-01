@@ -34,7 +34,7 @@ markupsafe==2.1.1
     # via jinja2
 packaging==21.3
     # via sphinx
-psphinxtheme @ git+https://github.com/MinchinWeb/PSphinxTheme.git@colourettu
+psphinxtheme==2.0.5
     # via -r .\.requirements\docs.in
 pygments==2.12.0
     # via
