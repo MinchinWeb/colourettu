@@ -20,7 +20,7 @@ colorama==0.4.5
     # via sphinx
 docutils==0.18.1
     # via sphinx
-ghp-import==0.5.4
+ghp-import==2.1.0
     # via -r .\.requirements\docs.in
 idna==3.3
     # via requests
