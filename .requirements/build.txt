@@ -4,7 +4,7 @@
 #
 #    pip-compile --output-file='.\.requirements\build.txt' '.\.requirements\build.in'
 #
-bleach==4.1.0
+bleach==5.0.1
     # via
     #   minchin-releaser
     #   readme-renderer
