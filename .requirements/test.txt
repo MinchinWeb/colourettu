@@ -17,7 +17,7 @@ colorama==0.4.5
     #   build
     #   click
     #   green
-coverage==6.3.2
+coverage==6.4.1
     # via
     #   -r .\.requirements\test.in
     #   green
