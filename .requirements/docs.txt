@@ -60,7 +60,7 @@ six==1.16.0
     # via -r .\.requirements\docs.in
 snowballstemmer==2.2.0
     # via sphinx
-sphinx==4.4.0
+sphinx==5.0.2
     # via
     #   -r .\.requirements\docs.in
     #   cloud-sptheme
