@@ -5,27 +5,24 @@
 #    pip-compile --output-file='.\.requirements\test.txt' '.\.requirements\test.in'
 #
 black==22.1.0
-    # via -r .\.requirements\test.in
+    # via -r test.in
 build==0.7.0
     # via check-manifest
 check-manifest==0.48
-    # via -r .\.requirements\test.in
+    # via -r test.in
 click==8.0.4
     # via black
 colorama==0.4.4
-    # via
-    #   build
-    #   click
-    #   green
+    # via green
 coverage==6.3.2
     # via
-    #   -r .\.requirements\test.in
+    #   -r test.in
     #   green
 green==3.4.1
-    # via -r .\.requirements\test.in
+    # via -r test.in
 isort==5.10.1
-    # via -r .\.requirements\test.in
-lxml==4.8.0
+    # via -r test.in
+lxml==4.9.1
     # via green
 mypy-extensions==0.4.3
     # via black
@@ -38,9 +35,9 @@ pep517==0.12.0
 platformdirs==2.5.1
     # via black
 pycodestyle==2.8.0
-    # via -r .\.requirements\test.in
+    # via -r test.in
 pydocstyle==6.1.1
-    # via -r .\.requirements\test.in
+    # via -r test.in
 pyparsing==3.0.7
     # via packaging
 snowballstemmer==2.2.0
