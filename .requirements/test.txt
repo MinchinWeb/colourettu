@@ -25,7 +25,7 @@ green==3.4.2
     # via -r .\.requirements\test.in
 isort==5.10.1
     # via -r .\.requirements\test.in
-lxml==4.8.0
+lxml==4.9.1
     # via green
 mypy-extensions==0.4.3
     # via black
