@@ -36,7 +36,7 @@ invoke==1.7.1
     # via minchin-releaser
 isort==5.10.1
     # via minchin-releaser
-keyring==23.5.0
+keyring==23.7.0
     # via twine
 minchin-releaser==0.8.2
     # via -r .\.requirements\build.in
