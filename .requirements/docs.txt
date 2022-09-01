@@ -12,7 +12,7 @@ babel==2.9.1
     #   sphinx
 certifi==2022.6.15
     # via requests
-charset-normalizer==2.0.12
+charset-normalizer==2.1.1
     # via requests
 cloud-sptheme==1.10.1.post20200504175005
     # via -r .\.requirements\docs.in
