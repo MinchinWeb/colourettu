@@ -16,7 +16,7 @@ charset-normalizer==2.1.1
     # via requests
 cloud-sptheme==1.10.1.post20200504175005
     # via -r .\.requirements\docs.in
-colorama==0.4.4
+colorama==0.4.5
     # via sphinx
 docutils==0.17.1
     # via sphinx
