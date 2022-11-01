@@ -33,7 +33,7 @@ packaging==21.3
     # via build
 pathspec==0.9.0
     # via black
-pep517==0.12.0
+pep517==0.13.0
     # via build
 platformdirs==2.5.1
     # via black
