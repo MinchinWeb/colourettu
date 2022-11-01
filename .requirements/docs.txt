@@ -22,7 +22,7 @@ docutils==0.19
     # via sphinx
 ghp-import==0.5.4
     # via -r .\.requirements\docs.in
-idna==3.3
+idna==3.4
     # via requests
 imagesize==1.3.0
     # via sphinx
