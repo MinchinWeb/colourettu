@@ -40,7 +40,7 @@ keyring==23.13.1
     # via twine
 minchin-releaser==0.8.2
     # via -r .\.requirements\build.in
-packaging==21.3
+packaging==22.0
     # via bleach
 pep517==0.12.0
     # via pip-tools
