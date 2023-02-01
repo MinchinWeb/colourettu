@@ -48,7 +48,7 @@ python-lconf-lexer==1.1.1
     #   psphinxtheme
 pytz==2022.7.1
     # via babel
-releases==1.6.3
+releases==2.0.0
     # via -r .\.requirements\docs.in
 requests==2.28.2
     # via
