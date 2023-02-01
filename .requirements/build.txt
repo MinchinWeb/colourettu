@@ -46,7 +46,7 @@ pep517==0.13.0
     # via pip-tools
 pip-tools==6.12.2
     # via -r .\.requirements\build.in
-pkginfo==1.8.2
+pkginfo==1.9.6
     # via twine
 pygments==2.11.2
     # via
