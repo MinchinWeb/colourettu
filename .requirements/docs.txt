@@ -54,7 +54,7 @@ requests==2.28.2
     # via
     #   -r .\.requirements\docs.in
     #   sphinx
-semantic-version==2.6.0
+semantic-version==2.10.0
     # via releases
 six==1.16.0
     # via -r .\.requirements\docs.in
