@@ -22,7 +22,7 @@ colorama==0.4.6
     #   twine
 docutils==0.19
     # via readme-renderer
-gitdb==4.0.9
+gitdb==4.0.10
     # via gitpython
 gitpython==3.1.27
     # via minchin-releaser
