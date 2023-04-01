@@ -21,7 +21,7 @@ coverage==7.2.2
     # via
     #   -r .\.requirements\test.in
     #   green
-green==3.4.1
+green==3.4.3
     # via -r .\.requirements\test.in
 isort==5.12.0
     # via -r .\.requirements\test.in
