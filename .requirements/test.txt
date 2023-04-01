@@ -29,7 +29,7 @@ lxml==4.8.0
     # via green
 mypy-extensions==0.4.3
     # via black
-packaging==21.3
+packaging==23.0
     # via build
 pathspec==0.9.0
     # via black
