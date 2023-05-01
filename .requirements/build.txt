@@ -91,7 +91,7 @@ wheel==0.40.0
     # via
     #   minchin-releaser
     #   pip-tools
-zipp==3.7.0
+zipp==3.15.0
     # via importlib-metadata
 
 # The following packages are considered to be unsafe in a requirements file:
