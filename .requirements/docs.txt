@@ -50,7 +50,7 @@ pytz==2022.1
     # via babel
 releases==1.6.3
     # via -r .\.requirements\docs.in
-requests==2.27.1
+requests==2.31.0
     # via
     #   -r .\.requirements\docs.in
     #   sphinx
