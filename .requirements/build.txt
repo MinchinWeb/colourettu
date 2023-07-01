@@ -54,7 +54,7 @@ pygments==2.15.1
     #   readme-renderer
 pyparsing==3.1.0
     # via packaging
-pywin32-ctypes==0.2.0
+pywin32-ctypes==0.2.2
     # via keyring
 readme-renderer==34.0
     # via twine
