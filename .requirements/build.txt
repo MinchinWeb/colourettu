@@ -32,7 +32,7 @@ importlib-metadata==6.7.0
     # via
     #   keyring
     #   twine
-invoke==1.7.0
+invoke==2.1.3
     # via minchin-releaser
 isort==5.10.1
     # via minchin-releaser
