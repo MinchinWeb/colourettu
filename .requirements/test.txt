@@ -6,7 +6,7 @@
 #
 black==23.7.0
     # via -r .\.requirements\test.in
-build==0.7.0
+build==0.10.0
     # via check-manifest
 check-manifest==0.48
     # via -r .\.requirements\test.in
