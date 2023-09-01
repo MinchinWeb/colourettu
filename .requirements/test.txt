@@ -8,7 +8,7 @@ black==23.7.0
     # via -r .\.requirements\test.in
 build==0.10.0
     # via check-manifest
-check-manifest==0.48
+check-manifest==0.49
     # via -r .\.requirements\test.in
 click==8.1.7
     # via black
