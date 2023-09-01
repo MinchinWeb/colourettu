@@ -18,7 +18,7 @@ cloud-sptheme==1.10.1.post20200504175005
     # via -r .\.requirements\docs.in
 colorama==0.4.6
     # via sphinx
-docutils==0.17.1
+docutils==0.20.1
     # via sphinx
 ghp-import==0.5.4
     # via -r .\.requirements\docs.in
