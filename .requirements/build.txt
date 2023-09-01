@@ -4,69 +4,69 @@
 #
 #    pip-compile --output-file='.\.requirements\build.txt' '.\.requirements\build.in'
 #
-bleach==4.1.0
+bleach==6.0.0
     # via
     #   minchin-releaser
     #   readme-renderer
-certifi==2021.10.8
+certifi==2023.7.22
     # via requests
-charset-normalizer==2.0.12
+charset-normalizer==3.2.0
     # via requests
-click==8.0.4
+click==8.1.7
     # via pip-tools
-colorama==0.4.4
+colorama==0.4.6
     # via
     #   click
     #   minchin-releaser
     #   tqdm
     #   twine
-docutils==0.18.1
+docutils==0.20.1
     # via readme-renderer
-gitdb==4.0.9
+gitdb==4.0.10
     # via gitpython
-gitpython==3.1.27
+gitpython==3.1.33
     # via minchin-releaser
-idna==3.3
+idna==3.4
     # via requests
-importlib-metadata==4.11.3
+importlib-metadata==6.8.0
     # via
     #   keyring
     #   twine
-invoke==1.7.0
+invoke==2.2.0
     # via minchin-releaser
-isort==5.10.1
+isort==5.12.0
     # via minchin-releaser
-keyring==23.5.0
+keyring==24.2.0
     # via twine
 minchin-releaser==0.8.2
     # via -r .\.requirements\build.in
-packaging==21.3
+packaging==23.1
     # via bleach
-pep517==0.12.0
+pep517==0.13.0
     # via pip-tools
-pip-tools==6.5.1
+pip-tools==7.3.0
     # via -r .\.requirements\build.in
-pkginfo==1.8.2
+pkginfo==1.9.6
     # via twine
-pygments==2.11.2
+pygments==2.16.1
     # via
     #   minchin-releaser
     #   readme-renderer
-pyparsing==3.0.7
+pyparsing==3.1.1
     # via packaging
-pywin32-ctypes==0.2.0
+pywin32-ctypes==0.2.2
     # via keyring
-readme-renderer==34.0
+readme-renderer==41.0
     # via twine
-requests==2.27.1
+requests==2.31.0
     # via
     #   requests-toolbelt
     #   twine
-requests-toolbelt==0.9.1
+requests-toolbelt==1.0.0
     # via twine
 rfc3986==2.0.0
     # via twine
-semantic-version==2.6.0
+semantic-version==2.10.0
     # via
     #   -r .\.requirements\build.in
     #   minchin-releaser
@@ -76,22 +76,22 @@ smmap==5.0.0
     # via gitdb
 tomli==2.0.1
     # via pep517
-tqdm==4.63.0
+tqdm==4.66.1
     # via twine
-twine==3.8.0
+twine==4.0.2
     # via minchin-releaser
-urllib3==1.26.9
+urllib3==2.0.4
     # via
     #   minchin-releaser
     #   requests
     #   twine
 webencodings==0.5.1
     # via bleach
-wheel==0.37.1
+wheel==0.41.2
     # via
     #   minchin-releaser
     #   pip-tools
-zipp==3.7.0
+zipp==3.16.2
     # via importlib-metadata
 
 # The following packages are considered to be unsafe in a requirements file:
