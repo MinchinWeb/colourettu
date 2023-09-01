@@ -80,7 +80,7 @@ tqdm==4.66.1
     # via twine
 twine==4.0.2
     # via minchin-releaser
-urllib3==1.26.9
+urllib3==2.0.4
     # via
     #   minchin-releaser
     #   requests
