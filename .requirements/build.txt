@@ -76,7 +76,7 @@ smmap==5.0.0
     # via gitdb
 tomli==2.0.1
     # via pep517
-tqdm==4.63.0
+tqdm==4.66.1
     # via twine
 twine==3.8.0
     # via minchin-releaser
